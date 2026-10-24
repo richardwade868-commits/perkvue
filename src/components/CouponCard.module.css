@@ -2,39 +2,45 @@
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
-  padding: 26px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
 }
 
 .cardContainer:hover {
   transform: translateY(-3px);
   border-color: #0284c7;
-  box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.1), 0 4px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 14px 30px -4px rgba(2, 132, 199, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.primaryCard {
+  border-color: #bae6fd;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 6px 20px -2px rgba(2, 132, 199, 0.08);
 }
 
 .cardHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .discountBadge {
   background: #0f172a;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 850;
   padding: 6px 14px;
   border-radius: 8px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
 }
 
 .verifiedBadge {
@@ -44,7 +50,7 @@
   font-size: 11.5px;
   font-weight: 750;
   color: #059669;
-  background: #d1fae5;
+  background: #ecfdf5;
   padding: 4px 12px;
   border-radius: 9999px;
   border: 1px solid #a7f3d0;
@@ -55,49 +61,34 @@
   height: 6px;
   background-color: #059669;
   border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
 }
 
 .cardBody {
   flex: 1;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .cardTitle {
-  font-size: 17.5px;
+  font-size: 17px;
   font-weight: 850;
   color: #0f172a;
-  line-height: 1.4;
-  margin: 0 0 10px 0;
+  line-height: 1.35;
+  margin: 0 0 8px 0;
   letter-spacing: -0.3px;
 }
 
 .cardDesc {
   font-size: 13.5px;
   color: #475569;
-  line-height: 1.55;
-  margin: 0 0 16px 0;
-}
-
-.featurePills {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.featurePill {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: #0284c7;
-  background: #e0f2fe;
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid #bae6fd;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .cardFooter {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .ctaButton {
@@ -106,7 +97,7 @@
   border-radius: 12px;
   border: none;
   font-size: 14px;
-  font-weight: 750;
+  font-weight: 800;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -123,8 +114,7 @@
 
 .dealButton:hover {
   background: #0284c7;
-  transform: translateY(-1.5px);
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.2);
+  transform: translateY(-1px);
 }
 
 .codeButton {
@@ -137,11 +127,11 @@
 
 .codeButton:hover {
   background: #0284c7;
-  transform: translateY(-1.5px);
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.25);
 }
 
-.buttonCodeMask {
+.codePill {
   font-family: monospace;
   font-size: 13px;
   font-weight: 850;
@@ -152,7 +142,7 @@
   color: #ffffff;
 }
 
-.buttonActionLabel {
+.buttonLabel {
   padding-right: 12px;
   font-size: 13.5px;
   font-weight: 800;
@@ -160,19 +150,14 @@
 
 .arrowIcon {
   font-size: 15px;
-  transition: transform 0.2s;
 }
 
-.dealButton:hover .arrowIcon {
-  transform: translateX(4px);
-}
-
-.statsRow {
+.trustFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 11.5px;
   color: #64748b;
   font-weight: 600;
-  padding-top: 4px;
+  padding-top: 2px;
 }

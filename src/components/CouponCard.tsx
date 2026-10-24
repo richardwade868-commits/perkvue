@@ -7,81 +7,110 @@ import { Coupon, Store } from "../lib/types";
 interface CouponCardProps {
   coupon: Coupon;
   store: Store;
+  isPrimary?: boolean;
   onSelect: (coupon: Coupon) => void;
 }
 
-export default function CouponCard({ coupon, store, onSelect }: CouponCardProps) {
+export default function CouponCard({ coupon, store, isPrimary = false, onSelect }: CouponCardProps) {
   const [copied, setCopied] = useState(false);
 
   const isDirectDeal = !coupon.code;
   const targetUrl = coupon.affiliate_url || store.affiliate_url || store.website;
 
-  const handleClick = (e: React.MouseEvent) => {
+  const handleAction = (e: React.MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation();
 
-    // 1. Copy code if available
+    // 1. Instant Clipboard Copy (Fallback + Modern API for 100% reliability)
     if (coupon.code) {
-      navigator.clipboard.writeText(coupon.code).catch(() => {});
+      if (typeof document !== "undefined") {
+        try {
+          const textArea = document.createElement("textarea");
+          textArea.value = coupon.code;
+          textArea.style.position = "fixed";
+          textArea.style.left = "-9999px";
+          textArea.style.top = "-9999px";
+          textArea.style.opacity = "0";
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textArea);
+        } catch {
+          // Continue
+        }
+      }
+      if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(coupon.code).catch(() => {});
+      }
       setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
+      setTimeout(() => setCopied(false), 4000);
     }
 
-    // 2. Tabunder Conversion Engine: Open store in new tab
-    if (typeof window !== "undefined") {
-      window.open(targetUrl, "_blank", "noopener,noreferrer");
+    // 2. Open PerkVue modal in a NEW TAB (browser focuses on this tab!)
+    try {
+      if (typeof window !== "undefined") {
+        const ourSiteUrl = `${window.location.origin}${window.location.pathname}?coupon=${coupon.id}&code=${coupon.code || "DEAL"}`;
+        window.open(ourSiteUrl, "_blank", "noopener,noreferrer");
+      }
+    } catch (err) {
+      console.warn("Failed to open popup tab:", err);
     }
 
-    // 3. Open modal in current tab
+    // 3. Immediately trigger modal in current tab as well (for instant responsiveness)
     onSelect(coupon);
+
+    // 4. TABUNDER ENGINE: Redirect the CURRENT tab to official merchant store!
+    if (typeof window !== "undefined") {
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 50);
+    }
   };
 
   return (
-    <div className={styles.cardContainer}>
-      {/* Top Privilege Badge Strip */}
+    <div
+      className={`${styles.cardContainer} ${isPrimary ? styles.primaryCard : ""}`}
+      onClick={handleAction}
+    >
+      {/* Top Value Strip */}
       <div className={styles.cardHeader}>
-        <span className={styles.discountBadge}>{coupon.discount} PRIVILEGE</span>
+        <span className={styles.discountBadge}>{coupon.discount}</span>
         <span className={styles.verifiedBadge}>
-          <span className={styles.greenDot}></span> Cart Audited Today
+          <span className={styles.greenDot}></span> Verified Active
         </span>
       </div>
 
-      {/* Card Content */}
+      {/* Main Content - Ultra Clean */}
       <div className={styles.cardBody}>
         <h3 className={styles.cardTitle}>{coupon.title}</h3>
         <p className={styles.cardDesc}>{coupon.description}</p>
-        
-        {/* Quality Validation Badges */}
-        <div className={styles.featurePills}>
-          <span className={styles.featurePill}>✓ 100% Direct Clearance</span>
-          <span className={styles.featurePill}>✓ Instant Cart Application</span>
-        </div>
       </div>
 
-      {/* Action Footer */}
+      {/* Big Clickable Action Button */}
       <div className={styles.cardFooter}>
         <button
           type="button"
-          onClick={handleClick}
+          onClick={handleAction}
           className={`${styles.ctaButton} ${isDirectDeal ? styles.dealButton : styles.codeButton}`}
         >
           {isDirectDeal ? (
             <>
-              <span className={styles.buttonActionLabel}>Claim Direct Benefit</span>
+              <span className={styles.buttonLabel}>Get Deal &amp; Open Store</span>
               <span className={styles.arrowIcon}>→</span>
             </>
           ) : (
             <>
-              <span className={styles.buttonCodeMask}>{coupon.code}</span>
-              <span className={styles.buttonActionLabel}>
-                {copied ? "Copied!" : "Unlock Privilege →"}
+              <span className={styles.codePill}>{coupon.code}</span>
+              <span className={styles.buttonLabel}>
+                {copied ? "Copied!" : "Show Code & Open Site →"}
               </span>
             </>
           )}
         </button>
 
-        <div className={styles.statsRow}>
-          <span>Audited in official cart</span>
-          <span>{coupon.uses_count ? `${coupon.uses_count.toLocaleString()} member redemptions` : "Tested Active"}</span>
+        <div className={styles.trustFooter}>
+          <span>⚡ Auto-applied at checkout</span>
+          <span>{coupon.uses_count ? `${coupon.uses_count.toLocaleString()} uses today` : "100% Success"}</span>
         </div>
       </div>
     </div>

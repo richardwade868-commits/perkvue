@@ -1,7 +1,7 @@
 /* ==========================================================================
-   PERKVUE STYLES - EXECUTIVE OBSIDIAN DARK MODE
-   High-contrast luxury dark theme with deep obsidian backgrounds,
-   clean white typography, vibrant violet/emerald accents, and zero coupon site feel.
+   PERKVUE STYLES - NORDIC PORCELAIN & SLATE DESIGN SYSTEM
+   Clean, light-flooded editorial layout with rich contrast, high readability,
+   ambient soft glow, and zero coupon directory resemblance.
    ========================================================================== */
 
 .homeContainer {
@@ -11,14 +11,15 @@
   position: relative;
 }
 
+/* Ambient Subtle Lighting Mesh */
 .ambientGlow {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 900px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 75%);
+  width: 960px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.08) 0%, rgba(99, 102, 241, 0.04) 45%, transparent 75%);
   pointer-events: none;
   z-index: 0;
 }
@@ -32,8 +33,10 @@
   gap: 48px;
   align-items: center;
   padding: 40px 0 64px 0;
-  border-bottom: 1px solid #1f1f28;
+  border-bottom: 1px solid #e2e8f0;
   margin-bottom: 56px;
+  position: relative;
+  z-index: 1;
 }
 
 .heroLeft {
@@ -46,22 +49,23 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #14141c;
-  color: #f4f4f5;
+  background: #ffffff;
+  color: #0f172a;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 750;
   letter-spacing: 0.9px;
   text-transform: uppercase;
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: 9999px;
   margin-bottom: 22px;
-  border: 1px solid #272733;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
 .pulseDot {
   width: 7px;
   height: 7px;
-  background: #10b981;
+  background: #059669;
   border-radius: 50%;
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
 }
@@ -69,21 +73,21 @@
 .heroTitle {
   font-size: 46px;
   font-weight: 850;
-  color: #ffffff;
+  color: #0f172a;
   line-height: 1.12;
   letter-spacing: -1.4px;
   margin: 0 0 20px 0;
 }
 
 .heroTitleHighlight {
-  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+  background: linear-gradient(135deg, #0284c7 0%, #4338ca 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .heroSubtitle {
   font-size: 16.5px;
-  color: #a1a1aa;
+  color: #475569;
   line-height: 1.6;
   margin: 0 0 32px 0;
   max-width: 580px;
@@ -100,40 +104,42 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #ffffff;
-  color: #09090b;
+  background: #0f172a;
+  color: #ffffff;
   padding: 13px 26px;
   border-radius: 12px;
   font-size: 14.5px;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
 }
 
 .primaryCta:hover {
-  background: #e4e4e7;
+  background: #1e293b;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.22);
 }
 
 .secondaryCta {
   display: inline-flex;
   align-items: center;
-  background: #14141c;
-  color: #f4f4f5;
+  background: #ffffff;
+  color: #334155;
   padding: 13px 22px;
   border-radius: 12px;
   font-size: 14.5px;
-  font-weight: 600;
+  font-weight: 650;
   text-decoration: none;
-  border: 1px solid #272733;
+  border: 1px solid #cbd5e1;
   transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .secondaryCta:hover {
-  background: #1e1e29;
-  border-color: #3f3f4e;
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
 }
 
 /* Trust Metric Row */
@@ -142,7 +148,7 @@
   align-items: center;
   gap: 24px;
   padding-top: 24px;
-  border-top: 1px solid #1a1a24;
+  border-top: 1px solid #e2e8f0;
   width: 100%;
 }
 
@@ -153,14 +159,14 @@
 
 .metricValue {
   font-size: 17px;
-  font-weight: 800;
-  color: #ffffff;
+  font-weight: 850;
+  color: #0f172a;
   letter-spacing: -0.3px;
 }
 
 .metricLabel {
   font-size: 12px;
-  color: #71717a;
+  color: #64748b;
   font-weight: 500;
   margin-top: 2px;
 }
@@ -168,7 +174,7 @@
 .metricDivider {
   width: 1px;
   height: 28px;
-  background: #1f1f28;
+  background: #cbd5e1;
 }
 
 /* ==========================================
@@ -179,12 +185,12 @@
 }
 
 .vaultCard {
-  background: linear-gradient(145deg, #14141c 0%, #0d0d12 100%);
+  background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
   border-radius: 20px;
   padding: 30px;
   color: #ffffff;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
-  border: 1px solid #22222d;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.25);
+  border: 1px solid #334155;
   position: relative;
   overflow: hidden;
 }
@@ -195,7 +201,7 @@
   right: -50px;
   width: 180px;
   height: 180px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -205,7 +211,7 @@
   justify-content: space-between;
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .vaultCardBrand {
@@ -217,7 +223,7 @@
 .chipIcon {
   width: 24px;
   height: 20px;
-  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
   border-radius: 4px;
 }
 
@@ -226,17 +232,17 @@
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #e4e4e7;
+  color: #f1f5f9;
 }
 
 .vaultStatusBadge {
   font-size: 11px;
   font-weight: 700;
   color: #34d399;
-  background: rgba(16, 185, 129, 0.12);
+  background: rgba(16, 185, 129, 0.18);
   padding: 4px 10px;
   border-radius: 9999px;
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  border: 1px solid rgba(16, 185, 129, 0.35);
 }
 
 .vaultPreviewSelector {
@@ -247,9 +253,9 @@
 
 .vaultTab {
   flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #a1a1aa;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
   padding: 8px 12px;
   border-radius: 8px;
   font-size: 12px;
@@ -260,20 +266,20 @@
 }
 
 .vaultTab:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   color: #ffffff;
 }
 
 .vaultTabActive {
   background: #ffffff;
-  color: #09090b;
+  color: #0f172a;
   border-color: #ffffff;
-  font-weight: 700;
+  font-weight: 750;
 }
 
 .vaultDisplayBox {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   padding: 22px;
   margin-bottom: 20px;
@@ -296,15 +302,15 @@
 .vaultTierTag {
   font-size: 11px;
   font-weight: 700;
-  color: #818cf8;
-  background: rgba(99, 102, 241, 0.18);
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
   padding: 3px 8px;
   border-radius: 6px;
 }
 
 .vaultBenefit {
   font-size: 14px;
-  color: #d4d4d8;
+  color: #e2e8f0;
   line-height: 1.5;
   margin: 0 0 16px 0;
 }
@@ -322,15 +328,15 @@
   font-family: monospace;
   font-size: 13px;
   font-weight: 700;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.35);
   padding: 6px 12px;
   border-radius: 6px;
-  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
   color: #34d399;
 }
 
 .vaultCardLink {
-  color: #818cf8;
+  color: #38bdf8;
   font-size: 12.5px;
   font-weight: 700;
   text-decoration: none;
@@ -341,7 +347,7 @@
 }
 
 .vaultCardLink:hover {
-  color: #a5b4fc;
+  color: #7dd3fc;
 }
 
 .vaultCardFooter {
@@ -349,9 +355,9 @@
   align-items: center;
   justify-content: space-between;
   font-size: 11px;
-  color: #71717a;
+  color: #94a3b8;
   padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* ==========================================
@@ -359,6 +365,8 @@
    ========================================== */
 .directorySection {
   margin-bottom: 72px;
+  position: relative;
+  z-index: 1;
 }
 
 .directoryHeader {
@@ -371,14 +379,14 @@
 .directoryTitle {
   font-size: 24px;
   font-weight: 850;
-  color: #ffffff;
+  color: #0f172a;
   letter-spacing: -0.6px;
   margin: 0 0 6px 0;
 }
 
 .directorySubtitle {
   font-size: 14px;
-  color: #a1a1aa;
+  color: #64748b;
   margin: 0;
 }
 
@@ -401,9 +409,9 @@
 }
 
 .categoryPill {
-  background: #14141c;
-  color: #a1a1aa;
-  border: 1px solid #272733;
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #cbd5e1;
   padding: 8px 16px;
   border-radius: 9999px;
   font-size: 13px;
@@ -411,23 +419,26 @@
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .categoryPill:hover {
-  background: #1e1e29;
-  color: #ffffff;
+  background: #f8fafc;
+  color: #0f172a;
+  border-color: #94a3b8;
 }
 
 .categoryPillActive {
-  background: #ffffff;
-  color: #09090b;
-  border-color: #ffffff;
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
   font-weight: 700;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
 }
 
 .pillCount {
   font-size: 11px;
-  opacity: 0.75;
+  opacity: 0.8;
   margin-left: 2px;
 }
 
@@ -442,29 +453,35 @@
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
-  color: #71717a;
+  color: #64748b;
   pointer-events: none;
 }
 
 .directorySearchInput {
   width: 100%;
   height: 40px;
-  background: #14141c;
-  border: 1px solid #272733;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
   border-radius: 10px;
   padding: 0 16px 0 40px;
   font-size: 13.5px;
-  color: #f4f4f5;
+  color: #0f172a;
   outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.directorySearchInput::placeholder {
+  color: #94a3b8;
 }
 
 .directorySearchInput:focus {
-  border-color: #6366f1;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
 }
 
 /* ==========================================
-   4. HORIZONTAL EXECUTIVE PARTNER ROWS (OBSIDIAN TILES)
+   4. HORIZONTAL EXECUTIVE PARTNER ROWS (PORCELAIN TILES)
    ========================================== */
 .directoryList {
   display: flex;
@@ -477,27 +494,27 @@
   grid-template-columns: 80px 1.2fr 1.6fr 150px 160px;
   align-items: center;
   gap: 20px;
-  background: #111117;
-  border: 1px solid #1f1f2a;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   padding: 16px 20px;
   text-decoration: none;
   color: inherit;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .partnerRow:hover {
-  border-color: #3b3b4f;
-  background: #161622;
-  transform: translateY(-1.5px);
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6);
+  border-color: #0284c7;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -4px rgba(2, 132, 199, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .partnerLogoWrap {
   width: 64px;
   height: 48px;
-  background: #ffffff;
-  border: 1px solid #272733;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -526,27 +543,27 @@
 .partnerName {
   font-size: 15.5px;
   font-weight: 800;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0;
 }
 
 .partnerTierBadge {
   font-size: 10.5px;
   font-weight: 700;
-  color: #818cf8;
-  background: rgba(99, 102, 241, 0.18);
+  color: #0284c7;
+  background: #e0f2fe;
   padding: 2px 7px;
   border-radius: 4px;
 }
 
 .partnerCategory {
   font-size: 12px;
-  color: #71717a;
+  color: #64748b;
 }
 
 .partnerBenefit {
   font-size: 13.5px;
-  color: #d4d4d8;
+  color: #334155;
   font-weight: 600;
   line-height: 1.45;
 }
@@ -562,19 +579,19 @@
   gap: 6px;
   font-size: 11.5px;
   font-weight: 700;
-  color: #34d399;
+  color: #059669;
 }
 
 .auditDot {
   width: 5px;
   height: 5px;
-  background: #10b981;
+  background: #059669;
   border-radius: 50%;
 }
 
 .auditTimestamp {
   font-size: 11px;
-  color: #71717a;
+  color: #64748b;
   margin-top: 2px;
 }
 
@@ -584,8 +601,8 @@
 }
 
 .claimButton {
-  background: #ffffff;
-  color: #09090b;
+  background: #0f172a;
+  color: #ffffff;
   padding: 9px 18px;
   border-radius: 10px;
   font-size: 12.5px;
@@ -596,29 +613,29 @@
 }
 
 .partnerRow:hover .claimButton {
-  background: #818cf8;
-  color: #ffffff;
+  background: #0284c7;
 }
 
 /* Empty Search State */
 .emptyState {
   text-align: center;
   padding: 60px 20px;
-  background: #111117;
-  border: 1px dashed #272733;
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
   border-radius: 16px;
-  color: #71717a;
+  color: #64748b;
 }
 
 /* ==========================================
    5. EDITORIAL INTEGRITY STANDARDS (3 COLUMNS)
    ========================================== */
 .standardsSection {
-  background: #0d0d12;
-  border: 1px solid #1f1f2a;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 20px;
   padding: 48px 40px;
   margin-bottom: 72px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
 }
 
 .standardsHeader {
@@ -630,14 +647,14 @@
 .standardsTitle {
   font-size: 26px;
   font-weight: 850;
-  color: #ffffff;
+  color: #0f172a;
   letter-spacing: -0.6px;
   margin: 0 0 10px 0;
 }
 
 .standardsSubtitle {
   font-size: 14.5px;
-  color: #a1a1aa;
+  color: #64748b;
   margin: 0;
   line-height: 1.5;
 }
@@ -649,16 +666,23 @@
 }
 
 .standardCard {
-  background: #13131a;
-  border: 1px solid #22222d;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   padding: 24px;
+  transition: all 0.2s ease;
+}
+
+.standardCard:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
 }
 
 .standardNumber {
   font-size: 12px;
   font-weight: 800;
-  color: #818cf8;
+  color: #0284c7;
   letter-spacing: 1px;
   margin-bottom: 12px;
 }
@@ -666,13 +690,13 @@
 .standardHeading {
   font-size: 16px;
   font-weight: 800;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0 0 8px 0;
 }
 
 .standardDesc {
   font-size: 13.5px;
-  color: #a1a1aa;
+  color: #64748b;
   line-height: 1.55;
   margin: 0;
 }
@@ -681,7 +705,7 @@
    6. EDITORIAL SPOTLIGHT BANNER
    ========================================== */
 .spotlightBanner {
-  background: linear-gradient(135deg, #1e1b4b 0%, #0c0b14 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   border-radius: 20px;
   padding: 48px 44px;
   color: #ffffff;
@@ -690,7 +714,8 @@
   justify-content: space-between;
   gap: 32px;
   margin-bottom: 72px;
-  border: 1px solid #3730a3;
+  border: 1px solid #334155;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15);
 }
 
 .spotlightContent {
@@ -701,7 +726,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.2px;
-  color: #a5b4fc;
+  color: #38bdf8;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -728,17 +753,19 @@
 .spotlightBtn {
   display: inline-block;
   background: #ffffff;
-  color: #09090b;
+  color: #0f172a;
   padding: 13px 24px;
   border-radius: 12px;
   font-size: 14px;
   font-weight: 800;
   text-decoration: none;
-  transition: transform 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 }
 
 .spotlightBtn:hover {
   transform: translateY(-2px);
+  background: #f8fafc;
 }
 
 /* ==========================================
@@ -757,13 +784,13 @@
 .faqTitle {
   font-size: 24px;
   font-weight: 850;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0 0 6px 0;
 }
 
 .faqSubtitle {
   font-size: 14px;
-  color: #a1a1aa;
+  color: #64748b;
   margin: 0;
 }
 
@@ -774,22 +801,24 @@
 }
 
 .faqItem {
-  background: #111117;
-  border: 1px solid #1f1f2a;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 18px 22px;
   cursor: pointer;
-  transition: border-color 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .faqItem:hover {
-  border-color: #3b3b4f;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
 .faqQuestion {
   font-size: 15px;
   font-weight: 700;
-  color: #ffffff;
+  color: #0f172a;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -798,11 +827,11 @@
 
 .faqAnswer {
   font-size: 13.5px;
-  color: #a1a1aa;
+  color: #475569;
   line-height: 1.6;
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid #1a1a24;
+  border-top: 1px solid #f1f5f9;
 }
 
 /* ==========================================

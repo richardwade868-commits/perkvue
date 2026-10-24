@@ -1,9 +1,9 @@
 .footer {
-  background: #060608;
-  color: #71717a;
+  background: #0f172a;
+  color: #94a3b8;
   padding: 60px 0 0 0;
   margin-top: 80px;
-  border-top: 1px solid #1a1a24;
+  border-top: 1px solid #1e293b;
 }
 
 .container {
@@ -18,19 +18,20 @@
 .footerLogo {
   height: 32px;
   margin-bottom: 16px;
+  filter: brightness(0) invert(1);
 }
 
 .brandDesc {
   font-size: 14px;
   line-height: 1.6;
   max-width: 380px;
-  color: #71717a;
+  color: #94a3b8;
 }
 
 .colTitle {
   font-size: 13px;
   font-weight: 800;
-  color: #e4e4e7;
+  color: #f8fafc;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   margin: 0 0 16px 0;
@@ -47,20 +48,20 @@
 }
 
 .linkList a {
-  color: #a1a1aa;
+  color: #94a3b8;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .linkList a:hover {
-  color: #818cf8;
+  color: #38bdf8;
 }
 
 .bottomBar {
-  border-top: 1px solid #14141c;
+  border-top: 1px solid #1e293b;
   padding: 24px 0;
   font-size: 12px;
-  color: #52525b;
+  color: #64748b;
 }
 
 .bottomContainer {
@@ -80,13 +81,13 @@
 }
 
 .legalLinks a {
-  color: #71717a;
+  color: #64748b;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .legalLinks a:hover {
-  color: #d4d4d8;
+  color: #cbd5e1;
 }
 
 @media (max-width: 768px) {

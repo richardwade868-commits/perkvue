@@ -1,8 +1,9 @@
 .modalOverlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(12px);
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,20 +18,20 @@
 }
 
 .modalCard {
-  background: #121218;
-  border-radius: 16px;
+  background: #ffffff;
+  border-radius: 20px;
   width: 100%;
   max-width: 480px;
-  padding: 32px 28px;
+  padding: 34px 30px;
   position: relative;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-  border: 1px solid #272733;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
+  border: 1px solid #e2e8f0;
   animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: center;
 }
 
 @keyframes slideUp {
-  from { transform: translateY(20px) scale(0.96); opacity: 0; }
+  from { transform: translateY(16px) scale(0.97); opacity: 0; }
   to { transform: translateY(0) scale(1); opacity: 1; }
 }
 
@@ -42,8 +43,8 @@
   height: 32px;
   border-radius: 8px;
   border: none;
-  background: #1c1c26;
-  color: #a1a1aa;
+  background: #f1f5f9;
+  color: #64748b;
   font-size: 15px;
   cursor: pointer;
   display: flex;
@@ -53,8 +54,8 @@
 }
 
 .closeBtn:hover {
-  background: #272733;
-  color: #ffffff;
+  background: #e2e8f0;
+  color: #0f172a;
 }
 
 .storeBrand {
@@ -66,18 +67,19 @@
 }
 
 .storeLogo {
-  height: 38px;
-  max-width: 120px;
+  height: 40px;
+  max-width: 130px;
   object-fit: contain;
-  background: #ffffff;
-  padding: 4px 8px;
+  background: #f8fafc;
+  padding: 4px 10px;
   border-radius: 8px;
+  border: 1px solid #e2e8f0;
 }
 
 .modalTitle {
   font-size: 19px;
-  font-weight: 800;
-  color: #ffffff;
+  font-weight: 850;
+  color: #0f172a;
   margin: 0 0 8px 0;
   line-height: 1.35;
   letter-spacing: -0.3px;
@@ -85,44 +87,40 @@
 
 .modalSubtitle {
   font-size: 13.5px;
-  color: #a1a1aa;
+  color: #64748b;
   margin: 0 0 24px 0;
   line-height: 1.5;
 }
 
 .codeBox {
-  background: #181822;
-  border: 2px dashed #3f3f50;
+  background: #f8fafc;
+  border: 2px dashed #0284c7;
   border-radius: 12px;
   padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
-  transition: border-color 0.2s;
-}
-
-.codeBox:hover {
-  border-color: #818cf8;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.05);
 }
 
 .codeText {
   font-family: monospace;
   font-size: 20px;
-  font-weight: 800;
-  color: #34d399;
+  font-weight: 850;
+  color: #0f172a;
   letter-spacing: 2px;
   user-select: all;
 }
 
 .copyBtn {
-  background: #ffffff;
-  color: #09090b;
+  background: #0f172a;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   padding: 8px 16px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 750;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -131,11 +129,11 @@
 }
 
 .copyBtn:hover {
-  background: #e4e4e7;
+  background: #0284c7;
 }
 
 .copiedBtn {
-  background: #10b981;
+  background: #059669;
   color: #ffffff;
 }
 
@@ -146,24 +144,25 @@
 .redirectLink {
   display: block;
   width: 100%;
-  padding: 12px 20px;
-  background: #ffffff;
-  color: #09090b;
+  padding: 13px 20px;
+  background: #0f172a;
+  color: #ffffff;
   border-radius: 10px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 750;
   text-decoration: none;
   transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
 }
 
 .redirectLink:hover {
-  background: #818cf8;
-  color: #ffffff;
+  background: #0284c7;
+  transform: translateY(-1px);
 }
 
 .instructionText {
   font-size: 12px;
-  color: #71717a;
+  color: #64748b;
   line-height: 1.5;
   margin: 0;
 }

@@ -6,12 +6,12 @@
 
 /* Minimalist Editorial Store Banner */
 .heroBanner {
-  background: #111117;
-  border: 1px solid #1f1f2a;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 24px 28px;
   margin-bottom: 28px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
 }
 
 .heroInner {
@@ -31,18 +31,18 @@
   width: auto;
   max-width: 150px;
   object-fit: contain;
-  background: #ffffff;
+  background: #f8fafc;
   padding: 6px 14px;
   border-radius: 12px;
-  border: 1px solid #272733;
+  border: 1px solid #e2e8f0;
 }
 
 .fallbackLogo {
   width: 56px;
   height: 56px;
   border-radius: 12px;
-  background: #ffffff;
-  color: #09090b;
+  background: #0f172a;
+  color: #ffffff;
   font-weight: 800;
   font-size: 22px;
   display: flex;
@@ -64,27 +64,27 @@
 
 .storeTitle {
   font-size: 22px;
-  font-weight: 800;
-  color: #ffffff;
+  font-weight: 850;
+  color: #0f172a;
   margin: 0;
   letter-spacing: -0.4px;
 }
 
 .verifiedBadge {
-  background: rgba(99, 102, 241, 0.18);
-  color: #818cf8;
+  background: #e0f2fe;
+  color: #0284c7;
   font-size: 11.5px;
-  font-weight: 700;
-  padding: 4px 10px;
+  font-weight: 750;
+  padding: 4px 12px;
   border-radius: 9999px;
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid #bae6fd;
 }
 
 .storeSubtitle {
   font-size: 13.5px;
-  color: #a1a1aa;
+  color: #475569;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.55;
   max-width: 800px;
 }
 
@@ -94,7 +94,7 @@
   align-items: center;
   gap: 32px;
   padding-top: 14px;
-  border-top: 1px solid #1a1a24;
+  border-top: 1px solid #f1f5f9;
   flex-wrap: wrap;
 }
 
@@ -106,13 +106,13 @@
 
 .trustNumber {
   font-size: 15px;
-  font-weight: 800;
-  color: #ffffff;
+  font-weight: 850;
+  color: #0f172a;
 }
 
 .trustLabel {
   font-size: 11.5px;
-  color: #71717a;
+  color: #64748b;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -129,20 +129,20 @@
   justify-content: space-between;
   margin-bottom: 18px;
   padding-bottom: 8px;
-  border-bottom: 1px solid #1f1f2a;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .sectionTitle {
-  font-size: 17px;
-  font-weight: 800;
-  color: #ffffff;
+  font-size: 18px;
+  font-weight: 850;
+  color: #0f172a;
   margin: 0;
   letter-spacing: -0.3px;
 }
 
 .offersCount {
   font-size: 12px;
-  color: #71717a;
+  color: #64748b;
   font-weight: 600;
 }
 
@@ -155,16 +155,17 @@
 
 /* Trust Guide */
 .infoSection {
-  background: #111117;
-  border: 1px solid #1f1f2a;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 28px 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 
 .infoHeading {
   font-size: 16px;
-  font-weight: 800;
-  color: #ffffff;
+  font-weight: 850;
+  color: #0f172a;
   margin: 0 0 18px 0;
   letter-spacing: -0.3px;
 }
@@ -176,8 +177,8 @@
 }
 
 .stepCard {
-  background: #14141c;
-  border: 1px solid #22222d;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 18px;
 }
@@ -185,8 +186,8 @@
 .stepNum {
   width: 26px;
   height: 26px;
-  background: #ffffff;
-  color: #09090b;
+  background: #0f172a;
+  color: #ffffff;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -198,14 +199,14 @@
 
 .stepTitle {
   font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: 750;
+  color: #0f172a;
   margin: 0 0 4px 0;
 }
 
 .stepDesc {
   font-size: 12.5px;
-  color: #a1a1aa;
+  color: #64748b;
   line-height: 1.5;
   margin: 0;
 }

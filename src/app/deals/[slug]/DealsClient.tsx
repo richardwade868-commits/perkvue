@@ -37,7 +37,14 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
       <section className={styles.storeHeader}>
         <div className={styles.brandInfo}>
           {store.logo ? (
-            <img src={store.logo} alt={`${store.name} Logo`} className={styles.storeLogo} />
+            <img
+              src={store.logo}
+              alt={`${store.name} Logo`}
+              width={80}
+              height={80}
+              style={{ width: "80px", height: "80px", minWidth: "80px", minHeight: "80px", objectFit: "contain", display: "block" }}
+              className={styles.storeLogo}
+            />
           ) : (
             <div className={styles.fallbackLogo}>{store.name.charAt(0)}</div>
           )}

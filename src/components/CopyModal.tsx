@@ -96,7 +96,14 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
         {/* Brand Header with Standard Large Logo */}
         <div className={styles.modalHeader}>
           {store.logo ? (
-            <img src={store.logo} alt={store.name} className={styles.brandLogo} />
+            <img
+              src={store.logo}
+              alt={store.name}
+              width={72}
+              height={72}
+              style={{ width: "72px", height: "72px", minWidth: "72px", minHeight: "72px", objectFit: "contain", display: "block" }}
+              className={styles.brandLogo}
+            />
           ) : (
             <div className={styles.fallbackLogo}>{store.name.charAt(0)}</div>
           )}

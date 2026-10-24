@@ -1,23 +1,22 @@
 .footer {
-  background: #0f172a;
-  color: #94a3b8;
+  background: #060608;
+  color: #71717a;
   padding: 60px 0 0 0;
-  margin-top: 60px;
-  border-top: 1px solid #1e293b;
+  margin-top: 80px;
+  border-top: 1px solid #1a1a24;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 20px 48px 20px;
+  padding: 0 24px 48px 24px;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: 40px;
 }
 
 .footerLogo {
-  height: 34px;
-  filter: brightness(0) invert(1);
+  height: 32px;
   margin-bottom: 16px;
 }
 
@@ -25,13 +24,13 @@
   font-size: 14px;
   line-height: 1.6;
   max-width: 380px;
-  color: #64748b;
+  color: #71717a;
 }
 
 .colTitle {
-  font-size: 14px;
-  font-weight: 700;
-  color: #f1f5f9;
+  font-size: 13px;
+  font-weight: 800;
+  color: #e4e4e7;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   margin: 0 0 16px 0;
@@ -48,26 +47,26 @@
 }
 
 .linkList a {
-  color: #94a3b8;
+  color: #a1a1aa;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .linkList a:hover {
-  color: #10b981;
+  color: #818cf8;
 }
 
 .bottomBar {
-  border-top: 1px solid #1e293b;
-  padding: 20px 0;
+  border-top: 1px solid #14141c;
+  padding: 24px 0;
   font-size: 12px;
-  color: #64748b;
+  color: #52525b;
 }
 
 .bottomContainer {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -77,16 +76,17 @@
 
 .legalLinks {
   display: flex;
-  gap: 10px;
+  gap: 16px;
 }
 
 .legalLinks a {
-  color: #64748b;
+  color: #71717a;
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .legalLinks a:hover {
-  color: #94a3b8;
+  color: #d4d4d8;
 }
 
 @media (max-width: 768px) {

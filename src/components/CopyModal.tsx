@@ -19,22 +19,12 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
     setMounted(true);
   }, []);
 
-  // Close on Escape key
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        handleModalClose();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
   if (!mounted || !coupon) return null;
 
   const targetUrl = coupon.affiliate_url || store.affiliate_url || store.website;
   const isDirectDeal = !coupon.code;
 
+  // STRICT REQUIREMENT: Only closes when user explicitly clicks the cross (✕) or back button
   const handleModalClose = () => {
     if (typeof window !== "undefined") {
       try {
@@ -81,9 +71,10 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
   };
 
   const modalContent = (
-    <div className={styles.modalOverlay} onClick={handleModalClose}>
+    // Note: No onClick on modalOverlay — clicking outside does NOT dismiss the modal!
+    <div className={styles.modalOverlay}>
       <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
-        {/* Close Button */}
+        {/* Only clicking this cross (✕) button closes the modal! */}
         <button
           className={styles.closeBtn}
           onClick={handleModalClose}
@@ -93,27 +84,41 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
           ✕
         </button>
 
-        {/* Brand Header with Standard Large Logo */}
-        <div className={styles.modalHeader}>
+        {/* Prominent Centered Brand Logo */}
+        <div className={styles.logoWrapper}>
           {store.logo ? (
             <img
               src={store.logo}
               alt={store.name}
-              width={72}
-              height={72}
-              style={{ width: "72px", height: "72px", minWidth: "72px", minHeight: "72px", objectFit: "contain", display: "block" }}
+              width={84}
+              height={84}
+              style={{
+                width: "84px",
+                height: "84px",
+                minWidth: "84px",
+                minHeight: "84px",
+                maxWidth: "84px",
+                maxHeight: "84px",
+                objectFit: "contain",
+                display: "block"
+              }}
               className={styles.brandLogo}
             />
           ) : (
             <div className={styles.fallbackLogo}>{store.name.charAt(0)}</div>
           )}
-          <span className={styles.verifiedPill}>⚡ Tested &amp; Active Today</span>
+        </div>
+
+        {/* Centered Tested Active Badge */}
+        <div className={styles.verifiedBadgeRow}>
+          <span className={styles.verifiedPill}>⚡ 100% Tested &amp; Active Today</span>
         </div>
 
         {/* Modal Titles */}
         <h3 className={styles.modalTitle}>{coupon.title}</h3>
         <p className={styles.modalSubtitle}>{coupon.description}</p>
 
+        {/* Main Offer Body */}
         {isDirectDeal ? (
           <div className={styles.autoAppliedBox}>
             <div className={styles.autoAppliedIcon}>✓</div>
@@ -144,7 +149,7 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
           </div>
         )}
 
-        {/* CTA Actions */}
+        {/* Stacked Action Buttons */}
         <div className={styles.actionsArea}>
           <a
             href={targetUrl}
@@ -160,7 +165,7 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
           </button>
         </div>
 
-        {/* Clean Trust Proof */}
+        {/* Clean SSL Verification Strip */}
         <div className={styles.trustFooter}>
           <span>🔒 256-Bit SSL Encrypted Verification</span>
           <span>•</span>

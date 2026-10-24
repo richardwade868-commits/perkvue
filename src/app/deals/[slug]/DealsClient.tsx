@@ -40,9 +40,9 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
             <img
               src={store.logo}
               alt={`${store.name} Logo`}
-              width={80}
-              height={80}
-              style={{ width: "80px", height: "80px", minWidth: "80px", minHeight: "80px", objectFit: "contain", display: "block" }}
+              width={96}
+              height={96}
+              style={{ width: "96px", height: "96px", minWidth: "96px", minHeight: "96px", objectFit: "contain", display: "block" }}
               className={styles.storeLogo}
             />
           ) : (

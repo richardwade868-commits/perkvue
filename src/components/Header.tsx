@@ -43,10 +43,14 @@ export default function Header() {
           />
         </form>
 
-        {/* Minimalist Navigation */}
+        {/* Minimalist Responsive Navigation */}
         <nav className={styles.nav}>
-          <a href="/#directory" className={styles.navLink}>Partner Registry</a>
-          <a href="/#standards" className={styles.navLink}>Audit Standards</a>
+          <a href="/#directory" className={styles.navLink}>
+            <span className={styles.desktopOnly}>Partner </span>Registry
+          </a>
+          <a href="/#standards" className={styles.navLink}>
+            <span className={styles.desktopOnly}>Audit </span>Standards
+          </a>
           <a href="/#standards" className={styles.navLink}>FAQ</a>
         </nav>
       </div>

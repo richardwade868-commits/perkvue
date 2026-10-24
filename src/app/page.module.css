@@ -8,6 +8,19 @@
   max-width: 1240px;
   margin: 0 auto;
   padding: 40px 24px 80px 24px;
+  position: relative;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ==========================================
@@ -410,6 +423,12 @@
   color: #09090b;
   border-color: #ffffff;
   font-weight: 700;
+}
+
+.pillCount {
+  font-size: 11px;
+  opacity: 0.75;
+  margin-left: 2px;
 }
 
 /* Directory Search Box */

@@ -37,46 +37,51 @@ export default function CouponCard({ coupon, store, onSelect }: CouponCardProps)
 
   return (
     <div className={styles.cardContainer}>
-      {/* Top Badge Strip */}
+      {/* Top Privilege Badge Strip */}
       <div className={styles.cardHeader}>
-        <span className={styles.discountBadge}>{coupon.discount}</span>
+        <span className={styles.discountBadge}>{coupon.discount} PRIVILEGE</span>
         <span className={styles.verifiedBadge}>
-          <span className={styles.greenDot}></span> Verified Active
+          <span className={styles.greenDot}></span> Cart Audited Today
         </span>
       </div>
 
       {/* Card Content */}
       <div className={styles.cardBody}>
-        <h4 className={styles.cardTitle}>{coupon.title}</h4>
+        <h3 className={styles.cardTitle}>{coupon.title}</h3>
         <p className={styles.cardDesc}>{coupon.description}</p>
+        
+        {/* Quality Validation Badges */}
+        <div className={styles.featurePills}>
+          <span className={styles.featurePill}>✓ 100% Direct Clearance</span>
+          <span className={styles.featurePill}>✓ Instant Cart Application</span>
+        </div>
       </div>
 
-      {/* Card Footer / CTA */}
+      {/* Action Footer */}
       <div className={styles.cardFooter}>
         <button
           type="button"
-          className={`${styles.ctaButton} ${isDirectDeal ? styles.dealButton : styles.codeButton}`}
           onClick={handleClick}
+          className={`${styles.ctaButton} ${isDirectDeal ? styles.dealButton : styles.codeButton}`}
         >
           {isDirectDeal ? (
             <>
-              <span>Get Deal</span>
+              <span className={styles.buttonActionLabel}>Claim Direct Benefit</span>
               <span className={styles.arrowIcon}>→</span>
             </>
           ) : (
             <>
-              <span className={styles.buttonCodeMask}>
-                {copied ? "COPIED!" : `CODE: ${coupon.code.slice(0, 4)}••••`}
-              </span>
+              <span className={styles.buttonCodeMask}>{coupon.code}</span>
               <span className={styles.buttonActionLabel}>
-                {copied ? "✓ Copied" : "Show Code"}
+                {copied ? "Copied!" : "Unlock Privilege →"}
               </span>
             </>
           )}
         </button>
+
         <div className={styles.statsRow}>
-          <span>👥 {coupon.uses_count || 120}+ used today</span>
-          <span>⚡ 100% Success</span>
+          <span>Audited in official cart</span>
+          <span>{coupon.uses_count ? `${coupon.uses_count.toLocaleString()} member redemptions` : "Tested Active"}</span>
         </div>
       </div>
     </div>

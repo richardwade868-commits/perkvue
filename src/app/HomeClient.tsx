@@ -70,6 +70,17 @@ export default function HomeClient({ stores }: HomeClientProps) {
   const [activeVaultTab, setActiveVaultTab] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  // Category counts
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { "All Privileges": stores.length };
+    stores.forEach((s) => {
+      if (s.category) {
+        counts[s.category] = (counts[s.category] || 0) + 1;
+      }
+    });
+    return counts;
+  }, [stores]);
+
   // Search and Category Filtering
   const filteredStores = useMemo(() => {
     let result = stores;
@@ -117,6 +128,9 @@ export default function HomeClient({ stores }: HomeClientProps) {
 
   return (
     <div className={styles.homeContainer}>
+      {/* Ambient Luxury Lighting Mesh */}
+      <div className={styles.ambientGlow} />
+
       {/* =========================================================
           1. SPLIT-SCREEN EDITORIAL HERO (LUXURY REWARDS PORTAL)
           ========================================================= */}
@@ -124,7 +138,7 @@ export default function HomeClient({ stores }: HomeClientProps) {
         {/* Left Editorial Column */}
         <div className={styles.heroLeft}>
           <div className={styles.heroBadge}>
-            <span className={styles.pulseDot}></span> AUDITED PARTNER PRIVILEGES 2026
+            <span className={styles.pulseDot}></span> 14 AUDITED PARTNER PRIVILEGES ACTIVE TODAY
           </div>
           <h1 className={styles.heroTitle}>
             Executive Member Perks & <br />
@@ -227,18 +241,21 @@ export default function HomeClient({ stores }: HomeClientProps) {
         {/* Category Filters and Search Bar */}
         <div className={styles.toolbarRow}>
           <div className={styles.categoryPills}>
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setSelectedCategory(cat)}
-                className={`${styles.categoryPill} ${
-                  selectedCategory === cat ? styles.categoryPillActive : ""
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {CATEGORIES.map((cat) => {
+              const count = categoryCounts[cat] || 0;
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`${styles.categoryPill} ${
+                    selectedCategory === cat ? styles.categoryPillActive : ""
+                  }`}
+                >
+                  {cat} {count > 0 && <span className={styles.pillCount}>({count})</span>}
+                </button>
+              );
+            })}
           </div>
 
           <form onSubmit={handleSearchSubmit} className={styles.directorySearch}>

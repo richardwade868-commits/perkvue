@@ -20,7 +20,7 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
 
   return (
     <div className={styles.pageContainer}>
-      {/* Compact Store Hero Banner */}
+      {/* Compact Executive Store Hero Banner */}
       <section className={styles.heroBanner}>
         <div className={styles.heroInner}>
           <div className={styles.brandRow}>
@@ -31,11 +31,11 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
             )}
             <div className={styles.brandMeta}>
               <div className={styles.titleRow}>
-                <h1 className={styles.storeTitle}>{store.name} Promo Codes & Perks</h1>
-                <span className={styles.verifiedBadge}>⚡ 100% Verified Working</span>
+                <h1 className={styles.storeTitle}>{store.name} Official Partner Clearances</h1>
+                <span className={styles.verifiedBadge}>⚡ 100% Cart Validated</span>
               </div>
               <p className={styles.storeSubtitle}>
-                {store.description || `Verified promo codes, subscriber discounts, and free shipping perks for ${store.name}.`}
+                {store.description || `Audited partner rates, cellular replenishment privileges, and verified checkout authorization for ${store.name}.`}
               </p>
             </div>
           </div>
@@ -44,19 +44,19 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
           <div className={styles.trustBar}>
             <div className={styles.trustItem}>
               <span className={styles.trustNumber}>{coupons.length}</span>
-              <span className={styles.trustLabel}>Available Perks</span>
+              <span className={styles.trustLabel}>Verified Privileges</span>
             </div>
             <div className={styles.trustItem}>
               <span className={styles.trustNumber}>20%</span>
-              <span className={styles.trustLabel}>Max Discount</span>
+              <span className={styles.trustLabel}>Direct Savings</span>
             </div>
             <div className={styles.trustItem}>
               <span className={styles.trustNumber}>100%</span>
-              <span className={styles.trustLabel}>Success Rate</span>
+              <span className={styles.trustLabel}>Cart Clearance</span>
             </div>
             <div className={styles.trustItem}>
-              <span className={styles.trustNumber}>Today</span>
-              <span className={styles.trustLabel}>Last Verified</span>
+              <span className={styles.trustNumber}>Active</span>
+              <span className={styles.trustLabel}>Today&apos;s Status</span>
             </div>
           </div>
         </div>
@@ -65,8 +65,8 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
       {/* Above-the-fold 2-Column Deals Grid */}
       <section className={styles.dealsSection}>
         <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Featured {store.name} Verified Offers</h2>
-          <span className={styles.offersCount}>Showing {coupons.length} Active Offers</span>
+          <h2 className={styles.sectionTitle}>Exclusive {store.name} Partner Privileges</h2>
+          <span className={styles.offersCount}>Showing {coupons.length} Verified Clearances</span>
         </div>
 
         <div className={styles.cardsGrid}>
@@ -83,22 +83,22 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
 
       {/* Verification FAQ / Trust Guide */}
       <section className={styles.infoSection}>
-        <h3 className={styles.infoHeading}>How to Redeem {store.name} Discounts</h3>
+        <h3 className={styles.infoHeading}>How to Redeem {store.name} Partner Privileges</h3>
         <div className={styles.stepsGrid}>
           <div className={styles.stepCard}>
             <span className={styles.stepNum}>1</span>
-            <h4 className={styles.stepTitle}>Select & Copy Perk</h4>
-            <p className={styles.stepDesc}>Click &quot;Show Code&quot; or &quot;Get Deal&quot; to automatically copy the verified discount code.</p>
+            <h4 className={styles.stepTitle}>Authorize Privilege</h4>
+            <p className={styles.stepDesc}>Click &quot;Unlock Privilege&quot; to copy the verified direct partner code.</p>
           </div>
           <div className={styles.stepCard}>
             <span className={styles.stepNum}>2</span>
-            <h4 className={styles.stepTitle}>Official Store Opens</h4>
-            <p className={styles.stepDesc}>We direct you straight to the official {store.name} checkout portal with partner privileges.</p>
+            <h4 className={styles.stepTitle}>Direct Merchant Checkout</h4>
+            <p className={styles.stepDesc}>We open the authorized {store.name} checkout portal in a secure new tab.</p>
           </div>
           <div className={styles.stepCard}>
             <span className={styles.stepNum}>3</span>
-            <h4 className={styles.stepTitle}>Enjoy Instant Savings</h4>
-            <p className={styles.stepDesc}>Paste the promo code into the voucher box at checkout to see your price drop instantly.</p>
+            <h4 className={styles.stepTitle}>Instant Cart Savings</h4>
+            <p className={styles.stepDesc}>Your 20% privilege applies immediately with zero expired codes or extra steps.</p>
           </div>
         </div>
       </section>

@@ -142,7 +142,7 @@ export default function CouponCard({ coupon, store, isPrimary = false, onSelect 
         <div className={styles.trustFooter}>
           <span>✓ Official Checkout Guarantee</span>
           <span>•</span>
-          <span>Tabunder Active</span>
+          <span>Verified Working Today</span>
         </div>
       </div>
     </div>

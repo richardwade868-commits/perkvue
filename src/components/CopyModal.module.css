@@ -1,15 +1,15 @@
 .modalOverlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 23, 42, 0.65);
+  background-color: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 99999;
+  z-index: 999999;
   padding: 16px;
-  animation: fadeIn 0.2s ease-out;
+  animation: fadeIn 0.18s ease-out;
 }
 
 @keyframes fadeIn {
@@ -21,17 +21,21 @@
   background: #ffffff;
   border-radius: 20px;
   width: 100%;
-  max-width: 480px;
-  padding: 34px 30px;
+  max-width: 500px;
+  padding: 32px 28px;
   position: relative;
-  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
   border: 1px solid #e2e8f0;
-  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 
+    0 4px 6px rgba(15, 23, 42, 0.04),
+    0 20px 40px -8px rgba(15, 23, 42, 0.2),
+    0 40px 80px -15px rgba(15, 23, 42, 0.25),
+    inset 0 1px 0 #ffffff;
+  animation: slideUp 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: center;
 }
 
 @keyframes slideUp {
-  from { transform: translateY(16px) scale(0.97); opacity: 0; }
+  from { transform: translateY(14px) scale(0.98); opacity: 0; }
   to { transform: translateY(0) scale(1); opacity: 1; }
 }
 
@@ -39,18 +43,18 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  border: none;
-  background: #f1f5f9;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
   color: #64748b;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition: all 0.15s ease;
 }
 
 .closeBtn:hover {
@@ -58,111 +62,246 @@
   color: #0f172a;
 }
 
-.storeBrand {
+.modalHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.brandLogo {
+  height: 48px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  background: #f8fafc;
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.fallbackLogo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  font-weight: 850;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
 }
 
-.storeLogo {
-  height: 40px;
-  max-width: 130px;
-  object-fit: contain;
-  background: #f8fafc;
-  padding: 4px 10px;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
+.verifiedPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 750;
+  color: #047857;
+  background: #ecfdf5;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 1px solid #a7f3d0;
 }
 
 .modalTitle {
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 850;
   color: #0f172a;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   line-height: 1.35;
   letter-spacing: -0.3px;
 }
 
 .modalSubtitle {
-  font-size: 13.5px;
+  font-size: 13px;
   color: #64748b;
-  margin: 0 0 24px 0;
+  margin: 0 0 20px 0;
   line-height: 1.5;
+}
+
+/* 3D Inset Code Container */
+.codeContainer {
+  margin-bottom: 22px;
 }
 
 .codeBox {
   background: #f8fafc;
   border: 2px dashed #0284c7;
   border-radius: 12px;
-  padding: 16px 20px;
+  padding: 12px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.05);
+  gap: 12px;
+  box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.04);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.codeBox:hover {
+  background: #f0f9ff;
+  border-color: #0369a1;
 }
 
 .codeText {
-  font-family: monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 20px;
-  font-weight: 850;
+  font-weight: 900;
   color: #0f172a;
   letter-spacing: 2px;
   user-select: all;
 }
 
 .copyBtn {
-  background: #0f172a;
+  background: #0284c7;
   color: #ffffff;
   border: none;
   border-radius: 8px;
   padding: 8px 16px;
-  font-size: 13px;
-  font-weight: 750;
+  font-size: 12.5px;
+  font-weight: 800;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+  white-space: nowrap;
 }
 
 .copyBtn:hover {
-  background: #0284c7;
+  background: #0369a1;
 }
 
-.copiedBtn {
+.copyBtnCopied {
+  background: #059669;
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
+}
+
+.copiedHint {
+  font-size: 12px;
+  font-weight: 650;
+  color: #059669;
+  margin: 8px 0 0 0;
+}
+
+/* Auto-applied banner */
+.autoAppliedBox {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  margin-bottom: 22px;
+}
+
+.autoAppliedIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   background: #059669;
   color: #ffffff;
+  font-weight: 900;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.redirectRow {
-  margin-bottom: 16px;
+.autoAppliedHeading {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #065f46;
 }
 
-.redirectLink {
-  display: block;
-  width: 100%;
-  padding: 13px 20px;
-  background: #0f172a;
-  color: #ffffff;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 750;
-  text-decoration: none;
-  transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
-}
-
-.redirectLink:hover {
-  background: #0284c7;
-  transform: translateY(-1px);
-}
-
-.instructionText {
+.autoAppliedText {
   font-size: 12px;
+  color: #047857;
+  margin-top: 2px;
+}
+
+/* Actions */
+.actionsArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.primaryCta {
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 850;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 4px 0 #075985,
+    0 8px 18px rgba(2, 132, 199, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.primaryCta:hover {
+  background: linear-gradient(180deg, #0369a1 0%, #075985 100%);
+}
+
+.primaryCta:active {
+  transform: translateY(3px);
+  box-shadow: 
+    0 1px 0 #075985,
+    0 2px 4px rgba(2, 132, 199, 0.2);
+}
+
+.secondaryBtn {
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
   color: #64748b;
-  line-height: 1.5;
-  margin: 0;
+  cursor: pointer;
+  padding: 6px;
+  transition: color 0.15s ease;
+}
+
+.secondaryBtn:hover {
+  color: #0f172a;
+}
+
+.trustFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+}
+
+@media (max-width: 640px) {
+  .modalCard {
+    padding: 24px 18px;
+  }
+  .modalTitle {
+    font-size: 18px;
+  }
+  .codeText {
+    font-size: 17px;
+  }
 }

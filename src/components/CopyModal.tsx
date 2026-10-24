@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./CopyModal.module.css";
 import { Coupon, Store } from "../lib/types";
 
@@ -11,53 +11,69 @@ interface CopyModalProps {
 }
 
 export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
-  const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    if (coupon && coupon.code) {
-      navigator.clipboard.writeText(coupon.code).catch(() => {});
-      setCopied(true);
-      const timer = setTimeout(() => setCopied(false), 4000);
-      return () => clearTimeout(timer);
-    }
-  }, [coupon]);
+  // Code is already copied synchronously on card click
+  const [copied, setCopied] = useState(true);
 
   if (!coupon) return null;
 
   const targetUrl = coupon.affiliate_url || store.affiliate_url || store.website;
   const isDirectDeal = !coupon.code;
 
-  const handleManualCopy = () => {
+  const handleManualCopy = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (coupon.code) {
-      navigator.clipboard.writeText(coupon.code);
+      // 1. Fallback textarea copy
+      if (typeof document !== "undefined") {
+        try {
+          const textArea = document.createElement("textarea");
+          textArea.value = coupon.code;
+          textArea.style.position = "fixed";
+          textArea.style.left = "-9999px";
+          textArea.style.top = "-9999px";
+          textArea.style.opacity = "0";
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textArea);
+        } catch {
+          // ignore
+        }
+      }
+      // 2. Modern API (allowed because this is a direct click event)
+      if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(coupon.code).catch(() => {});
+      }
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     }
   };
 
-  const handleRedirect = () => {
-    window.open(targetUrl, "_blank", "noopener,noreferrer");
+  const handleRedirect = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (typeof window !== "undefined") {
+      window.open(targetUrl, "_blank", "noopener,noreferrer");
+    }
   };
 
   return (
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
         {/* Close Button */}
-        <button className={styles.closeBtn} onClick={onClose} aria-label="Close modal">
+        <button className={styles.closeBtn} onClick={onClose} aria-label="Close modal" type="button">
           ✕
         </button>
 
-        {/* Brand Banner */}
+        {/* Brand Header */}
         <div className={styles.modalHeader}>
           {store.logo ? (
             <img src={store.logo} alt={store.name} className={styles.brandLogo} />
           ) : (
             <div className={styles.fallbackLogo}>{store.name.charAt(0)}</div>
           )}
-          <span className={styles.verifiedPill}>⚡ 100% Tested & Verified Today</span>
+          <span className={styles.verifiedPill}>⚡ Tested &amp; Active Today</span>
         </div>
 
-        {/* Modal Body */}
+        {/* Modal Titles */}
         <h3 className={styles.modalTitle}>{coupon.title}</h3>
         <p className={styles.modalSubtitle}>{coupon.description}</p>
 
@@ -65,21 +81,27 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
           <div className={styles.autoAppliedBox}>
             <div className={styles.autoAppliedIcon}>✓</div>
             <div>
-              <div className={styles.autoAppliedHeading}>Direct Deal Activated!</div>
-              <div className={styles.autoAppliedText}>No coupon code needed. Discount automatically applied at checkout.</div>
+              <div className={styles.autoAppliedHeading}>Direct Promotion Activated</div>
+              <div className={styles.autoAppliedText}>
+                No coupon code needed. Discount automatically applied at checkout.
+              </div>
             </div>
           </div>
         ) : (
           <div className={styles.codeContainer}>
             <div className={styles.codeBox} onClick={handleManualCopy}>
               <span className={styles.codeText}>{coupon.code}</span>
-              <button className={styles.copyBtn} type="button">
+              <button
+                className={`${styles.copyBtn} ${copied ? styles.copyBtnCopied : ""}`}
+                type="button"
+                onClick={handleManualCopy}
+              >
                 {copied ? "Copied! ✓" : "Copy Code"}
               </button>
             </div>
             {copied && (
               <p className={styles.copiedHint}>
-                🎉 Code copied to clipboard! Paste it at checkout on {store.name}.
+                ✓ Code copied to clipboard! Paste it at checkout on {store.name}.
               </p>
             )}
           </div>
@@ -97,15 +119,15 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
             Continue to {store.name} →
           </a>
           <button type="button" className={styles.secondaryBtn} onClick={onClose}>
-            Browse More Offers
+            Back to Deals
           </button>
         </div>
 
-        {/* Trust Proof */}
+        {/* Clean Trust Proof */}
         <div className={styles.trustFooter}>
           <span>🔒 256-Bit SSL Encrypted Verification</span>
           <span>•</span>
-          <span>Guaranteed Working on Official Site</span>
+          <span>Official Store Guarantee</span>
         </div>
       </div>
     </div>

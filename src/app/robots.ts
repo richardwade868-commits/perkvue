@@ -9,17 +9,15 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         disallow: [
-          '/deals/im8*',
-          '/store/im8*',
+          '/api/',
+          '/_next/',
         ],
       },
-      // Strict block for Competitive Intelligence & SEO Scrapers
+      // 100% Stealth Shield against Competitive Intelligence & SEO Scrapers
+      // Blocks SEMrush and Ahrefs from crawling or indexing ANY page on PerkVue
       {
         userAgent: ['AhrefsBot', 'SemrushBot', 'DotBot', 'MJ12bot', 'PetalBot', 'Bytespider', 'SEOkicks'],
-        disallow: [
-          '/deals/im8*',
-          '/store/im8*',
-        ],
+        disallow: ['/'],
       },
     ],
     sitemap: 'https://perkvue.com/sitemap.xml',

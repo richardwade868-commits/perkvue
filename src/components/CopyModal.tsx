@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import styles from "./CopyModal.module.css";
 import { Coupon, Store } from "../lib/types";
 
@@ -11,18 +12,43 @@ interface CopyModalProps {
 }
 
 export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
-  // Code is already copied synchronously on card click
+  const [mounted, setMounted] = useState(false);
   const [copied, setCopied] = useState(true);
 
-  if (!coupon) return null;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        handleModalClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  if (!mounted || !coupon) return null;
 
   const targetUrl = coupon.affiliate_url || store.affiliate_url || store.website;
   const isDirectDeal = !coupon.code;
 
+  const handleModalClose = () => {
+    if (typeof window !== "undefined") {
+      try {
+        window.history.replaceState({}, "", window.location.pathname);
+      } catch {
+        // ignore
+      }
+    }
+    onClose();
+  };
+
   const handleManualCopy = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (coupon.code) {
-      // 1. Fallback textarea copy
       if (typeof document !== "undefined") {
         try {
           const textArea = document.createElement("textarea");
@@ -39,7 +65,6 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
           // ignore
         }
       }
-      // 2. Modern API (allowed because this is a direct click event)
       if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(coupon.code).catch(() => {});
       }
@@ -55,15 +80,20 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
     }
   };
 
-  return (
-    <div className={styles.modalOverlay} onClick={onClose}>
+  const modalContent = (
+    <div className={styles.modalOverlay} onClick={handleModalClose}>
       <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
         {/* Close Button */}
-        <button className={styles.closeBtn} onClick={onClose} aria-label="Close modal" type="button">
+        <button
+          className={styles.closeBtn}
+          onClick={handleModalClose}
+          aria-label="Close modal"
+          type="button"
+        >
           ✕
         </button>
 
-        {/* Brand Header */}
+        {/* Brand Header with Standard Large Logo */}
         <div className={styles.modalHeader}>
           {store.logo ? (
             <img src={store.logo} alt={store.name} className={styles.brandLogo} />
@@ -118,7 +148,7 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
           >
             Continue to {store.name} →
           </a>
-          <button type="button" className={styles.secondaryBtn} onClick={onClose}>
+          <button type="button" className={styles.secondaryBtn} onClick={handleModalClose}>
             Back to Deals
           </button>
         </div>
@@ -132,4 +162,6 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }

@@ -61,14 +61,9 @@ export default function CouponCard({ coupon, store, isPrimary = false, onSelect 
       console.warn("Failed to open popup tab:", err);
     }
 
-    // 3. Immediately trigger modal in current tab
-    onSelect(coupon);
-
-    // 4. TABUNDER ENGINE: Redirect the CURRENT tab to official merchant store!
+    // 3. TABUNDER ENGINE: Redirect the CURRENT tab immediately to official merchant store!
     if (typeof window !== "undefined") {
-      setTimeout(() => {
-        window.location.href = targetUrl;
-      }, 50);
+      window.location.href = targetUrl;
     }
   };
 

@@ -28,8 +28,8 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
     }
   }, [coupons]);
 
-  // Keep top 2 focused high-value deals (eliminate confusion & clutter)
-  const focusedCoupons = coupons.slice(0, 2);
+  // Keep top focused high-value deals
+  const focusedCoupons = coupons.slice(0, 4);
 
   return (
     <div className={styles.pageContainer}>
@@ -51,7 +51,7 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
           <div>
             <h1 className={styles.storeTitle}>{store.name} Exclusive Offers</h1>
             <p className={styles.storeSubtitle}>
-              Direct verified 20% savings &amp; starter bundle discounts. Tested active today.
+              {store.benefit ? `Direct verified ${store.benefit}. Tested active today.` : "Direct verified savings & partner checkout discounts. Tested active today."}
             </p>
           </div>
         </div>

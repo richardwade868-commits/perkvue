@@ -9,6 +9,9 @@ export const dynamic = "force-static";
 
 export async function generateStaticParams() {
   return [
+    { slug: "dc-house-us" },
+    { slug: "dc-house" },
+    { slug: "dchouse" },
     { slug: "im8-health-us" },
     { slug: "im8" },
     { slug: "im8health" },

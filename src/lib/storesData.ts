@@ -84,6 +84,88 @@ export const IM8_COUPONS: Coupon[] = [
 // ==========================================
 // 2. SAFE GLOBAL MEGA-BRANDS WITH 100% WORKING LOCAL SVG LOGOS
 // ==========================================
+
+// ==========================================
+// DC HOUSE OFFICIAL CAMPAIGN STORE (SECRET ONLY - NEVER ON HOMEPAGE)
+// ==========================================
+export const DC_HOUSE_STORE: Store = {
+  id: "dc-house",
+  name: "DC House",
+  slug: "dc-house-us",
+  logo: "/logos/dc-house.png",
+  website: "https://www.dchousepower.com/?ref=ikafrwml",
+  affiliate_url: "https://www.dchousepower.com/?ref=ikafrwml",
+  category: "Solar & Lithium Energy Systems",
+  description: "Official DC House verified discount portal. High-performance LiFePO4 lithium batteries, off-grid solar kits, inverters, and trolling motor battery solutions.",
+  rating: 4.92,
+  reviews_count: 2450,
+  benefit: "5% Off LiFePO4 Lithium & Solar Systems",
+  badge: "Featured Energy Partner"
+};
+
+export const DC_HOUSE_COUPONS: Coupon[] = [
+  {
+    id: "dchouse-card-1",
+    code: "METHEWDIPPY",
+    discount: "5% OFF",
+    title: "5% Off All LiFePO4 Lithium Batteries & Solar Kits",
+    description: "Exclusive verified 5% discount on all 12V 100Ah deep-cycle lithium batteries, solar panels, and inverters with code METHEWDIPPY.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.dchousepower.com/?ref=ikafrwml",
+    store: DC_HOUSE_STORE,
+    storeSlug: "dc-house-us",
+    storeName: "DC House",
+    uses_count: 1240
+  },
+  {
+    id: "dchouse-card-2",
+    code: "METHEWDIPPY",
+    discount: "5% OFF",
+    title: "5% Off Deep-Cycle Lithium RV & Trolling Motor Batteries",
+    description: "Get 5% instant discount on deep-cycle lithium marine and RV batteries with verified code METHEWDIPPY.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.dchousepower.com/?ref=ikafrwml",
+    store: DC_HOUSE_STORE,
+    storeSlug: "dc-house-us",
+    storeName: "DC House",
+    uses_count: 890
+  },
+  {
+    id: "dchouse-card-3",
+    code: "METHEWDIPPY",
+    discount: "5% OFF",
+    title: "5% Off Off-Grid Solar Panels, MPPT Controllers & Inverters",
+    description: "Apply 5% discount on complete off-grid solar power systems and inverters with working code METHEWDIPPY.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.dchousepower.com/?ref=ikafrwml",
+    store: DC_HOUSE_STORE,
+    storeSlug: "dc-house-us",
+    storeName: "DC House",
+    uses_count: 670
+  },
+  {
+    id: "dchouse-card-4",
+    code: "METHEWDIPPY",
+    discount: "EXTRA 5%",
+    title: "Extra 5% Off Multi-Battery Power Bank Bundles",
+    description: "Stack an extra 5% instant discount on high-capacity battery bank bundles with coupon METHEWDIPPY.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.dchousepower.com/?ref=ikafrwml",
+    store: DC_HOUSE_STORE,
+    storeSlug: "dc-house-us",
+    storeName: "DC House",
+    uses_count: 530
+  }
+];
+
 export const SAFE_PERK_STORES: Store[] = [
   {
     id: 1,
@@ -248,6 +330,10 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   const im8Aliases = ["im8-health-us", "im8", "im8health", "im8-health", "im8health-us"];
   if (im8Aliases.includes(norm)) {
     return { store: IM8_STORE, coupons: IM8_COUPONS };
+  }
+  const dcHouseAliases = ["dc-house-us", "dc-house", "dchouse", "dchouse-us", "dc-house-power"];
+  if (dcHouseAliases.includes(norm)) {
+    return { store: DC_HOUSE_STORE, coupons: DC_HOUSE_COUPONS };
   }
   const found = SAFE_PERK_STORES.find(s => s.slug.toLowerCase() === norm);
   if (found) {

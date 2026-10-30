@@ -343,6 +343,87 @@ export const DESKTRONIC_COUPONS: Coupon[] = [
   }
 ];
 
+// ==========================================
+// THE BEARD STRUGGLE OFFICIAL CAMPAIGN STORE (SECRET ONLY - NEVER ON HOMEPAGE)
+// ==========================================
+export const THE_BEARD_STRUGGLE_STORE: Store = {
+  id: "the-beard-struggle",
+  name: "The Beard Struggle",
+  slug: "the-beard-struggle",
+  logo: "/logos/the-beard-struggle.png",
+  website: "https://www.thebeardstruggle.com/discount/CHANGE-ME-d6234fd?ref=richard",
+  affiliate_url: "https://www.thebeardstruggle.com/discount/CHANGE-ME-d6234fd?ref=richard",
+  category: "Men's Grooming & Luxury Beard Care",
+  description: "Official The Beard Struggle verified discount portal. Viking-grade heated beard straighteners, organic beard growth oils, balms, trimmers, and luxury colognes.",
+  rating: 4.95,
+  reviews_count: 3240,
+  benefit: "Up to 25% Off Viking Beard Care Kits & Straighteners",
+  badge: "Featured Grooming Partner"
+};
+
+export const THE_BEARD_STRUGGLE_COUPONS: Coupon[] = [
+  {
+    id: "tbs-card-1",
+    code: "CHANGE-ME-d6234fd",
+    discount: "20% OFF",
+    title: "20% Off Heated Beard Straighteners & Grooming Kits",
+    description: "Exclusive verified 20% discount on Carbon X Pro beard straighteners, organic growth oils, and grooming bundles. Tested active today.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.thebeardstruggle.com/discount/CHANGE-ME-d6234fd?ref=richard",
+    store: THE_BEARD_STRUGGLE_STORE,
+    storeSlug: "the-beard-struggle",
+    storeName: "The Beard Struggle",
+    uses_count: 1720
+  },
+  {
+    id: "tbs-card-2",
+    code: "RICHARD",
+    discount: "15% OFF",
+    title: "15% Off Sitewide with Partner Code: RICHARD",
+    description: "Apply code RICHARD or CHANGE-ME-d6234fd at checkout for an extra 15% off all beard balms, washes, and colognes.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.thebeardstruggle.com/discount/CHANGE-ME-d6234fd?ref=richard",
+    store: THE_BEARD_STRUGGLE_STORE,
+    storeSlug: "the-beard-struggle",
+    storeName: "The Beard Struggle",
+    uses_count: 1380
+  },
+  {
+    id: "tbs-card-3",
+    code: "",
+    discount: "UP TO 30%",
+    title: "Up to 30% Off Viking Bundles & Gift Sets",
+    description: "Save up to 30% automatically on curated beard care sets, Derma roller kits, and travel trimmers.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.thebeardstruggle.com/discount/CHANGE-ME-d6234fd?ref=richard",
+    store: THE_BEARD_STRUGGLE_STORE,
+    storeSlug: "the-beard-struggle",
+    storeName: "The Beard Struggle",
+    uses_count: 950
+  },
+  {
+    id: "tbs-card-4",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free Tracked US Doorstep Delivery on Orders $50+",
+    description: "Enjoy 100% free tracked shipping across the United States on all qualifying beard care orders.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.thebeardstruggle.com/discount/CHANGE-ME-d6234fd?ref=richard",
+    store: THE_BEARD_STRUGGLE_STORE,
+    storeSlug: "the-beard-struggle",
+    storeName: "The Beard Struggle",
+    uses_count: 820
+  }
+];
+
 export const SAFE_PERK_STORES: Store[] = [
   {
     id: 1,
@@ -519,6 +600,10 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   const desktronicAliases = ["desktronic", "desktronic-uk", "desktronic-pl", "desktronicuk", "desktronicpl", "desktronic-de", "desktronic-eu"];
   if (desktronicAliases.includes(norm)) {
     return { store: DESKTRONIC_STORE, coupons: DESKTRONIC_COUPONS };
+  }
+  const tbsAliases = ["the-beard-struggle", "thebeardstruggle", "beard-struggle", "the-beard-struggle-us", "beardstruggle"];
+  if (tbsAliases.includes(norm)) {
+    return { store: THE_BEARD_STRUGGLE_STORE, coupons: THE_BEARD_STRUGGLE_COUPONS };
   }
   const found = SAFE_PERK_STORES.find(s => s.slug.toLowerCase() === norm);
   if (found) {

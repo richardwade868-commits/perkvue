@@ -379,10 +379,10 @@ export const THE_BEARD_STRUGGLE_COUPONS: Coupon[] = [
   },
   {
     id: "tbs-card-2",
-    code: "RICHARD",
+    code: "CHANGE-ME-d6234fd",
     discount: "15% OFF",
-    title: "15% Off Sitewide with Partner Code: RICHARD",
-    description: "Apply code RICHARD or CHANGE-ME-d6234fd at checkout for an extra 15% off all beard balms, washes, and colognes.",
+    title: "15% Off Sitewide on All Beard Balms & Oils",
+    description: "Apply official verified coupon code CHANGE-ME-d6234fd at checkout for an extra 15% off beard washes, colognes, and accessories.",
     is_verified: true,
     is_auto_applied: false,
     expiry_date: "2026-12-31",

@@ -262,6 +262,87 @@ export const DEERRUN_COUPONS: Coupon[] = [
   }
 ];
 
+// ==========================================
+// DESKTRONIC OFFICIAL CAMPAIGN STORE (SECRET ONLY - NEVER ON HOMEPAGE)
+// ==========================================
+export const DESKTRONIC_STORE: Store = {
+  id: "desktronic",
+  name: "Desktronic",
+  slug: "desktronic",
+  logo: "/logos/desktronic.svg",
+  website: "https://www.xjcs5z7m.com/METHEWDIPPY/",
+  affiliate_url: "https://www.xjcs5z7m.com/METHEWDIPPY/",
+  category: "Ergonomic Standing Desks & Home Office",
+  description: "Official Desktronic verified vouchers and discounts. Award-winning European height-adjustable standing desks, ergonomic office chairs, and smart cable management solutions.",
+  rating: 4.96,
+  reviews_count: 2480,
+  benefit: "Exclusive Verified Voucher on Desktronic Standing Desks",
+  badge: "Featured Ergonomic Partner"
+};
+
+export const DESKTRONIC_COUPONS: Coupon[] = [
+  {
+    id: "desktronic-card-1",
+    code: "METHEWDIPPY",
+    discount: "EXCLUSIVE",
+    title: "Exclusive Desktronic Voucher Code: METHEWDIPPY",
+    description: "Verified discount code METHEWDIPPY for instant savings on Desktronic Home One, Pro, and Fly height-adjustable standing desks. Tested active today.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.xjcs5z7m.com/METHEWDIPPY/",
+    store: DESKTRONIC_STORE,
+    storeSlug: "desktronic",
+    storeName: "Desktronic",
+    uses_count: 1890
+  },
+  {
+    id: "desktronic-card-2",
+    code: "",
+    discount: "UP TO £150",
+    title: "Up to £150 / 600 zł Off Standing Desk Bundles",
+    description: "Direct price drop on electric dual-motor standing desks and ergonomic bundles. Automatically applied at checkout.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.xjcs5z7m.com/METHEWDIPPY/",
+    store: DESKTRONIC_STORE,
+    storeSlug: "desktronic",
+    storeName: "Desktronic",
+    uses_count: 1240
+  },
+  {
+    id: "desktronic-card-3",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free Tracked Delivery Across UK & Poland",
+    description: "Enjoy zero delivery fees on all standing desk frames, solid wood tabletops, and ergonomic accessories.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.xjcs5z7m.com/METHEWDIPPY/",
+    store: DESKTRONIC_STORE,
+    storeSlug: "desktronic",
+    storeName: "Desktronic",
+    uses_count: 980
+  },
+  {
+    id: "desktronic-card-4",
+    code: "",
+    discount: "5-YR GUARANTEE",
+    title: "Complimentary 5-Year Dual-Motor Warranty",
+    description: "All Desktronic desks include a hassle-free 5-year warranty on electric motors, control boxes, and frame construction.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.xjcs5z7m.com/METHEWDIPPY/",
+    store: DESKTRONIC_STORE,
+    storeSlug: "desktronic",
+    storeName: "Desktronic",
+    uses_count: 760
+  }
+];
+
 export const SAFE_PERK_STORES: Store[] = [
   {
     id: 1,
@@ -434,6 +515,10 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   const deerrunAliases = ["deerrun-us", "deerrun", "deerruntreadmill", "deer-run", "deerrun-fitness", "joyfit"];
   if (deerrunAliases.includes(norm)) {
     return { store: DEERRUN_STORE, coupons: DEERRUN_COUPONS };
+  }
+  const desktronicAliases = ["desktronic", "desktronic-uk", "desktronic-pl", "desktronicuk", "desktronicpl", "desktronic-de", "desktronic-eu"];
+  if (desktronicAliases.includes(norm)) {
+    return { store: DESKTRONIC_STORE, coupons: DESKTRONIC_COUPONS };
   }
   const found = SAFE_PERK_STORES.find(s => s.slug.toLowerCase() === norm);
   if (found) {

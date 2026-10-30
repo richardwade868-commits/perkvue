@@ -166,6 +166,102 @@ export const DC_HOUSE_COUPONS: Coupon[] = [
   }
 ];
 
+// ==========================================
+// DEERRUN OFFICIAL CAMPAIGN STORE (SECRET ONLY - NEVER ON HOMEPAGE)
+// ==========================================
+export const DEERRUN_STORE: Store = {
+  id: "deerrun",
+  name: "DeerRun",
+  slug: "deerrun-us",
+  logo: "/logos/deerrun.png",
+  website: "https://joyfitinc.pxf.io/0GoKdL",
+  affiliate_url: "https://joyfitinc.pxf.io/0GoKdL",
+  category: "Home Fitness & Smart Treadmills",
+  description: "Official DeerRun verified discount portal. Innovative under-desk walking pads, 2-in-1 compact folding treadmills, and PitPat virtual race treadmills.",
+  rating: 4.93,
+  reviews_count: 2190,
+  benefit: "10% Off Smart Walking Pads & Folding Treadmills",
+  badge: "Featured Fitness Partner"
+};
+
+export const DEERRUN_COUPONS: Coupon[] = [
+  {
+    id: "deerrun-card-1",
+    code: "HELLO10",
+    discount: "10% OFF",
+    title: "10% Off DeerRun Smart Treadmills & Walking Pads",
+    description: "Exclusive verified 10% discount on top-rated under-desk walking pads and portable running machines with code HELLO10.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://joyfitinc.pxf.io/0GoKdL",
+    store: DEERRUN_STORE,
+    storeSlug: "deerrun-us",
+    storeName: "DeerRun",
+    uses_count: 1420
+  },
+  {
+    id: "deerrun-card-2",
+    code: "ZEE12",
+    discount: "12% OFF",
+    title: "12% Off Heavy-Duty 2-in-1 Folding Treadmills",
+    description: "Save 12% on compact 2-in-1 folding running treadmills with whisper-quiet motor using coupon code ZEE12.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://joyfitinc.pxf.io/0GoKdL",
+    store: DEERRUN_STORE,
+    storeSlug: "deerrun-us",
+    storeName: "DeerRun",
+    uses_count: 980
+  },
+  {
+    id: "deerrun-card-3",
+    code: "PLDR20",
+    discount: "$20 OFF",
+    title: "$20 Off Orders Over $299 Sitewide",
+    description: "Get $20 instant checkout discount on eligible home workout and treadmill purchases over $299 with code PLDR20.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://joyfitinc.pxf.io/0GoKdL",
+    store: DEERRUN_STORE,
+    storeSlug: "deerrun-us",
+    storeName: "DeerRun",
+    uses_count: 730
+  },
+  {
+    id: "deerrun-card-4",
+    code: "",
+    discount: "UP TO $180",
+    title: "Up to $180 Off Flash Sale Treadmill Deals",
+    description: "Direct savings up to $180 off select smart connected under-desk treadmills. No coupon code required.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://joyfitinc.pxf.io/0GoKdL",
+    store: DEERRUN_STORE,
+    storeSlug: "deerrun-us",
+    storeName: "DeerRun",
+    uses_count: 510
+  },
+  {
+    id: "deerrun-card-5",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free Tracked US Doorstep Delivery & 1-Year Warranty",
+    description: "All DeerRun treadmills include fast free tracked doorstep delivery, 30-day money-back guarantee, and full 1-year warranty.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://joyfitinc.pxf.io/0GoKdL",
+    store: DEERRUN_STORE,
+    storeSlug: "deerrun-us",
+    storeName: "DeerRun",
+    uses_count: 880
+  }
+];
+
 export const SAFE_PERK_STORES: Store[] = [
   {
     id: 1,
@@ -334,6 +430,10 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   const dcHouseAliases = ["dc-house-us", "dc-house", "dchouse", "dchouse-us", "dc-house-power"];
   if (dcHouseAliases.includes(norm)) {
     return { store: DC_HOUSE_STORE, coupons: DC_HOUSE_COUPONS };
+  }
+  const deerrunAliases = ["deerrun-us", "deerrun", "deerruntreadmill", "deer-run", "deerrun-fitness", "joyfit"];
+  if (deerrunAliases.includes(norm)) {
+    return { store: DEERRUN_STORE, coupons: DEERRUN_COUPONS };
   }
   const found = SAFE_PERK_STORES.find(s => s.slug.toLowerCase() === norm);
   if (found) {

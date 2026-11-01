@@ -424,6 +424,87 @@ export const THE_BEARD_STRUGGLE_COUPONS: Coupon[] = [
   }
 ];
 
+// ==========================================
+// 6. WARMNEST CANDLE OFFICIAL CAMPAIGN STORE
+// ==========================================
+export const WARMNEST_STORE: Store = {
+  id: "warmnest-candle",
+  name: "Warmnest Candle",
+  slug: "warmnest-candle",
+  logo: "/logos/warmnest.png",
+  website: "https://warmnestcandle.com?bg_ref=50K8Mt8Mpa",
+  affiliate_url: "https://warmnestcandle.com?bg_ref=50K8Mt8Mpa",
+  category: "Luxury Home Decor & Botanical Scented Candles",
+  description: "Official Warmnest Candle verified discount portal. Handcrafted pearled candles, clean-burning cotton and wooden wicks, luxury botanical fragrances, and reusable designer vessels.",
+  rating: 4.96,
+  reviews_count: 2850,
+  benefit: "10% Off Handcrafted Pearled Candles & Home Scent Kits",
+  badge: "Featured Artisan Partner"
+};
+
+export const WARMNEST_COUPONS: Coupon[] = [
+  {
+    id: "warmnest-card-1",
+    code: "METHEW10",
+    discount: "10% OFF",
+    title: "10% Off Sitewide on All Pearled Candles & Scent Kits",
+    description: "Exclusive verified 10% discount on pearled candle buckets, refill packs, and botanical fragrances. Tested active today.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://warmnestcandle.com?bg_ref=50K8Mt8Mpa",
+    store: WARMNEST_STORE,
+    storeSlug: "warmnest-candle",
+    storeName: "Warmnest Candle",
+    uses_count: 1420
+  },
+  {
+    id: "warmnest-card-2",
+    code: "METHEW10",
+    discount: "10% OFF",
+    title: "10% Off Pearled Candle Buckets & Refill Starter Packs",
+    description: "Apply official coupon code METHEW10 at checkout to unlock 10% off custom candle starter kits and glass cylinders.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://warmnestcandle.com?bg_ref=50K8Mt8Mpa",
+    store: WARMNEST_STORE,
+    storeSlug: "warmnest-candle",
+    storeName: "Warmnest Candle",
+    uses_count: 980
+  },
+  {
+    id: "warmnest-card-3",
+    code: "",
+    discount: "UP TO 20%",
+    title: "Up to 20% Off Holiday Candle Bundles & Gift Vessels",
+    description: "Save up to 20% automatically on multi-pack pearled candle buckets and wooden luxury vessels.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://warmnestcandle.com?bg_ref=50K8Mt8Mpa",
+    store: WARMNEST_STORE,
+    storeSlug: "warmnest-candle",
+    storeName: "Warmnest Candle",
+    uses_count: 750
+  },
+  {
+    id: "warmnest-card-4",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free Tracked US & UK Delivery on Qualifying Orders",
+    description: "Enjoy 100% free doorstep delivery on all qualifying candle and fragrance orders. Applied automatically at checkout.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://warmnestcandle.com?bg_ref=50K8Mt8Mpa",
+    store: WARMNEST_STORE,
+    storeSlug: "warmnest-candle",
+    storeName: "Warmnest Candle",
+    uses_count: 610
+  }
+];
+
 export const SAFE_PERK_STORES: Store[] = [
   {
     id: 1,
@@ -604,6 +685,10 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   const tbsAliases = ["the-beard-struggle", "thebeardstruggle", "beard-struggle", "the-beard-struggle-us", "beardstruggle"];
   if (tbsAliases.includes(norm)) {
     return { store: THE_BEARD_STRUGGLE_STORE, coupons: THE_BEARD_STRUGGLE_COUPONS };
+  }
+  const warmnestAliases = ["warmnest-candle", "warmnest", "warmnestcandles", "warmnest-candles", "warmnestcandle"];
+  if (warmnestAliases.includes(norm)) {
+    return { store: WARMNEST_STORE, coupons: WARMNEST_COUPONS };
   }
   const found = SAFE_PERK_STORES.find(s => s.slug.toLowerCase() === norm);
   if (found) {

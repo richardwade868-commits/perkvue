@@ -4,7 +4,7 @@ export interface Store {
   slug: string;
   logo?: string;
   website: string;
-  affiliate_url: string;
+  affiliate_url?: string;
   description?: string;
   category?: string;
   rating?: number;

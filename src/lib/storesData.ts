@@ -505,6 +505,117 @@ export const WARMNEST_COUPONS: Coupon[] = [
   }
 ];
 
+// ==========================================
+// PLATED SKIN SCIENCE OFFICIAL CAMPAIGN STORE (SECRET ONLY - NEVER ON HOMEPAGE)
+// ==========================================
+export const PLATED_SKIN_STORE: Store = {
+  id: "plated-skin",
+  name: "Plated Skin Science",
+  slug: "plated-skin",
+  logo: "/logos/plated-skin.png",
+  website: "https://platedskinscience.com",
+  affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fplatedskinscience.com%2F",
+  category: "Exosome Skincare & Anti-Aging Serums",
+  description: "Official Plated Skin Science verified promo codes and discounts. Doctor-formulated exosome skincare powered by Renewosome™ technology to accelerate cellular renewal, reduce redness, and smooth deep wrinkles.",
+  rating: 4.96,
+  reviews_count: 2680,
+  benefit: "15% - 20% Off Clinically Proven Exosome Serums",
+  badge: "Featured Dermatologist Partner"
+};
+
+export const PLATED_SKIN_COUPONS: Coupon[] = [
+  {
+    id: "plated-card-1",
+    code: "WELCOME15",
+    discount: "15% OFF",
+    title: "15% Off Sitewide on Clinically Proven Exosome Serums",
+    description: "Exclusive verified 15% discount on all Plated Skin Science serums. Formulated with Renewosome™ cellular technology. Tested active today.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fplatedskinscience.com%2F",
+    store: PLATED_SKIN_STORE,
+    storeSlug: "plated-skin",
+    storeName: "Plated Skin Science",
+    uses_count: 1640
+  },
+  {
+    id: "plated-card-2",
+    code: "INTENSE20",
+    discount: "20% OFF",
+    title: "20% Off INTENSE Serum for Rapid Collagen Renewal",
+    description: "Get 20% off highest-concentration exosome INTENSE Serum with working verified coupon code INTENSE20 at checkout.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fplatedskinscience.com%2F",
+    store: PLATED_SKIN_STORE,
+    storeSlug: "plated-skin",
+    storeName: "Plated Skin Science",
+    uses_count: 1220
+  },
+  {
+    id: "plated-card-3",
+    code: "DAILY15",
+    discount: "15% OFF",
+    title: "15% Off DAILY Serum for Radiant Skin Barrier Defense",
+    description: "Save 15% on DAILY exosome serum designed to defend against environmental aging and barrier repair with code DAILY15.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fplatedskinscience.com%2F",
+    store: PLATED_SKIN_STORE,
+    storeSlug: "plated-skin",
+    storeName: "Plated Skin Science",
+    uses_count: 980
+  },
+  {
+    id: "plated-card-4",
+    code: "HAIR20",
+    discount: "20% OFF",
+    title: "20% Off CALM Serum & Scalp Hair Density Recovery",
+    description: "Use active voucher code HAIR20 to save 20% on scalp revitalization and post-procedure redness recovery serums.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fplatedskinscience.com%2F",
+    store: PLATED_SKIN_STORE,
+    storeSlug: "plated-skin",
+    storeName: "Plated Skin Science",
+    uses_count: 810
+  },
+  {
+    id: "plated-card-5",
+    code: "",
+    discount: "UP TO $65",
+    title: "Up to $65 Off Intense & Daily Skincare Regimen Bundles",
+    description: "Save up to $65 automatically when purchasing the complete doctor-formulated duo or trio cellular serum sets.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fplatedskinscience.com%2F",
+    store: PLATED_SKIN_STORE,
+    storeSlug: "plated-skin",
+    storeName: "Plated Skin Science",
+    uses_count: 670
+  },
+  {
+    id: "plated-card-6",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free Tracked US Doorstep Shipping on All Orders",
+    description: "Enjoy 100% free tracked delivery across the United States. Applied automatically at checkout on all orders.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fplatedskinscience.com%2F",
+    store: PLATED_SKIN_STORE,
+    storeSlug: "plated-skin",
+    storeName: "Plated Skin Science",
+    uses_count: 590
+  }
+];
+
 export const SAFE_PERK_STORES: Store[] = [
   {
     id: 1,
@@ -689,6 +800,10 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   const warmnestAliases = ["warmnest-candle", "warmnest", "warmnestcandles", "warmnest-candles", "warmnestcandle"];
   if (warmnestAliases.includes(norm)) {
     return { store: WARMNEST_STORE, coupons: WARMNEST_COUPONS };
+  }
+  const platedAliases = ["plated-skin", "plated-skin-science", "plated", "buypated", "platedskinscience", "platedskin", "plated-skin-us"];
+  if (platedAliases.includes(norm)) {
+    return { store: PLATED_SKIN_STORE, coupons: PLATED_SKIN_COUPONS };
   }
   const found = SAFE_PERK_STORES.find(s => s.slug.toLowerCase() === norm);
   if (found) {

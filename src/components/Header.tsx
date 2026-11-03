@@ -17,6 +17,27 @@ export default function Header() {
       return;
     }
 
+    if (query.includes("plated")) {
+      window.location.href = `/deals/plated-skin`;
+      return;
+    }
+    if (query.includes("im8")) {
+      window.location.href = `/deals/im8-health-us`;
+      return;
+    }
+    if (query.includes("beard")) {
+      window.location.href = `/deals/the-beard-struggle`;
+      return;
+    }
+    if (query.includes("candle") || query.includes("warmnest")) {
+      window.location.href = `/deals/warmnest-candle`;
+      return;
+    }
+    if (query.includes("desk")) {
+      window.location.href = `/deals/desktronic`;
+      return;
+    }
+
     window.location.href = `/#directory`;
   };
 

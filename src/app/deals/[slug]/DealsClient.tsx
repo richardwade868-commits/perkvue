@@ -5,6 +5,7 @@ import styles from "./DealsClient.module.css";
 import CouponCard from "../../../components/CouponCard";
 import CopyModal from "../../../components/CopyModal";
 import { Store, Coupon } from "../../../lib/types";
+import { getBrandSeoData } from "../../../lib/brandSeoData";
 
 interface DealsClientProps {
   store: Store;
@@ -39,28 +40,77 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
   }, [coupons]);
 
   const focusedCoupons = coupons.slice(0, 4);
+  const brandSeo = getBrandSeoData(store.slug);
+
+  const faqList = brandSeo?.faqs && brandSeo.faqs.length > 0
+    ? brandSeo.faqs
+    : [
+        {
+          question: `Are these ${store.name} member perks and promo codes verified?`,
+          answer: `Yes. Every ${store.name} promotional code and direct privilege on PerkVue is audited inside live shopping carts for active checkout savings.`,
+        },
+        {
+          question: `How do I claim my ${store.name} discount code?`,
+          answer: `Click "Claim Code" on any verified ${store.name} privilege card to copy the access code automatically and open the official ${store.name} store.`,
+        },
+      ];
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
+    mainEntity: faqList.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.answer,
+      },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
       {
-        "@type": "Question",
-        name: `Are these ${store.name} member perks and promo codes verified?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Yes. Every ${store.name} promotional code and direct privilege on PerkVue is audited inside live shopping carts for active checkout savings.`,
-        },
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://perkvue.com",
       },
       {
-        "@type": "Question",
-        name: `How do I claim my ${store.name} discount code?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Click "Claim Code" on any verified ${store.name} privilege card to copy the access code automatically and open the official ${store.name} store.`,
-        },
+        "@type": "ListItem",
+        position: 2,
+        name: "Privileges",
+        item: "https://perkvue.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: store.name,
+        item: `https://perkvue.com/deals/${store.slug}`,
       },
     ],
+  };
+
+  const ratingValue = brandSeo?.ratingValue || 4.94;
+  const reviewCount = brandSeo?.reviewCount || 1920;
+
+  const storeSchema = {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    name: store.name,
+    url: store.website,
+    image: store.logo ? `https://perkvue.com${store.logo}` : `https://perkvue.com/logos/${store.slug}.png`,
+    description: brandSeo?.overview?.[0] || store.description || `Verified privileges and member discounts for ${store.name}.`,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: ratingValue.toString(),
+      bestRating: "5",
+      worstRating: "1",
+      ratingCount: reviewCount.toString(),
+      reviewCount: reviewCount.toString(),
+    },
   };
 
   return (
@@ -68,6 +118,14 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(storeSchema) }}
       />
 
       {/* Executive Back Navigation */}
@@ -107,7 +165,7 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
             <div style={{ fontSize: "0.72rem", fontWeight: 800, color: "#0284c7", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "4px" }}>
               ✦ PERKVUE VERIFIED PARTNER PRIVILEGE
             </div>
-            <h1 className={styles.storeTitle}>{store.name} Verified Member Perks</h1>
+            <h1 className={styles.storeTitle}>{brandSeo?.h1 || `${store.name} Verified Member Perks`}</h1>
             <p className={styles.storeSubtitle}>
               {store.benefit
                 ? `Direct verified ${store.benefit}. Audited active on ${todayLabel}.`
@@ -142,7 +200,7 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
         <span className={styles.secureBadge}>🔒 Direct Checkout Verified</span>
       </section>
 
-      {/* Below-the-Fold Executive Redemption Guide */}
+      {/* Below-the-Fold Executive Redemption Guide & Deep SEO Authority */}
       <section
         style={{
           marginTop: "28px",
@@ -151,6 +209,29 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
           gap: "20px",
         }}
       >
+        {/* Brand Overview & Editorial Insight */}
+        {brandSeo?.overview && brandSeo.overview.length > 0 && (
+          <div
+            style={{
+              background: "#ffffff",
+              border: "1px solid #e2e8f0",
+              borderRadius: "18px",
+              padding: "24px 28px",
+              boxShadow: "0 4px 16px rgba(15, 23, 42, 0.04)",
+            }}
+          >
+            <h2 style={{ fontSize: "1.12rem", fontWeight: 800, color: "#0f172a", margin: "0 0 14px" }}>
+              About {store.name} &amp; Official Privilege Overview
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px", color: "#334155", lineHeight: 1.65, fontSize: "0.88rem" }}>
+              {brandSeo.overview.map((para, pIdx) => (
+                <p key={pIdx} style={{ margin: 0 }}>{para}</p>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* How to Redeem Steps */}
         <div
           style={{
             background: "#ffffff",
@@ -164,27 +245,83 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
             How to Redeem Your {store.name} Member Privilege
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px" }}>
-            <div style={{ background: "#f8fafc", padding: "16px", borderRadius: "12px", border: "1px solid #f1f5f9" }}>
-              <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "#0284c7", marginBottom: "4px" }}>STEP 01</div>
-              <div style={{ fontSize: "0.92rem", fontWeight: 800, color: "#0f172a", marginBottom: "4px" }}>Claim Credentials</div>
-              <p style={{ fontSize: "0.82rem", color: "#64748b", margin: 0, lineHeight: 1.5 }}>
-                Select any verified {store.name} privilege card above. Your partner promo code is copied automatically.
-              </p>
-            </div>
-            <div style={{ background: "#f8fafc", padding: "16px", borderRadius: "12px", border: "1px solid #f1f5f9" }}>
-              <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "#0284c7", marginBottom: "4px" }}>STEP 02</div>
-              <div style={{ fontSize: "0.92rem", fontWeight: 800, color: "#0f172a", marginBottom: "4px" }}>Direct Store Access</div>
-              <p style={{ fontSize: "0.82rem", color: "#64748b", margin: 0, lineHeight: 1.5 }}>
-                Proceed to the official {store.name} portal in the active window and select your qualifying items.
-              </p>
-            </div>
-            <div style={{ background: "#f8fafc", padding: "16px", borderRadius: "12px", border: "1px solid #f1f5f9" }}>
-              <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "#0284c7", marginBottom: "4px" }}>STEP 03</div>
-              <div style={{ fontSize: "0.92rem", fontWeight: 800, color: "#0f172a", marginBottom: "4px" }}>Validate at Checkout</div>
-              <p style={{ fontSize: "0.82rem", color: "#64748b", margin: 0, lineHeight: 1.5 }}>
-                Paste your copied privilege code in the promo field at checkout to apply instant verified savings.
-              </p>
-            </div>
+            {(brandSeo?.howToApply || [
+              {
+                step: 1,
+                title: "Claim Credentials",
+                description: `Select any verified ${store.name} privilege card above. Your partner promo code is copied automatically.`,
+              },
+              {
+                step: 2,
+                title: "Direct Store Access",
+                description: `Proceed to the official ${store.name} portal in the active window and select your qualifying items.`,
+              },
+              {
+                step: 3,
+                title: "Validate at Checkout",
+                description: `Paste your copied privilege code in the promo field at checkout to apply instant verified savings.`,
+              },
+            ]).map((s) => (
+              <div key={s.step} style={{ background: "#f8fafc", padding: "16px", borderRadius: "12px", border: "1px solid #f1f5f9" }}>
+                <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "#0284c7", marginBottom: "4px" }}>STEP 0{s.step}</div>
+                <div style={{ fontSize: "0.92rem", fontWeight: 800, color: "#0f172a", marginBottom: "4px" }}>{s.title}</div>
+                <p style={{ fontSize: "0.82rem", color: "#64748b", margin: 0, lineHeight: 1.5 }}>
+                  {s.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Brand-Specific Insider Savings Tips */}
+        {brandSeo?.savingsTips && brandSeo.savingsTips.length > 0 && (
+          <div
+            style={{
+              background: "linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%)",
+              border: "1px solid #bbf7d0",
+              borderRadius: "18px",
+              padding: "24px 28px",
+              boxShadow: "0 4px 16px rgba(15, 23, 42, 0.04)",
+            }}
+          >
+            <h2 style={{ fontSize: "1.12rem", fontWeight: 800, color: "#065f46", margin: "0 0 14px" }}>
+              💡 {store.name} Insider Savings Tips &amp; Discount Hacks
+            </h2>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
+              {brandSeo.savingsTips.map((tip, tIdx) => (
+                <li key={tIdx} style={{ display: "flex", alignItems: "flex-start", gap: "10px", fontSize: "0.88rem", color: "#166534", lineHeight: 1.55 }}>
+                  <span style={{ color: "#059669", fontWeight: 800 }}>✓</span>
+                  <span>{tip}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Brand FAQ Cards */}
+        <div
+          style={{
+            background: "#ffffff",
+            border: "1px solid #e2e8f0",
+            borderRadius: "18px",
+            padding: "24px 28px",
+            boxShadow: "0 4px 16px rgba(15, 23, 42, 0.04)",
+          }}
+        >
+          <h2 style={{ fontSize: "1.12rem", fontWeight: 800, color: "#0f172a", margin: "0 0 16px" }}>
+            {store.name} Member Perks &amp; Checkout FAQ
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
+            {faqList.map((faq, fIdx) => (
+              <div key={fIdx} style={{ background: "#f8fafc", padding: "16px 18px", borderRadius: "12px", border: "1px solid #f1f5f9" }}>
+                <h3 style={{ fontSize: "0.9rem", fontWeight: 800, color: "#0f172a", margin: "0 0 6px" }}>
+                  {faq.question}
+                </h3>
+                <p style={{ fontSize: "0.82rem", color: "#64748b", margin: 0, lineHeight: 1.5 }}>
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -199,7 +336,7 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
             lineHeight: 1.6,
           }}
         >
-          <strong>Editorial &amp; Partner Disclosure:</strong> PerkVue independently audits and curates direct merchant privileges for {store.name} (last verified {todayLabel}). When you redeem an offer through our links, we may earn an affiliate commission from the merchant at zero additional cost to you.
+          <strong>Editorial &amp; Partner Disclosure:</strong> PerkVue independently audits and curates direct merchant privileges for {store.name} (last verified {todayLabel}). When you redeem an offer through our links, we may earn an affiliate commission from the merchant at zero additional cost to you. All trademarks and registered names belong to their respective brand owners.
         </div>
       </section>
 

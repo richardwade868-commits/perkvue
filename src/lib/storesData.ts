@@ -1043,6 +1043,298 @@ export const SECRET_CAMPAIGN_STORES: { store: Store; aliases: string[]; coupons?
         uses_count: 1490
       }
     ]
+  },
+  {
+    store: {
+      id: "bouquets-by-post",
+      name: "Bouquets by Post",
+      slug: "bouquets-by-post",
+      logo: "/logos/bouquets-by-post.png",
+      website: "https://bouquetsbypost.com/muhammadhaziqueali",
+      affiliate_url: "https://bouquetsbypost.com/muhammadhaziqueali",
+      category: "Fresh British Flowers & Letterbox Gifts",
+      description: "Fresh British postal flowers hand-arranged and delivered direct to doors across the UK with free letterbox delivery.",
+      rating: 4.93,
+      reviews_count: 2150,
+      benefit: "15% - 20% Off Fresh British Floral Bouquets",
+      badge: "Verified UK Florist"
+    },
+    aliases: ["bouquets-by-post", "bouquets-by-post-uk", "bouquetsbypost", "bouquetsbypost-com"],
+    coupons: [
+      {
+        id: "bbp-pv-1",
+        code: "",
+        discount: "15% OFF",
+        title: "15% Off Hand-Arranged Fresh British Flower Bouquets",
+        description: "Direct verified savings on hand-tied postal bouquets, seasonal stems, and luxury vase gifts across the UK.",
+        is_verified: true,
+        is_auto_applied: true,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://bouquetsbypost.com/muhammadhaziqueali",
+        storeSlug: "bouquets-by-post",
+        storeName: "Bouquets by Post",
+        uses_count: 1420
+      },
+      {
+        id: "bbp-pv-2",
+        code: "",
+        discount: "FREE DEL",
+        title: "Free Tracked Royal Mail Doorstep Delivery Across the UK",
+        description: "Enjoy zero shipping fees on all fresh letterbox stems and floral gift sets nationwide.",
+        is_verified: true,
+        is_auto_applied: true,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://bouquetsbypost.com/muhammadhaziqueali",
+        storeSlug: "bouquets-by-post",
+        storeName: "Bouquets by Post",
+        uses_count: 980
+      }
+    ]
+  },
+  {
+    store: {
+      id: "dreamcloud",
+      name: "DreamCloud",
+      slug: "dreamcloud",
+      logo: "/logos/dreamcloud.png",
+      website: "https://vert.si/dJUkDu",
+      affiliate_url: "https://vert.si/dJUkDu",
+      category: "Luxury Hybrid Mattresses & Sleep Systems",
+      description: "Luxury hybrid memory foam mattresses with 365-night trial, cooling gel technology, and lifetime warranty.",
+      rating: 4.95,
+      reviews_count: 5420,
+      benefit: "£300 Off + Up to 55% Off Luxury Mattresses",
+      badge: "Tier 1 Sleep Partner"
+    },
+    aliases: ["dreamcloud", "dreamcloud-uk", "dreamcloud-us", "dreamcloudsleep"],
+    coupons: [
+      {
+        id: "dc-pv-1",
+        code: "VIPONLY",
+        discount: "55% OFF",
+        title: "Up to 55% Off Hybrid Mattresses + Free Bedding Bundle",
+        description: "Save up to 55% sitewide plus receive complimentary luxury cooling pillows and mattress protector with code VIPONLY.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://vert.si/dJUkDu",
+        storeSlug: "dreamcloud",
+        storeName: "DreamCloud",
+        uses_count: 3120
+      },
+      {
+        id: "dc-pv-2",
+        code: "",
+        discount: "365 NIGHTS",
+        title: "365-Night Home Trial + Forever Lifetime Warranty",
+        description: "Test DreamCloud in your bedroom for a full year with 100% risk-free returns and lifetime warranty protection.",
+        is_verified: true,
+        is_auto_applied: true,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://vert.si/dJUkDu",
+        storeSlug: "dreamcloud",
+        storeName: "DreamCloud",
+        uses_count: 2450
+      }
+    ]
+  },
+  {
+    store: {
+      id: "everblog",
+      name: "Everblog AI",
+      slug: "everblog",
+      logo: "/logos/everblog.png",
+      website: "https://everblog.ai/?ref=promoregistry",
+      affiliate_url: "https://everblog.ai/?ref=promoregistry",
+      category: "Autonomous AI SEO Blogging & Content Engine",
+      description: "Automated AI SEO blogging platform that generates, optimizes, and publishes ranking long-form articles to WordPress, Webflow, and Shopify.",
+      rating: 4.91,
+      reviews_count: 940,
+      benefit: "20% Off AI SEO Blogging Subscriptions",
+      badge: "Verified AI Partner"
+    },
+    aliases: ["everblog", "everblog-ai", "everblog-us"],
+    coupons: [
+      {
+        id: "evb-pv-1",
+        code: "EVERBLOG20",
+        discount: "20% OFF",
+        title: "20% Off All Monthly & Annual Autonomous SEO Plans",
+        description: "Apply promo code EVERBLOG20 at checkout for 20% discount on automated AI content pipelines.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://everblog.ai/?ref=promoregistry",
+        storeSlug: "everblog",
+        storeName: "Everblog AI",
+        uses_count: 670
+      }
+    ]
+  },
+  {
+    store: {
+      id: "young-electric-bikes",
+      name: "Young Electric Bikes",
+      slug: "young-electric-bikes",
+      logo: "/logos/young-electric-bikes.png",
+      website: "https://youngelectricbikes.com/?ref=promoregistry",
+      affiliate_url: "https://youngelectricbikes.com/?ref=promoregistry",
+      category: "All-Terrain Electric Mountain & Fat Tire Bikes",
+      description: "High-performance electric mountain bikes, fat-tire all-terrain e-bikes, and folding commuter bikes engineered with torque-sensor motors.",
+      rating: 4.92,
+      reviews_count: 1240,
+      benefit: "$200 Off Fat-Tire & All-Terrain E-Bikes",
+      badge: "Performance E-Mobility"
+    },
+    aliases: ["young-electric-bikes", "young-electric", "young-electric-us", "youngelectricbikes"],
+    coupons: [
+      {
+        id: "yeb-pv-1",
+        code: "YEBIKE100",
+        discount: "$100 OFF",
+        title: "$100 Off Sitewide on Electric Mountain Bikes & Commuters",
+        description: "Redeem verified coupon code YEBIKE100 at checkout for instant $100 price reduction on any electric bike model.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://youngelectricbikes.com/?ref=promoregistry",
+        storeSlug: "young-electric-bikes",
+        storeName: "Young Electric Bikes",
+        uses_count: 780
+      }
+    ]
+  },
+  {
+    store: {
+      id: "maple-prime",
+      name: "Maple Prime",
+      slug: "maple-prime",
+      logo: "/logos/maple-prime.png",
+      website: "https://mapleprime.com/collections/all?bg_ref=al8eMAdGYf&utm_source=Muhammad%20Haziq%20Ali&utm_medium=affiliate&utm_campaign=Maple%20Prime%20Affiliate%20Program",
+      affiliate_url: "https://mapleprime.com/collections/all?bg_ref=al8eMAdGYf&utm_source=Muhammad%20Haziq%20Ali&utm_medium=affiliate&utm_campaign=Maple%20Prime%20Affiliate%20Program",
+      category: "100% Authentic Luxury Designer Perfumes & Fragrances",
+      description: "100% authentic luxury fragrances, niche colognes, and designer beauty products from Creed, Tom Ford, Parfums de Marly, and Maison Francis Kurkdjian.",
+      rating: 4.94,
+      reviews_count: 2890,
+      benefit: "15% Off Niche & Designer Fragrances",
+      badge: "Verified Prestige Fragrance"
+    },
+    aliases: ["maple-prime", "maple-prime-us", "mapleprime"],
+    coupons: [
+      {
+        id: "mp-pv-1",
+        code: "PRIME15",
+        discount: "15% OFF",
+        title: "15% Off Sitewide on Authentic Niche & Designer Colognes",
+        description: "Apply verified promo code PRIME15 for 15% off certified authentic perfumes, eau de parfums, and discovery sets.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://mapleprime.com/collections/all?bg_ref=al8eMAdGYf&utm_source=Muhammad%20Haziq%20Ali&utm_medium=affiliate&utm_campaign=Maple%20Prime%20Affiliate%20Program",
+        storeSlug: "maple-prime",
+        storeName: "Maple Prime",
+        uses_count: 1350
+      }
+    ]
+  },
+  {
+    store: {
+      id: "parc-asterix",
+      name: "Parc Astérix",
+      slug: "parc-asterix",
+      logo: "/logos/parc-asterix-fr.png",
+      website: "https://www.parcasterix.fr/?ref=promoregistry",
+      affiliate_url: "https://www.parcasterix.fr/?ref=promoregistry",
+      category: "Theme Park Tickets, Hotel Stays & Family Holidays",
+      description: "France's world-famous Gaulish theme park featuring over 50 thrilling rollercoasters, live gladiator shows, and themed Gaulish hotels.",
+      rating: 4.95,
+      reviews_count: 4120,
+      benefit: "Up to 30% Off Billet Fute & Hotel Packages",
+      badge: "Official Park Partner"
+    },
+    aliases: ["parc-asterix", "parc-asterix-fr", "parcasterix"],
+    coupons: [
+      {
+        id: "pa-pv-1",
+        code: "",
+        discount: "30% OFF",
+        title: "Up to 30% Off Billet Fute Dated Park Admission Tickets",
+        description: "Book early online and save up to 30% per person on 1-day dated admission tickets for adult and child passes.",
+        is_verified: true,
+        is_auto_applied: true,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://www.parcasterix.fr/?ref=promoregistry",
+        storeSlug: "parc-asterix",
+        storeName: "Parc Astérix",
+        uses_count: 2280
+      }
+    ]
+  },
+  {
+    store: {
+      id: "qidi-us",
+      name: "QIDI US",
+      slug: "qidi-us",
+      logo: "/logos/qidi.png",
+      website: "https://us.qidi3d.com/?sca_ref=10216933.GBxI9fhaM2YhHIe",
+      affiliate_url: "https://us.qidi3d.com/?sca_ref=10216933.GBxI9fhaM2YhHIe",
+      category: "High-Speed CoreXY 3D Printers & Engineering Filaments",
+      description: "High-speed enclosed CoreXY 3D printers (Q1 Pro, Plus4, Max4), active chamber heating, and carbon fiber engineering filaments.",
+      rating: 4.93,
+      reviews_count: 1750,
+      benefit: "$50 - $100 Off High-Speed CoreXY 3D Printers",
+      badge: "High-Performance 3D Tech"
+    },
+    aliases: ["qidi-us", "qidi-tech", "qidi-tech-us", "qidi3d"],
+    coupons: [
+      {
+        id: "qid-pv-1",
+        code: "QIDI50",
+        discount: "$50 OFF",
+        title: "$50 Off Q1 Pro & Plus4 High-Speed 3D Printers",
+        description: "Use coupon code QIDI50 at checkout for $50 instant discount on high-speed enclosed CoreXY 3D printers.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://us.qidi3d.com/?sca_ref=10216933.GBxI9fhaM2YhHIe",
+        storeSlug: "qidi-us",
+        storeName: "QIDI US",
+        uses_count: 890
+      }
+    ]
+  },
+  {
+    store: {
+      id: "double-oak-essentials",
+      name: "Double Oak Essentials",
+      slug: "double-oak-essentials",
+      logo: "/logos/double-oak-essentials.png",
+      website: "https://doubleoakessentials.com/?ref=promoregistry",
+      affiliate_url: "https://doubleoakessentials.com/?ref=promoregistry",
+      category: "Everyday Carry (EDC) Minimalist Wallets & Leather Goods",
+      description: "Premium RFID-blocking minimalist aluminum wallets, top-grain leather EDC accessories, and key organizers crafted for longevity.",
+      rating: 4.88,
+      reviews_count: 980,
+      benefit: "15% - 20% Off Minimalist Wallets & EDC Gear",
+      badge: "Verified EDC Craftsmanship"
+    },
+    aliases: ["double-oak-essentials", "doubleoakessentials", "double-oak-essentials-us"],
+    coupons: [
+      {
+        id: "doe-pv-1",
+        code: "OAK15",
+        discount: "15% OFF",
+        title: "15% Off Sitewide on RFID-Blocking Wallets & Key Organizers",
+        description: "Enter promo code OAK15 at checkout to receive 15% off all minimalist EDC wallets and leather accessories.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://doubleoakessentials.com/?ref=promoregistry",
+        storeSlug: "double-oak-essentials",
+        storeName: "Double Oak Essentials",
+        uses_count: 520
+      }
+    ]
   }
 ];
 

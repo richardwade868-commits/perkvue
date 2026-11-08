@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import DealsClient from "./DealsClient";
 import { getStoreBySlug, IM8_STORE } from "../../../lib/storesData";
+import { getBrandSeoData } from "../../../lib/brandSeoData";
 
 // Pure static generation - 0% Vercel ISR Serverless invocations
 export const dynamic = "force-static";
@@ -56,7 +57,34 @@ export async function generateStaticParams() {
     { slug: "enigwatch" },
     { slug: "uperfect" },
     { slug: "fosi-audio" },
-    { slug: "fosiaudio" }
+    { slug: "fosiaudio" },
+    { slug: "bouquets-by-post" },
+    { slug: "bouquets-by-post-uk" },
+    { slug: "bouquetsbypost" },
+    { slug: "dreamcloud" },
+    { slug: "dreamcloud-uk" },
+    { slug: "dreamcloud-us" },
+    { slug: "dreamcloudsleep" },
+    { slug: "everblog" },
+    { slug: "everblog-ai" },
+    { slug: "everblog-us" },
+    { slug: "young-electric-bikes" },
+    { slug: "young-electric" },
+    { slug: "young-electric-us" },
+    { slug: "youngelectricbikes" },
+    { slug: "maple-prime" },
+    { slug: "maple-prime-us" },
+    { slug: "mapleprime" },
+    { slug: "parc-asterix" },
+    { slug: "parc-asterix-fr" },
+    { slug: "parcasterix" },
+    { slug: "qidi-us" },
+    { slug: "qidi-tech" },
+    { slug: "qidi-tech-us" },
+    { slug: "qidi3d" },
+    { slug: "double-oak-essentials" },
+    { slug: "doubleoakessentials" },
+    { slug: "double-oak-essentials-us" }
   ];
 }
 
@@ -70,21 +98,25 @@ export async function generateMetadata({ params }: DealsPageProps): Promise<Meta
   const { slug } = await params;
   const now = new Date();
   const monthYear = now.toLocaleString("en-US", { month: "short", year: "numeric" });
+  const brandSeo = getBrandSeoData(slug);
   const data = getStoreBySlug(slug);
   const store = data ? data.store : IM8_STORE;
   const topDiscount = data?.coupons?.[0]?.discount || "20% Off";
-  const seoTitle = `${topDiscount} ${store.name} Discount Codes & Verified Promo Codes (${monthYear}) | PerkVue`;
-  const seoDesc = `Working ${store.name} discount codes, coupon codes, and member privileges verified for ${monthYear}. Claim up to ${topDiscount} + free shipping at ${store.name}.`;
+  const seoTitle = brandSeo?.metaTitle || `${topDiscount} ${store.name} Discount Codes & Verified Promo Codes (${monthYear}) | PerkVue`;
+  const seoDesc = brandSeo?.metaDescription || `Working ${store.name} discount codes, coupon codes, and member privileges verified for ${monthYear}. Claim up to ${topDiscount} + free shipping at ${store.name}.`;
+  const seoKeywords = brandSeo?.keywords && brandSeo.keywords.length > 0
+    ? brandSeo.keywords
+    : [
+        `${store.name.toLowerCase()} discount code`,
+        `${store.name.toLowerCase()} coupon code`,
+        `${store.name.toLowerCase()} promo code`,
+        `${store.name.toLowerCase()} coupons ${now.getFullYear()}`,
+      ];
 
   return {
     title: seoTitle,
     description: seoDesc,
-    keywords: [
-      `${store.name.toLowerCase()} discount code`,
-      `${store.name.toLowerCase()} coupon code`,
-      `${store.name.toLowerCase()} promo code`,
-      `${store.name.toLowerCase()} coupons ${now.getFullYear()}`,
-    ],
+    keywords: seoKeywords,
     robots: {
       index: true,
       follow: true,

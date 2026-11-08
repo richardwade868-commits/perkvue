@@ -40,8 +40,36 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
 
   const focusedCoupons = coupons.slice(0, 4);
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `Are these ${store.name} member perks and promo codes verified?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Yes. Every ${store.name} promotional code and direct privilege on PerkVue is audited inside live shopping carts for active checkout savings.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `How do I claim my ${store.name} discount code?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Click "Claim Code" on any verified ${store.name} privilege card to copy the access code automatically and open the official ${store.name} store.`,
+        },
+      },
+    ],
+  };
+
   return (
     <div className={styles.pageContainer}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Executive Back Navigation */}
       <div style={{ marginBottom: "16px" }}>
         <a
@@ -76,8 +104,8 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
             <div className={styles.fallbackLogo}>{store.name.charAt(0)}</div>
           )}
           <div>
-            <div style={{ fontSize: "0.72rem", fontWeight: 800, color: "#b45309", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "4px" }}>
-              ✦ PERKVUE EXECUTIVE PARTNER PRIVILEGE
+            <div style={{ fontSize: "0.72rem", fontWeight: 800, color: "#0284c7", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "4px" }}>
+              ✦ PERKVUE VERIFIED PARTNER PRIVILEGE
             </div>
             <h1 className={styles.storeTitle}>{store.name} Verified Member Perks</h1>
             <p className={styles.storeSubtitle}>
@@ -114,7 +142,7 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
         <span className={styles.secureBadge}>🔒 Direct Checkout Verified</span>
       </section>
 
-      {/* Below-the-Fold Executive Redemption Guide & Google Ads QS 10/10 Transparency Block */}
+      {/* Below-the-Fold Executive Redemption Guide */}
       <section
         style={{
           marginTop: "28px",
@@ -175,7 +203,7 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
         </div>
       </section>
 
-      {/* Copy Modal */}
+      {/* VIP Digital Pass Modal */}
       {activeCoupon && (
         <CopyModal
           coupon={activeCoupon}

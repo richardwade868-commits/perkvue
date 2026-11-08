@@ -824,3 +824,39 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   }
   return null;
 }
+
+export const SECRET_CAMPAIGN_STORES: { store: Store; aliases: string[] }[] = [
+  { store: IM8_STORE, aliases: ["im8-health-us", "im8", "im8health", "im8-health", "im8health-us"] },
+  { store: DC_HOUSE_STORE, aliases: ["dc-house-us", "dc-house", "dchouse", "dchouse-us", "dc-house-power"] },
+  { store: DEERRUN_STORE, aliases: ["deerrun-us", "deerrun", "deerruntreadmill", "deer-run", "deerrun-fitness", "joyfit"] },
+  { store: DESKTRONIC_STORE, aliases: ["desktronic", "desktronic-uk", "desktronic-pl", "desktronicuk", "desktronicpl", "desktronic-de", "desktronic-eu"] },
+  { store: THE_BEARD_STRUGGLE_STORE, aliases: ["the-beard-struggle", "thebeardstruggle", "beard-struggle", "the-beard-struggle-us", "beardstruggle"] },
+  { store: WARMNEST_STORE, aliases: ["warmnest-candle", "warmnest", "warmnestcandles", "warmnest-candles", "warmnestcandle"] },
+  { store: PLATED_SKIN_STORE, aliases: ["plated-skin", "plated-skin-science", "plated", "buypated", "platedskinscience", "platedskin", "plated-skin-us"] },
+];
+
+export function isSecretPerkKeyword(rawQuery: string): boolean {
+  const clean = rawQuery.toLowerCase().trim().replace(/[^a-z0-9]/g, "");
+  if (clean.length < 2) return false;
+  return SECRET_CAMPAIGN_STORES.some(({ store, aliases }) => {
+    const cleanName = store.name.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const cleanSlug = store.slug.toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (cleanName.includes(clean) || cleanSlug.includes(clean)) return true;
+    return aliases.some((a) => a.toLowerCase().replace(/[^a-z0-9]/g, "").includes(clean));
+  });
+}
+
+export function searchSecretPerkStores(secretKey: string): Store[] {
+  const clean = secretKey.toLowerCase().trim().replace(/[^a-z0-9]/g, "");
+  if (!clean) return [];
+  const results: Store[] = [];
+  SECRET_CAMPAIGN_STORES.forEach(({ store, aliases }) => {
+    const cleanName = store.name.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const cleanSlug = store.slug.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const aliasMatch = aliases.some((a) => a.toLowerCase().replace(/[^a-z0-9]/g, "").includes(clean));
+    if (cleanName.includes(clean) || cleanSlug.includes(clean) || aliasMatch) {
+      results.push(store);
+    }
+  });
+  return results;
+}

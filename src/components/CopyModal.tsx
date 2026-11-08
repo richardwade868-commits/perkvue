@@ -24,14 +24,11 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
   const targetUrl = coupon.affiliate_url || store.affiliate_url || store.website;
   const isDirectDeal = !coupon.code;
 
-  // STRICT REQUIREMENT: Only closes when user explicitly clicks the cross (✕) or back button
   const handleModalClose = () => {
     if (typeof window !== "undefined") {
       try {
         window.history.replaceState({}, "", window.location.pathname);
-      } catch {
-        // ignore
-      }
+      } catch {}
     }
     onClose();
   };
@@ -51,9 +48,7 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
           textArea.select();
           document.execCommand("copy");
           document.body.removeChild(textArea);
-        } catch {
-          // ignore
-        }
+        } catch {}
       }
       if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(coupon.code).catch(() => {});
@@ -71,105 +66,105 @@ export default function CopyModal({ coupon, store, onClose }: CopyModalProps) {
   };
 
   const modalContent = (
-    // Note: No onClick on modalOverlay — clicking outside does NOT dismiss the modal!
     <div className={styles.modalOverlay}>
-      <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
-        {/* Only clicking this cross (✕) button closes the modal! */}
-        <button
-          className={styles.closeBtn}
-          onClick={handleModalClose}
-          aria-label="Close modal"
-          type="button"
-        >
-          ✕
-        </button>
-
-        {/* Prominent Centered Brand Logo */}
-        <div className={styles.logoWrapper}>
-          {store.logo ? (
-            <img
-              src={store.logo}
-              alt={store.name}
-              width={84}
-              height={84}
-              style={{
-                width: "84px",
-                height: "84px",
-                minWidth: "84px",
-                minHeight: "84px",
-                maxWidth: "84px",
-                maxHeight: "84px",
-                objectFit: "contain",
-                display: "block"
-              }}
-              className={styles.brandLogo}
-            />
-          ) : (
-            <div className={styles.fallbackLogo}>{store.name.charAt(0)}</div>
-          )}
-        </div>
-
-        {/* Centered Tested Active Badge */}
-        <div className={styles.verifiedBadgeRow}>
-          <span className={styles.verifiedPill}>⚡ 100% Tested &amp; Active Today</span>
-        </div>
-
-        {/* Modal Titles */}
-        <h3 className={styles.modalTitle}>{coupon.title}</h3>
-        <p className={styles.modalSubtitle}>{coupon.description}</p>
-
-        {/* Main Offer Body */}
-        {isDirectDeal ? (
-          <div className={styles.autoAppliedBox}>
-            <div className={styles.autoAppliedIcon}>✓</div>
-            <div>
-              <div className={styles.autoAppliedHeading}>Direct Promotion Activated</div>
-              <div className={styles.autoAppliedText}>
-                No coupon code needed. Discount automatically applied at checkout.
-              </div>
-            </div>
+      <div className={styles.passCard} onClick={(e) => e.stopPropagation()}>
+        {/* Top VIP Boarding Pass Header */}
+        <div className={styles.passTopBar}>
+          <div className={styles.chipGroup}>
+            <div className={styles.goldChip}></div>
+            <span className={styles.passSerial}>PERKVUE DIGITAL MEMBER PASS</span>
           </div>
-        ) : (
-          <div className={styles.codeContainer}>
-            <div className={styles.codeBox} onClick={handleManualCopy}>
-              <span className={styles.codeText}>{coupon.code}</span>
-              <button
-                className={`${styles.copyBtn} ${copied ? styles.copyBtnCopied : ""}`}
-                type="button"
-                onClick={handleManualCopy}
-              >
-                {copied ? "Copied! ✓" : "Copy Code"}
-              </button>
-            </div>
-            {copied && (
-              <p className={styles.copiedHint}>
-                ✓ Code copied to clipboard! Paste it at checkout on {store.name}.
-              </p>
-            )}
-          </div>
-        )}
-
-        {/* Stacked Action Buttons */}
-        <div className={styles.actionsArea}>
-          <a
-            href={targetUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.primaryCta}
-            onClick={handleRedirect}
+          <button
+            className={styles.closeBtn}
+            onClick={handleModalClose}
+            aria-label="Close modal"
+            type="button"
           >
-            Continue to {store.name} →
-          </a>
-          <button type="button" className={styles.secondaryBtn} onClick={handleModalClose}>
-            Back to Deals
+            ✕
           </button>
         </div>
 
-        {/* Clean SSL Verification Strip */}
-        <div className={styles.trustFooter}>
-          <span>🔒 256-Bit SSL Encrypted Verification</span>
-          <span>•</span>
-          <span>Official Store Guarantee</span>
+        <div className={styles.passBody}>
+          {/* Partner & Discount Header */}
+          <div className={styles.partnerRow}>
+            <div className={styles.partnerLeft}>
+              {store.logo ? (
+                <div className={styles.logoBox}>
+                  <img src={store.logo} alt={store.name} className={styles.brandLogo} />
+                </div>
+              ) : (
+                <div className={styles.fallbackLogo}>{store.name.charAt(0)}</div>
+              )}
+              <div className={styles.partnerInfo}>
+                <span className={styles.tierTag}>● Verified Active Today</span>
+                <h2 className={styles.partnerName}>{store.name}</h2>
+              </div>
+            </div>
+            <div className={styles.discountPill}>{coupon.discount || "15% OFF"}</div>
+          </div>
+
+          {/* Offer Details */}
+          <div className={styles.offerBox}>
+            <h3 className={styles.modalTitle}>{coupon.title}</h3>
+            <p className={styles.modalSubtitle}>{coupon.description}</p>
+          </div>
+
+          {/* Glowing Credential Code Box or Direct Access Box */}
+          {isDirectDeal ? (
+            <div className={styles.autoAppliedBox}>
+              <div className={styles.autoAppliedIcon}>✓</div>
+              <div>
+                <div className={styles.autoAppliedHeading}>Direct Partner Clearance Activated</div>
+                <div className={styles.autoAppliedText}>
+                  No code required — your member privilege is automatically applied at {store.name} checkout.
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className={styles.credentialVault}>
+              <div className={styles.credentialTop}>
+                <span>VIP Checkout Access Code</span>
+                <span>100% Cart Audited</span>
+              </div>
+              <div className={styles.codeRow} onClick={handleManualCopy}>
+                <span className={styles.codeText}>{coupon.code}</span>
+                <button
+                  className={`${styles.copyBtn} ${copied ? styles.copyBtnCopied : ""}`}
+                  type="button"
+                  onClick={handleManualCopy}
+                >
+                  {copied ? "✓ COPIED TO CLIPBOARD" : "COPY ACCESS CODE"}
+                </button>
+              </div>
+              {copied && (
+                <p className={styles.copiedHint}>
+                  ✓ Access code copied! Paste at {store.name} checkout to redeem.
+                </p>
+              )}
+            </div>
+          )}
+
+          {/* Action Buttons */}
+          <div className={styles.actionsArea}>
+            <a
+              href={targetUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.primaryCta}
+              onClick={handleRedirect}
+            >
+              Proceed to Official {store.name} Store →
+            </a>
+            <button type="button" className={styles.secondaryBtn} onClick={handleModalClose}>
+              Return to PerkVue Directory
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom Pass Footer */}
+        <div className={styles.passFooter}>
+          <span>🔒 256-BIT ENCRYPTED PARTNER LINK</span>
+          <span>STATUS: ACTIVE</span>
         </div>
       </div>
     </div>

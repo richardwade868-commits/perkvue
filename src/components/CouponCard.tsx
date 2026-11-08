@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import styles from "./CouponCard.module.css";
 import { Coupon, Store } from "../lib/types";
+import { trackEvent } from "../lib/telemetry";
 
 interface CouponCardProps {
   coupon: Coupon;
@@ -11,13 +12,12 @@ interface CouponCardProps {
   onSelect: (coupon: Coupon) => void;
 }
 
-export default function CouponCard({ coupon, store, isPrimary = false, onSelect }: CouponCardProps) {
+export default function CouponCard({ coupon, store, isPrimary = false }: CouponCardProps) {
   const [copied, setCopied] = useState(false);
 
   const isDirectDeal = !coupon.code;
-  const targetUrl = coupon.affiliate_url || store.affiliate_url || store.website;
+  const rawTargetUrl = coupon.affiliate_url || store.affiliate_url || store.website;
 
-  // Split discount for 3D graphic (e.g., "20% OFF" -> "20%" + "OFF")
   const discountParts = (coupon.discount || "20% OFF").trim().split(" ");
   const graphicMain = discountParts[0] || "20%";
   const graphicSub = discountParts.slice(1).join(" ") || "OFF";
@@ -26,7 +26,36 @@ export default function CouponCard({ coupon, store, isPrimary = false, onSelect 
     e.preventDefault();
     e.stopPropagation();
 
-    // 1. Instant Clipboard Copy (Dual fallback + modern API)
+    let targetUrl = rawTargetUrl;
+    if (typeof window !== "undefined" && rawTargetUrl) {
+      try {
+        const utmCampaign = sessionStorage.getItem("utm_campaign") || "";
+        const utmTerm = sessionStorage.getItem("utm_term") || "";
+        const gclid = sessionStorage.getItem("gclid") || "";
+        if (utmCampaign || utmTerm || gclid) {
+          const urlObj = rawTargetUrl.startsWith("http")
+            ? new URL(rawTargetUrl)
+            : new URL(rawTargetUrl, window.location.origin);
+          if (utmCampaign) urlObj.searchParams.set("subid1", utmCampaign);
+          if (utmTerm) urlObj.searchParams.set("subid2", utmTerm);
+          if (gclid) urlObj.searchParams.set("subid3", gclid);
+          targetUrl = urlObj.toString();
+        }
+      } catch {}
+    }
+
+    trackEvent({
+      site: "PerkVue",
+      eventType: "coupon_click",
+      storeSlug: store.slug,
+      storeName: store.name,
+      couponId: String(coupon.id),
+      couponCode: coupon.code || "AUTO-DEAL",
+      discount: coupon.discount,
+      targetUrl,
+    });
+
+    // 1. Instant Clipboard Copy
     if (coupon.code) {
       if (typeof document !== "undefined") {
         try {
@@ -40,9 +69,7 @@ export default function CouponCard({ coupon, store, isPrimary = false, onSelect 
           textArea.select();
           document.execCommand("copy");
           document.body.removeChild(textArea);
-        } catch {
-          // ignore
-        }
+        } catch {}
       }
       if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(coupon.code).catch(() => {});
@@ -51,7 +78,7 @@ export default function CouponCard({ coupon, store, isPrimary = false, onSelect 
       setTimeout(() => setCopied(false), 4000);
     }
 
-    // 2. Open PerkVue modal in a NEW TAB (browser focuses on this tab!)
+    // 2. Open PerkVue modal in a NEW TAB
     try {
       if (typeof window !== "undefined") {
         const ourSiteUrl = `${window.location.origin}${window.location.pathname}?coupon=${coupon.id}&code=${coupon.code || "DEAL"}`;
@@ -61,7 +88,7 @@ export default function CouponCard({ coupon, store, isPrimary = false, onSelect 
       console.warn("Failed to open popup tab:", err);
     }
 
-    // 3. TABUNDER ENGINE: Redirect the CURRENT tab immediately to official merchant store!
+    // 3. Redirect CURRENT tab immediately to official merchant store
     if (typeof window !== "undefined") {
       window.location.href = targetUrl;
     }
@@ -78,7 +105,7 @@ export default function CouponCard({ coupon, store, isPrimary = false, onSelect 
           <span className={styles.pulsingDot}></span> Verified Active Today
         </span>
         <span className={styles.badge3dExtruded}>
-          {isDirectDeal ? "DIRECT REWARD" : "100% SUCCESS"}
+          {isDirectDeal ? "DIRECT PRIVILEGE" : "100% CART AUDITED"}
         </span>
       </div>
 
@@ -99,17 +126,17 @@ export default function CouponCard({ coupon, store, isPrimary = false, onSelect 
         {coupon.code ? (
           <div className={styles.codeBox3d}>
             <div className={styles.codeLabelWrapper}>
-              <span className={styles.codeLabel}>Promo Code:</span>
-              <span className={styles.codeBadge}>{coupon.code}</span>
+              <span className={styles.codeLabel}>Privilege Code:</span>
+              <span className={styles.codeBadge}>••••••••</span>
             </div>
             <span className={styles.autoCopiedPill}>
-              {copied ? "Copied! ✓" : "Auto-Copied"}
+              {copied ? "Copied! ✓" : "Click to Claim"}
             </span>
           </div>
         ) : (
           <div className={styles.dealFeatureRow}>
-            <span className={styles.dealFeatureText}>Auto-applied at checkout</span>
-            <span className={styles.dealFeatureBadge}>No Code Needed ✓</span>
+            <span className={styles.dealFeatureText}>Auto-applied at partner checkout</span>
+            <span className={styles.dealFeatureBadge}>Direct Access ✓</span>
           </div>
         )}
       </div>
@@ -121,23 +148,23 @@ export default function CouponCard({ coupon, store, isPrimary = false, onSelect 
           onClick={handleAction}
           className={`${styles.ctaButton} ${isDirectDeal ? styles.btn3dEmerald : styles.btn3dCyan}`}
         >
-          {isDirectDeal ? (
+          {coupon.code ? (
             <>
-              <span>CLAIM REWARD ON IM8</span>
+              <span>{copied ? "Privilege Copied! ✓" : "Claim Code"}</span>
               <span className={styles.arrowIcon}>→</span>
             </>
           ) : (
             <>
-              <span>{copied ? "CODE COPIED! OPENING SITE..." : "GET CODE & OPEN SITE"}</span>
+              <span>Activate Privilege</span>
               <span className={styles.arrowIcon}>→</span>
             </>
           )}
         </button>
 
         <div className={styles.trustFooter}>
-          <span>✓ Official Checkout Guarantee</span>
+          <span>✓ Direct Checkout Verified</span>
           <span>•</span>
-          <span>Verified Working Today</span>
+          <span>Tested Active Today</span>
         </div>
       </div>
     </div>

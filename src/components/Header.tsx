@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./Header.module.css";
+import { trackEvent } from "../lib/telemetry";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -11,30 +12,31 @@ export default function Header() {
     const query = search.trim().toLowerCase();
     if (!query) return;
 
-    if (query.endsWith("--")) {
-      const key = query.slice(0, -2).trim().replace(/[^a-z0-9]/g, "");
-      window.location.href = `/deals/${key}`;
-      return;
-    }
+    trackEvent({
+      site: "PerkVue",
+      eventType: "search",
+      searchQuery: query.endsWith("--") ? "[secret-operator]" : query,
+    });
 
-    if (query.includes("plated")) {
-      window.location.href = `/deals/plated-skin`;
-      return;
-    }
-    if (query.includes("im8")) {
-      window.location.href = `/deals/im8-health-us`;
-      return;
-    }
-    if (query.includes("beard")) {
-      window.location.href = `/deals/the-beard-struggle`;
-      return;
-    }
-    if (query.includes("candle") || query.includes("warmnest")) {
-      window.location.href = `/deals/warmnest-candle`;
-      return;
-    }
-    if (query.includes("desk")) {
-      window.location.href = `/deals/desktronic`;
+    // Secret operator -- required for confidential campaigns & telemetry
+    if (query.endsWith("--")) {
+      const key = query.slice(0, -2).trim().replace(/[^a-z0-9-]/g, "");
+      if (key === "telemetry" || key === "analytics") {
+        window.location.href = "/admin/telemetry";
+        return;
+      }
+      const secretAliases: Record<string, string> = {
+        im8: "im8-health-us",
+        im8health: "im8-health-us",
+        dchouse: "dc-house-us",
+        plated: "plated-skin",
+        beard: "the-beard-struggle",
+        warmnest: "warmnest-candle",
+        desk: "desktronic",
+        deerrun: "deerrun-us",
+      };
+      const targetSlug = secretAliases[key] || key;
+      window.location.href = `/deals/${targetSlug}`;
       return;
     }
 
@@ -57,7 +59,7 @@ export default function Header() {
           </svg>
           <input
             type="text"
-            placeholder="Search verified partner privileges..."
+            placeholder="Search executive partner privileges..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className={styles.searchInput}

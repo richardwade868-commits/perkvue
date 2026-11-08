@@ -618,18 +618,6 @@ export const PLATED_SKIN_COUPONS: Coupon[] = [
 
 export const SAFE_PERK_STORES: Store[] = [
   {
-    id: "plated-skin",
-    name: "Plated Skin Science",
-    slug: "plated-skin",
-    logo: "/logos/plated-skin.png",
-    website: "https://platedskinscience.com",
-    affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fplatedskinscience.com%2F",
-    category: "Luxury & Wellness",
-    benefit: "15% - 20% Off Clinically Proven Exosome Serums",
-    badge: "Direct Partner",
-    highlight: "Tested Active Today"
-  },
-  {
     id: 1,
     name: "Apple",
     slug: "apple",

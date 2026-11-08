@@ -46,7 +46,17 @@ export async function generateStaticParams() {
     { slug: "lululemon" },
     { slug: "spotify" },
     { slug: "bestbuy" },
-    { slug: "ebay" }
+    { slug: "ebay" },
+    { slug: "renue-by-science" },
+    { slug: "renuebyscience" },
+    { slug: "commomy" },
+    { slug: "commomy-decor" },
+    { slug: "petals-and-tails" },
+    { slug: "petalsandtails" },
+    { slug: "enigwatch" },
+    { slug: "uperfect" },
+    { slug: "fosi-audio" },
+    { slug: "fosiaudio" }
   ];
 }
 
@@ -58,19 +68,43 @@ interface DealsPageProps {
 
 export async function generateMetadata({ params }: DealsPageProps): Promise<Metadata> {
   const { slug } = await params;
+  const now = new Date();
+  const monthYear = now.toLocaleString("en-US", { month: "short", year: "numeric" });
   const data = getStoreBySlug(slug);
   const store = data ? data.store : IM8_STORE;
+  const topDiscount = data?.coupons?.[0]?.discount || "20% Off";
+  const seoTitle = `${topDiscount} ${store.name} Discount Codes & Verified Promo Codes (${monthYear}) | PerkVue`;
+  const seoDesc = `Working ${store.name} discount codes, coupon codes, and member privileges verified for ${monthYear}. Claim up to ${topDiscount} + free shipping at ${store.name}.`;
 
   return {
-    title: `${store.name} Promo Codes & Verified Vouchers | PerkVue`,
-    description: `Save 20% today at ${store.name} with verified promotional vouchers, subscriber discounts, and free shipping perks.`,
+    title: seoTitle,
+    description: seoDesc,
+    keywords: [
+      `${store.name.toLowerCase()} discount code`,
+      `${store.name.toLowerCase()} coupon code`,
+      `${store.name.toLowerCase()} promo code`,
+      `${store.name.toLowerCase()} coupons ${now.getFullYear()}`,
+    ],
     robots: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
       googleBot: {
-        index: false,
-        follow: false,
+        index: true,
+        follow: true,
+        "max-snippet": -1,
+        "max-image-preview": "large",
       },
+    },
+    alternates: {
+      canonical: `https://perkvue.com/deals/${slug}`,
+    },
+    openGraph: {
+      title: seoTitle,
+      description: seoDesc,
+      url: `https://perkvue.com/deals/${slug}`,
+      siteName: "PerkVue",
+      type: "website",
+      locale: "en_US",
     },
   };
 }

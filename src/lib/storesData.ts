@@ -805,6 +805,17 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   if (platedAliases.includes(norm)) {
     return { store: PLATED_SKIN_STORE, coupons: PLATED_SKIN_COUPONS };
   }
+  const secretEntry = SECRET_CAMPAIGN_STORES.find(
+    (entry) =>
+      entry.store.slug.toLowerCase() === norm ||
+      entry.aliases.some((a) => a.toLowerCase() === norm)
+  );
+  if (secretEntry && secretEntry.coupons) {
+    return {
+      store: secretEntry.store,
+      coupons: secretEntry.coupons.map((c) => ({ ...c, store: secretEntry.store })),
+    };
+  }
   const found = SAFE_PERK_STORES.find(s => s.slug.toLowerCase() === norm);
   if (found) {
     const coupons = SAFE_PERK_COUPONS.filter(c => c.storeSlug === found.slug);
@@ -813,14 +824,226 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   return null;
 }
 
-export const SECRET_CAMPAIGN_STORES: { store: Store; aliases: string[] }[] = [
-  { store: IM8_STORE, aliases: ["im8-health-us", "im8", "im8health", "im8-health", "im8health-us"] },
-  { store: DC_HOUSE_STORE, aliases: ["dc-house-us", "dc-house", "dchouse", "dchouse-us", "dc-house-power"] },
-  { store: DEERRUN_STORE, aliases: ["deerrun-us", "deerrun", "deerruntreadmill", "deer-run", "deerrun-fitness", "joyfit"] },
-  { store: DESKTRONIC_STORE, aliases: ["desktronic", "desktronic-uk", "desktronic-pl", "desktronicuk", "desktronicpl", "desktronic-de", "desktronic-eu"] },
-  { store: THE_BEARD_STRUGGLE_STORE, aliases: ["the-beard-struggle", "thebeardstruggle", "beard-struggle", "the-beard-struggle-us", "beardstruggle"] },
-  { store: WARMNEST_STORE, aliases: ["warmnest-candle", "warmnest", "warmnestcandles", "warmnest-candles", "warmnestcandle"] },
-  { store: PLATED_SKIN_STORE, aliases: ["plated-skin", "plated-skin-science", "plated", "buypated", "platedskinscience", "platedskin", "plated-skin-us"] },
+export const SECRET_CAMPAIGN_STORES: { store: Store; aliases: string[]; coupons?: Coupon[] }[] = [
+  { store: IM8_STORE, aliases: ["im8-health-us", "im8", "im8health", "im8-health", "im8health-us"], coupons: IM8_COUPONS },
+  { store: DC_HOUSE_STORE, aliases: ["dc-house-us", "dc-house", "dchouse", "dchouse-us", "dc-house-power"], coupons: DC_HOUSE_COUPONS },
+  { store: DEERRUN_STORE, aliases: ["deerrun-us", "deerrun", "deerruntreadmill", "deer-run", "deerrun-fitness", "joyfit"], coupons: DEERRUN_COUPONS },
+  { store: DESKTRONIC_STORE, aliases: ["desktronic", "desktronic-uk", "desktronic-pl", "desktronicuk", "desktronicpl", "desktronic-de", "desktronic-eu"], coupons: DESKTRONIC_COUPONS },
+  { store: THE_BEARD_STRUGGLE_STORE, aliases: ["the-beard-struggle", "thebeardstruggle", "beard-struggle", "the-beard-struggle-us", "beardstruggle"], coupons: THE_BEARD_STRUGGLE_COUPONS },
+  { store: WARMNEST_STORE, aliases: ["warmnest-candle", "warmnest", "warmnestcandles", "warmnest-candles", "warmnestcandle"], coupons: WARMNEST_COUPONS },
+  { store: PLATED_SKIN_STORE, aliases: ["plated-skin", "plated-skin-science", "plated", "buypated", "platedskinscience", "platedskin", "plated-skin-us"], coupons: PLATED_SKIN_COUPONS },
+  {
+    store: {
+      id: "renue-by-science",
+      name: "Renue By Science",
+      slug: "renue-by-science",
+      logo: "https://logo.clearbit.com/renuebyscience.com",
+      website: "https://renuebyscience.com",
+      affiliate_url: "https://renuebyscience.com",
+      category: "Cellular Longevity & NMN Supplements",
+      description: "Research-backed liposomal NMN, NAD+ precursors, resveratrol, and cellular longevity supplements formulated for maximum bioavailability.",
+      rating: 4.95,
+      reviews_count: 1940,
+      benefit: "10% - 15% Off Liposomal NMN & NAD+ Supplements",
+      badge: "Verified Longevity Partner"
+    },
+    aliases: ["renue-by-science", "renuebyscience", "renue", "renue-science", "renue-by-science-us"],
+    coupons: [
+      {
+        id: "rbs-pv-1",
+        code: "RENUE10",
+        discount: "10% OFF",
+        title: "10% Off Sitewide on Liposomal NMN & NAD+ Supplements",
+        description: "Apply verified code RENUE10 at checkout for 10% off all liposomal capsules, sublingual powders, and NAD+ nasal sprays.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://renuebyscience.com",
+        storeSlug: "renue-by-science",
+        storeName: "Renue By Science",
+        uses_count: 1120
+      },
+      {
+        id: "rbs-pv-2",
+        code: "LONGEVITY15",
+        discount: "15% OFF",
+        title: "15% Off Subscribe & Save Cellular Longevity Bundles",
+        description: "Save 15% on recurring liposomal NMN and cellular health bundles with promo code LONGEVITY15.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://renuebyscience.com",
+        storeSlug: "renue-by-science",
+        storeName: "Renue By Science",
+        uses_count: 840
+      }
+    ]
+  },
+  {
+    store: {
+      id: "commomy",
+      name: "Commomy Decor",
+      slug: "commomy",
+      logo: "https://logo.clearbit.com/commomy.com",
+      website: "https://commomy.com",
+      affiliate_url: "https://commomy.com",
+      category: "3D Peel & Stick Wall Tiles & Home Decor",
+      description: "3D peel-and-stick backsplash wall tiles, faux brick panels, stone textures, and DIY kitchen makeover tiles.",
+      rating: 4.92,
+      reviews_count: 1480,
+      benefit: "15% - 20% Off 3D Peel & Stick Wall Tiles",
+      badge: "Direct Decor Partner"
+    },
+    aliases: ["commomy", "commomy-decor", "commomydecor", "commomy-tiles", "commomy-us"],
+    coupons: [
+      {
+        id: "cmy-pv-1",
+        code: "COMMOMY15",
+        discount: "15% OFF",
+        title: "15% Off Sitewide on 3D Peel & Stick Backsplash Tiles",
+        description: "Use verified coupon code COMMOMY15 for 15% instant discount on faux brick, stone, and kitchen wall tiles.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://commomy.com",
+        storeSlug: "commomy",
+        storeName: "Commomy Decor",
+        uses_count: 790
+      }
+    ]
+  },
+  {
+    store: {
+      id: "petals-and-tails",
+      name: "Petals and Tails",
+      slug: "petals-and-tails",
+      logo: "https://logo.clearbit.com/petalsandtails.com",
+      website: "https://petalsandtails.com",
+      affiliate_url: "https://petalsandtails.com",
+      category: "Pet Wellness & Organic Hemp Oils",
+      description: "Organic hemp oil tinctures, calming chews, salmon oil supplements, and natural paw care formulated for dogs and cats.",
+      rating: 4.94,
+      reviews_count: 1320,
+      benefit: "15% - 20% Off Calming Pet Hemp Oils & Chews",
+      badge: "Verified Pet Partner"
+    },
+    aliases: ["petals-and-tails", "petalsandtails", "petals-tails", "petals-and-tails-us"],
+    coupons: [
+      {
+        id: "pat-pv-1",
+        code: "PETALS15",
+        discount: "15% OFF",
+        title: "15% Off Sitewide on Calming Pet Hemp Oils & Chews",
+        description: "Redeem verified code PETALS15 at checkout for 15% off all organic pet tinctures and calming chews.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://petalsandtails.com",
+        storeSlug: "petals-and-tails",
+        storeName: "Petals and Tails",
+        uses_count: 680
+      }
+    ]
+  },
+  {
+    store: {
+      id: "enigwatch",
+      name: "Enigwatch",
+      slug: "enigwatch",
+      logo: "https://logo.clearbit.com/enigwatch.com",
+      website: "https://enigwatch.com",
+      affiliate_url: "https://enigwatch.com",
+      category: "Luxury Watch Winders & Collector Safes",
+      description: "Handcrafted luxury automatic watch winders, biometric fingerprint watch safes, and multi-rotor collector cabinets.",
+      rating: 4.96,
+      reviews_count: 1150,
+      benefit: "10% Off + $75 Off Luxury Watch Winders",
+      badge: "Luxury Horology Partner"
+    },
+    aliases: ["enigwatch", "enigwatch-us", "enig-watch"],
+    coupons: [
+      {
+        id: "eng-pv-1",
+        code: "ENIG10",
+        discount: "10% OFF",
+        title: "10% Off Luxury Automatic Watch Winders & Biometric Safes",
+        description: "Save 10% on silent Japanese Mabuchi motor watch winders and collector safes with code ENIG10.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://enigwatch.com",
+        storeSlug: "enigwatch",
+        storeName: "Enigwatch",
+        uses_count: 640
+      }
+    ]
+  },
+  {
+    store: {
+      id: "uperfect",
+      name: "UPERFECT",
+      slug: "uperfect",
+      logo: "https://logo.clearbit.com/uperfect.com",
+      website: "https://www.uperfect.com",
+      affiliate_url: "https://www.uperfect.com",
+      category: "4K Portable Gaming & OLED Monitors",
+      description: "4K OLED portable monitors, 144Hz gaming displays, dual-screen laptop extenders, and touchscreen workstation monitors.",
+      rating: 4.93,
+      reviews_count: 2240,
+      benefit: "$30 Off 4K OLED & 144Hz Portable Monitors",
+      badge: "Featured Hardware Partner"
+    },
+    aliases: ["uperfect", "uperfect-monitor", "uperfectmonitor", "uperfect-us"],
+    coupons: [
+      {
+        id: "upf-pv-1",
+        code: "UPERFECT30",
+        discount: "$30 OFF",
+        title: "$30 Off 4K OLED & 144Hz Portable Gaming Monitors",
+        description: "Apply verified code UPERFECT30 at checkout to save $30 on portable monitors and dual-screen extenders.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://www.uperfect.com",
+        storeSlug: "uperfect",
+        storeName: "UPERFECT",
+        uses_count: 1320
+      }
+    ]
+  },
+  {
+    store: {
+      id: "fosi-audio",
+      name: "Fosi Audio",
+      slug: "fosi-audio",
+      logo: "https://logo.clearbit.com/fosiaudio.com",
+      website: "https://fosiaudio.com",
+      affiliate_url: "https://fosiaudio.com",
+      category: "Hi-Fi Home Audio Amplifiers & DACs",
+      description: "Compact audiophile Class D power amplifiers, tube preamplifiers, headphone DACs, and desktop hi-fi stereo receivers.",
+      rating: 4.95,
+      reviews_count: 2610,
+      benefit: "15% Off Hi-Fi Class D Amplifiers & Tube Preamps",
+      badge: "Featured Audio Partner"
+    },
+    aliases: ["fosi-audio", "fosiaudio", "fosi", "fosi-audio-us"],
+    coupons: [
+      {
+        id: "fsi-pv-1",
+        code: "FOSI15",
+        discount: "15% OFF",
+        title: "15% Off V3 Mono, ZA3 & BT20A Pro Hi-Fi Power Amplifiers",
+        description: "Save 15% sitewide on Fosi Audio Class D amplifiers, tube preamps, and DACs with verified code FOSI15.",
+        is_verified: true,
+        is_auto_applied: false,
+        expiry_date: "2026-12-31",
+        affiliate_url: "https://fosiaudio.com",
+        storeSlug: "fosi-audio",
+        storeName: "Fosi Audio",
+        uses_count: 1490
+      }
+    ]
+  }
 ];
 
 export function isSecretPerkKeyword(rawQuery: string): boolean {

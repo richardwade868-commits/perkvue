@@ -775,6 +775,139 @@ export const SAFE_PERK_COUPONS: Coupon[] = SAFE_PERK_STORES.map((store, idx) => 
   uses_count: 350 + idx * 25
 }));
 
+
+// ==========================================
+// CANDY IN BULK STORE & COUPONS
+// ==========================================
+export const CANDY_IN_BULK_STORE: Store = {
+  id: "candy-in-bulk",
+  name: "Candy In Bulk",
+  slug: "candy-in-bulk",
+  logo: "/logos/candy-in-bulk.png",
+  website: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
+  affiliate_url: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
+  category: "Bulk Sweets & Wholesale Confectionery",
+  description: "Viral TikTok Swedish candy, authentic Bubs sour foam, sweet licorice, gummy mixes, and wholesale bulk confectionery delivered fresh.",
+  rating: 4.92,
+  reviews_count: 2450,
+  benefit: "20% Off Bulk Candy & Swedish Bubs",
+  badge: "Verified Confectionery Partner"
+};
+
+export const CANDY_IN_BULK_COUPONS: Coupon[] = [
+  {
+    id: "cib-pv-1",
+    code: "CANDY20",
+    discount: "20% OFF",
+    title: "20% Off All Bulk Candy & Swedish Bubs Mixes",
+    description: "Save 20% on viral Swedish Bubs, sour foam skulls, and bulk candy bags with verified promo code CANDY20.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
+    store: CANDY_IN_BULK_STORE,
+    storeSlug: "candy-in-bulk",
+    storeName: "Candy In Bulk",
+    uses_count: 1420
+  },
+  {
+    id: "cib-pv-2",
+    code: "",
+    discount: "20% OFF",
+    title: "Up to 20% Off Wholesale Bags & Party Mixes",
+    description: "Enjoy up to 20% instant savings automatically applied at cart on wholesale confectionery and party packs. No code needed.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
+    store: CANDY_IN_BULK_STORE,
+    storeSlug: "candy-in-bulk",
+    storeName: "Candy In Bulk",
+    uses_count: 980
+  },
+  {
+    id: "cib-pv-3",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free US Shipping on Orders Over $49",
+    description: "Receive fast carbon-neutral standard delivery on bulk candy orders over $49 across the continental United States.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
+    store: CANDY_IN_BULK_STORE,
+    storeSlug: "candy-in-bulk",
+    storeName: "Candy In Bulk",
+    uses_count: 1850
+  }
+];
+
+// ==========================================
+// PONGBOT STORE & COUPONS
+// ==========================================
+export const PONGBOT_STORE: Store = {
+  id: "pongbot",
+  name: "PongBot",
+  slug: "pongbot",
+  logo: "/logos/pongbot.png",
+  website: "https://store.pongbotsports.com/?sca_ref=12565715.tCWxyKe3eRDS01",
+  affiliate_url: "https://store.pongbotsports.com/?sca_ref=12565715.tCWxyKe3eRDS01",
+  category: "AI Sports & Table Tennis Training Robots",
+  description: "Industry-leading AI tennis ball machines and smart table tennis robots: Pace S Pro, Nova S Pro, Omni S Pro, and adaptive solo training systems.",
+  rating: 4.93,
+  reviews_count: 1890,
+  benefit: "15% - 20% Off AI Table Tennis Robots",
+  badge: "Verified Smart Sports Partner"
+};
+
+export const PONGBOT_COUPONS: Coupon[] = [
+  {
+    id: "pongbot-pv-1",
+    code: "SPROM",
+    discount: "15% OFF",
+    title: "15% Off Pace S Pro & Smart AI Training Machines",
+    description: "Save 15% on intelligent table tennis ball launchers with verified promo code SPROM at checkout.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://store.pongbotsports.com/?sca_ref=12565715.tCWxyKe3eRDS01",
+    store: PONGBOT_STORE,
+    storeSlug: "pongbot",
+    storeName: "PongBot",
+    uses_count: 1120
+  },
+  {
+    id: "pongbot-pv-2",
+    code: "TIGLIO10",
+    discount: "10% OFF",
+    title: "10% Off Sitewide on Table Tennis Robots & Gear",
+    description: "Receive an instant 10% discount on all PongBot training equipment and accessories with code TIGLIO10.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://store.pongbotsports.com/?sca_ref=12565715.tCWxyKe3eRDS01",
+    store: PONGBOT_STORE,
+    storeSlug: "pongbot",
+    storeName: "PongBot",
+    uses_count: 780
+  },
+  {
+    id: "pongbot-pv-3",
+    code: "",
+    discount: "UP TO 55% OFF",
+    title: "Up to 55% Off Seasonal Deals & Training Bundles",
+    description: "Exclusive markdowns on certified table tennis robots, wireless remote controllers, and ball collection nets.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://store.pongbotsports.com/?sca_ref=12565715.tCWxyKe3eRDS01",
+    store: PONGBOT_STORE,
+    storeSlug: "pongbot",
+    storeName: "PongBot",
+    uses_count: 1540
+  }
+];
+
 export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] } | null {
   const norm = (slug || "").toLowerCase().trim();
   const im8Aliases = ["im8-health-us", "im8", "im8health", "im8-health", "im8health-us"];
@@ -801,6 +934,14 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   if (warmnestAliases.includes(norm)) {
     return { store: WARMNEST_STORE, coupons: WARMNEST_COUPONS };
   }
+    const candyAliases = ["candy-in-bulk", "candyinbulk", "candy-in-bulk-us", "candyinbulk-us", "candy-in-bulk-deals", "swedish-candy", "swedish-candy-land"];
+  if (candyAliases.includes(norm)) {
+    return { store: CANDY_IN_BULK_STORE, coupons: CANDY_IN_BULK_COUPONS };
+  }
+  const pongbotAliases = ["pongbot", "pongbot-us", "pongbotsports", "pongbot-sports", "pong-bot", "pongbot-deals", "pongbot-robot"];
+  if (pongbotAliases.includes(norm)) {
+    return { store: PONGBOT_STORE, coupons: PONGBOT_COUPONS };
+  }
   const platedAliases = ["plated-skin", "plated-skin-science", "plated", "buypated", "platedskinscience", "platedskin", "plated-skin-us"];
   if (platedAliases.includes(norm)) {
     return { store: PLATED_SKIN_STORE, coupons: PLATED_SKIN_COUPONS };
@@ -825,6 +966,8 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
 }
 
 export const SECRET_CAMPAIGN_STORES: { store: Store; aliases: string[]; coupons?: Coupon[] }[] = [
+  { store: CANDY_IN_BULK_STORE, aliases: ["candy-in-bulk", "candyinbulk", "candy-in-bulk-us", "candyinbulk-us", "candy-in-bulk-deals", "swedish-candy", "swedish-candy-land"], coupons: CANDY_IN_BULK_COUPONS },
+  { store: PONGBOT_STORE, aliases: ["pongbot", "pongbot-us", "pongbotsports", "pongbot-sports", "pong-bot", "pongbot-deals", "pongbot-robot"], coupons: PONGBOT_COUPONS },
   { store: IM8_STORE, aliases: ["im8-health-us", "im8", "im8health", "im8-health", "im8health-us"], coupons: IM8_COUPONS },
   { store: DC_HOUSE_STORE, aliases: ["dc-house-us", "dc-house", "dchouse", "dchouse-us", "dc-house-power"], coupons: DC_HOUSE_COUPONS },
   { store: DEERRUN_STORE, aliases: ["deerrun-us", "deerrun", "deerruntreadmill", "deer-run", "deerrun-fitness", "joyfit"], coupons: DEERRUN_COUPONS },

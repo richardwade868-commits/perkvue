@@ -53,6 +53,17 @@ const nextConfig: NextConfig = {
     async redirects() {
     return [
       {
+        source: "/go/pongbot",
+        destination: "https://store.pongbotsports.com/?sca_ref=12565715.tCWxyKe3eRDS01",
+        permanent: false,
+      },
+      {
+        source: "/go/pongbotsports",
+        destination: "https://store.pongbotsports.com/?sca_ref=12565715.tCWxyKe3eRDS01",
+        permanent: false,
+      },
+
+      {
         source: "/go/candy-in-bulk",
         destination: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
         permanent: false,

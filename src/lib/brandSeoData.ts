@@ -16,6 +16,39 @@ export interface BrandSeoEntry {
 }
 
 export const CAMPAIGN_BRAND_SEO_DATA: Record<string, BrandSeoEntry> = {
+  "pongbot": {
+    slug: "pongbot",
+    aliases: ["pongbot", "pongbot-us", "pongbotsports", "pongbot-sports", "pong-bot", "pongbot-deals", "pongbot-robot"],
+    brandName: "PongBot",
+    category: "AI Sports & Table Tennis Training Robots",
+    h1: "PongBot Promo Codes, Verified Coupons & Robot Deals",
+    metaTitle: "15% Off PongBot Promo Codes & Tennis Robot Coupons (Nov 2026)",
+    metaDescription: "Save up to 15% on smart AI table tennis training robots and ball machines at PongBot. Verified discount codes, Pace S Pro coupons, and free shipping tested today.",
+    keywords: [
+      "pongbot discount code", "pongbot promo code", "pongbot coupon code",
+      "pongbot coupons", "pongbot sports discount", "pace s pro promo code"
+    ],
+    ratingValue: 4.93,
+    reviewCount: 1890,
+    overview: [
+      "PongBot is a pioneering sports robotics brand revolutionizing table tennis and racket training with artificial intelligence. Featuring advanced ball trajectory programming, adjustable spin frequencies, and wireless mobile app controls, systems like the Pace S Pro and Nova S Pro deliver professional-grade solo practice.",
+      "Our deal verification team tests PongBot promo codes and robot discount offers weekly to ensure you secure the greatest available savings on smart athletic equipment."
+    ],
+    savingsTips: [
+      "Use Verified Code SPROM: Enter coupon code SPROM during checkout to unlock 15% off flagship training machines.",
+      "Free Delivery: Standard continental US shipping is included with all major robot orders."
+    ],
+    howToApply: [
+      { step: 1, title: "Select Your Robot Model", description: "Choose the Pace S Pro or preferred PongBot training robot on PongBot Sports." },
+      { step: 2, title: "Go to Checkout", description: "Proceed to cart and find the 'Promo code / Coupon' box." },
+      { step: 3, title: "Enter Code", description: "Enter SPROM and click Apply to claim your 15% savings immediately." }
+    ],
+    faqs: [
+      { question: "What is the best active PongBot promo code?", answer: "Promo code SPROM offers the highest verified discount of 15% off smart table tennis robots." },
+      { question: "Does PongBot offer warranties?", answer: "Yes, all official PongBot robotics are covered by manufacturer warranties and dedicated technical support." }
+    ]
+  },
+
   "candy-in-bulk": {
     slug: "candy-in-bulk",
     aliases: ["candy-in-bulk", "candyinbulk", "candy-in-bulk-us", "candyinbulk-us", "candy-in-bulk-deals", "swedish-candy", "swedish-candy-land"],

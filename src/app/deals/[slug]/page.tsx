@@ -9,7 +9,9 @@ import { getBrandSeoData } from "../../../lib/brandSeoData";
 export const dynamic = "force-static";
 
 export async function generateStaticParams() {
+  const candySlugs = [{ slug: "candy-in-bulk" }, { slug: "candyinbulk" }, { slug: "candy-in-bulk-us" }, { slug: "swedish-candy" }];
   return [
+    ...candySlugs,
     { slug: "the-beard-struggle" },
     { slug: "thebeardstruggle" },
     { slug: "beard-struggle" },

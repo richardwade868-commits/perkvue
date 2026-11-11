@@ -50,6 +50,21 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+    async redirects() {
+    return [
+      {
+        source: "/go/candy-in-bulk",
+        destination: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
+        permanent: false,
+      },
+      {
+        source: "/go/candyinbulk",
+        destination: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
+        permanent: false,
+      },
+    ];
+  },
+
   async rewrites() {
     return [
       {

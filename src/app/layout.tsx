@@ -24,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="linkscircleverifycode" content="4dcc2529-30cf-4f04-b0a6-bc6819ed1d15" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

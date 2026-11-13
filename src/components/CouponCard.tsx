@@ -105,7 +105,7 @@ export default function CouponCard({ coupon, store, isPrimary = false }: CouponC
           <span className={styles.pulsingDot}></span> Verified Active Today
         </span>
         <span className={styles.badge3dExtruded}>
-          {isDirectDeal ? "DIRECT PRIVILEGE" : "100% CART AUDITED"}
+          {isDirectDeal ? "VERIFIED DEAL" : "100% CART AUDITED"}
         </span>
       </div>
 
@@ -155,7 +155,7 @@ export default function CouponCard({ coupon, store, isPrimary = false }: CouponC
             </>
           ) : (
             <>
-              <span>Activate Privilege</span>
+              <span>Activate Deal</span>
               <span className={styles.arrowIcon}>→</span>
             </>
           )}

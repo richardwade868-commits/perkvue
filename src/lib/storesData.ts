@@ -790,19 +790,49 @@ export const CANDY_IN_BULK_STORE: Store = {
   description: "Viral TikTok Swedish candy, authentic Bubs sour foam, sweet licorice, gummy mixes, and wholesale bulk confectionery delivered fresh.",
   rating: 4.92,
   reviews_count: 2450,
-  benefit: "10% Off Verified Codes & Bulk Confectionery Perks",
+  benefit: "Up to 20% Off Bulk Candy & Direct Store Deals",
   badge: "Verified Confectionery Partner"
 };
 
 export const CANDY_IN_BULK_COUPONS: Coupon[] = [
   {
     id: "cib-pv-1",
-    code: "WELCOME10",
-    discount: "10% OFF",
-    title: "10% Off Sitewide on All Bulk Candy & Swedish Bubs",
-    description: "Verified working code WELCOME10 gives an instant 10% discount across your entire confectionery cart at checkout.",
+    code: "",
+    discount: "20% OFF",
+    title: "Up to 20% Off Wholesale Bags & Party Mixes",
+    description: "Instant savings automatically applied at checkout on wholesale confectionery, Swedish Bubs, and bulk party packs. No code needed.",
     is_verified: true,
-    is_auto_applied: false,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
+    store: CANDY_IN_BULK_STORE,
+    storeSlug: "candy-in-bulk",
+    storeName: "Candy In Bulk",
+    uses_count: 1820
+  },
+  {
+    id: "cib-pv-2",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free US Shipping on Orders Over $49",
+    description: "Receive fast standard delivery automatically applied on all bulk candy orders over $49 across the continental United States.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
+    store: CANDY_IN_BULK_STORE,
+    storeSlug: "candy-in-bulk",
+    storeName: "Candy In Bulk",
+    uses_count: 2150
+  },
+  {
+    id: "cib-pv-3",
+    code: "",
+    discount: "FREE GIFT",
+    title: "Free Sweet Gift on Orders Over $69",
+    description: "Limited-time official store promotion: spend $69 or more to receive a complimentary mystery confectionery treat added to your package.",
+    is_verified: true,
+    is_auto_applied: true,
     expiry_date: "2026-12-31",
     affiliate_url: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
     store: CANDY_IN_BULK_STORE,
@@ -811,41 +841,11 @@ export const CANDY_IN_BULK_COUPONS: Coupon[] = [
     uses_count: 1420
   },
   {
-    id: "cib-pv-2",
-    code: "SMS10",
-    discount: "10% OFF",
-    title: "10% Off Your Order with Promo Code SMS10",
-    description: "Save an additional 10% on viral Swedish Bubs, sour foam skulls, and bulk candy bags with verified code SMS10.",
-    is_verified: true,
-    is_auto_applied: false,
-    expiry_date: "2026-12-31",
-    affiliate_url: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
-    store: CANDY_IN_BULK_STORE,
-    storeSlug: "candy-in-bulk",
-    storeName: "Candy In Bulk",
-    uses_count: 1180
-  },
-  {
-    id: "cib-pv-3",
-    code: "CANDY5",
-    discount: "5% OFF",
-    title: "5% Off Storewide Instant Discount",
-    description: "Apply active promo code CANDY5 at checkout for guaranteed 5% savings on all bulk candy orders.",
-    is_verified: true,
-    is_auto_applied: false,
-    expiry_date: "2026-12-31",
-    affiliate_url: "https://www.candyinbulk.com?sca_ref=12482409.Dtw0PMQuP08o&utm_source=uppromote&utm_medium=socialmedia&utm_campaign=affiliate",
-    store: CANDY_IN_BULK_STORE,
-    storeSlug: "candy-in-bulk",
-    storeName: "Candy In Bulk",
-    uses_count: 850
-  },
-  {
     id: "cib-pv-4",
     code: "",
-    discount: "FREE GIFT",
-    title: "Free Gift on Orders Over $69",
-    description: "Limited-time official store promotion: spend $69 or more to pick a complimentary mystery sweet gift at checkout.",
+    discount: "10% OFF",
+    title: "10% Off Sitewide New Shopper Discount",
+    description: "Claim 10% instant savings across all Swedish Bubs, sour skulls, and sweet licorice mixes automatically applied at cart.",
     is_verified: true,
     is_auto_applied: true,
     expiry_date: "2026-12-31",
@@ -853,14 +853,14 @@ export const CANDY_IN_BULK_COUPONS: Coupon[] = [
     store: CANDY_IN_BULK_STORE,
     storeSlug: "candy-in-bulk",
     storeName: "Candy In Bulk",
-    uses_count: 940
+    uses_count: 1640
   },
   {
     id: "cib-pv-5",
     code: "",
-    discount: "FREE SHIP",
-    title: "Free US Shipping on Orders Over $49",
-    description: "Receive fast standard delivery automatically applied on candy orders over $49 across the continental United States.",
+    discount: "UNDER $20",
+    title: "Massive 5 lb Bulk Bags Under $20",
+    description: "Enjoy steep bulk wholesale price reductions on party-sized 5 lb sweet candy bags. Direct discount automatically active.",
     is_verified: true,
     is_auto_applied: true,
     expiry_date: "2026-12-31",
@@ -868,7 +868,7 @@ export const CANDY_IN_BULK_COUPONS: Coupon[] = [
     store: CANDY_IN_BULK_STORE,
     storeSlug: "candy-in-bulk",
     storeName: "Candy In Bulk",
-    uses_count: 1850
+    uses_count: 980
   }
 ];
 

@@ -55,8 +55,8 @@ export const CAMPAIGN_BRAND_SEO_DATA: Record<string, BrandSeoEntry> = {
     brandName: "Candy In Bulk",
     category: "Bulk Sweets & Wholesale Confectionery",
     h1: "Candy In Bulk Promo Codes, Verified Coupons & Discounts",
-    metaTitle: "10% Off Candy In Bulk Coupon Codes & Promo Deals (Nov 2026)",
-    metaDescription: "Save 10% on authentic Swedish candy, Bubs sour skulls, and wholesale confectionery at Candy In Bulk. Tested promo codes and free shipping perks verified today.",
+    metaTitle: "20% Off Candy In Bulk Coupon Codes & Promo Deals (Nov 2026)",
+    metaDescription: "Save up to 20% on authentic Swedish candy, Bubs sour skulls, and wholesale confectionery at Candy In Bulk. Tested deals and free shipping perks verified today.",
     keywords: [
       "candy in bulk discount code", "candy in bulk promo code", "candy in bulk coupons",
       "bulk candy promo code", "candy in bulk coupon code", "bulk candy coupons"
@@ -68,18 +68,17 @@ export const CAMPAIGN_BRAND_SEO_DATA: Record<string, BrandSeoEntry> = {
       "Whether organizing weddings, corporate gatherings, or stocking pantry treats, our savings editors verify active Candy In Bulk discount codes and wholesale promotions daily to guarantee verified savings on your checkout cart."
     ],
     savingsTips: [
-      "Unlock 10% Off: Apply verified code WELCOME10 or SMS10 at checkout for an instant 10% deduction on qualifying bags and mixes.",
-      "Extra 5% Off Storewide: Use tested code CANDY5 for 5% off any order.",
+      "Up to 20% Off Bulk Deals: Instant wholesale discounts automatically applied at checkout on party bags and Swedish Bubs.",
       "Free Shipping: Add $49 or more in confectionery treats to your cart to automatically trigger zero shipping fees nationwide.",
-      "Free Gift: Spend $69 or more to unlock a complimentary mystery sweet gift."
+      "Free Sweet Gift: Spend $69 or more to unlock an official free mystery gift with your confectionery order."
     ],
     howToApply: [
       { step: 1, title: "Choose Your Confectionery", description: "Select your favorite Swedish Bubs mixes or wholesale candy bags on Candy In Bulk." },
-      { step: 2, title: "View Shopping Cart", description: "Proceed to checkout and locate the 'Discount code or gift card' box." },
-      { step: 3, title: "Apply Verified Code", description: "Enter code WELCOME10 or SMS10 and click Apply to enjoy your instant 10% discount." }
+      { step: 2, title: "Activate Deal", description: "Click 'Activate Deal' on any verified offer to automatically apply savings to your checkout session." },
+      { step: 3, title: "Complete Checkout", description: "Enjoy instant verified wholesale discounts and free delivery applied automatically." }
     ],
     faqs: [
-      { question: "What is the best Candy In Bulk promo code today?", answer: "The top active coupon code is WELCOME10 (and SMS10), which provides a verified 10% discount on bulk candy and Swedish Bubs mixes at checkout." },
+      { question: "What is the best Candy In Bulk promo code today?", answer: "The top active offer provides up to 20% off all bulk candy and wholesale Swedish Bubs mixes, automatically applied at cart." },
       { question: "Does Candy In Bulk offer free shipping?", answer: "Yes, free standard shipping is automatically applied to all US orders totaling $49 or more." }
     ]
   },

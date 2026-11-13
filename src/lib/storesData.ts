@@ -843,9 +843,9 @@ export const CANDY_IN_BULK_COUPONS: Coupon[] = [
   {
     id: "cib-pv-4",
     code: "",
-    discount: "10% OFF",
-    title: "10% Off Sitewide New Shopper Discount",
-    description: "Claim 10% instant savings across all Swedish Bubs, sour skulls, and sweet licorice mixes automatically applied at cart.",
+    discount: "15% OFF",
+    title: "15% Off Sitewide Candy In Bulk Deals",
+    description: "Claim 15% instant savings across Swedish Bubs, sour skulls, and sweet licorice mixes automatically applied at checkout.",
     is_verified: true,
     is_auto_applied: true,
     expiry_date: "2026-12-31",

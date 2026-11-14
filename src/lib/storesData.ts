@@ -938,8 +938,108 @@ export const PONGBOT_COUPONS: Coupon[] = [
   }
 ];
 
+// ==========================================
+// VESSI STORE & COUPONS
+// ==========================================
+export const VESSI_STORE: Store = {
+  id: "vessi",
+  name: "Vessi",
+  slug: "vessi",
+  logo: "/logos/vessi.png",
+  website: "https://vessi.com",
+  affiliate_url: "https://vessi.com",
+  category: "100% Waterproof Sneakers & Everyday Footwear",
+  description: "Official Vessi verified deals portal. Discover 100% waterproof knit footwear, lightweight city sneakers, stormproof boots, and travel slip-ons built for all-weather comfort.",
+  rating: 4.89,
+  reviews_count: 3820,
+  benefit: "Up to 20% Off Waterproof Footwear & Direct Store Deals",
+  badge: "Verified Waterproof Footwear Partner"
+};
+
+export const VESSI_COUPONS: Coupon[] = [
+  {
+    id: "vessi-pv-1",
+    code: "",
+    discount: "20% OFF",
+    title: "20% Off Student & Healthcare Discount",
+    description: "Exclusive verified 20% savings for students, educators, and healthcare heroes verified via Student Beans and ID.me. Direct discount activated.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://vessi.com",
+    store: VESSI_STORE,
+    storeSlug: "vessi",
+    storeName: "Vessi",
+    uses_count: 2410
+  },
+  {
+    id: "vessi-pv-2",
+    code: "",
+    discount: "$20 OFF",
+    title: "$20 Off Orders Over $100 via Referral Deal",
+    description: "Instant $20 price drop automatically applied on qualifying full-price waterproof shoe orders over $100. No coupon code needed.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://vessi.com",
+    store: VESSI_STORE,
+    storeSlug: "vessi",
+    storeName: "Vessi",
+    uses_count: 1980
+  },
+  {
+    id: "vessi-pv-3",
+    code: "",
+    discount: "15% OFF",
+    title: "Up to 15% Off Sitewide New Shopper Offer",
+    description: "Claim 15% instant savings on your first purchase of everyday waterproof sneakers, slip-ons, and travel accessories.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://vessi.com",
+    store: VESSI_STORE,
+    storeSlug: "vessi",
+    storeName: "Vessi",
+    uses_count: 3120
+  },
+  {
+    id: "vessi-pv-4",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free Shipping on All Orders Over $80",
+    description: "Automatic free standard delivery applied across the continental United States and Canada on all orders over $80.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://vessi.com",
+    store: VESSI_STORE,
+    storeSlug: "vessi",
+    storeName: "Vessi",
+    uses_count: 4250
+  },
+  {
+    id: "vessi-pv-5",
+    code: "",
+    discount: "30% OFF",
+    title: "Up to 30% Off Last Chance Seasonal Markdowns",
+    description: "Save up to 30% on seasonal colorways and limited-edition waterproof knit styles in the official Vessi sale section.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://vessi.com",
+    store: VESSI_STORE,
+    storeSlug: "vessi",
+    storeName: "Vessi",
+    uses_count: 1560
+  }
+];
+
 export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] } | null {
   const norm = (slug || "").toLowerCase().trim();
+  const vessiAliases = ["vessi", "vessi-shoes", "vessishoes", "vessi-footwear", "vessi-us", "vessi-waterproof"];
+  if (vessiAliases.includes(norm)) {
+    return { store: VESSI_STORE, coupons: VESSI_COUPONS };
+  }
   const im8Aliases = ["im8-health-us", "im8", "im8health", "im8-health", "im8health-us"];
   if (im8Aliases.includes(norm)) {
     return { store: IM8_STORE, coupons: IM8_COUPONS };
@@ -996,6 +1096,7 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
 }
 
 export const SECRET_CAMPAIGN_STORES: { store: Store; aliases: string[]; coupons?: Coupon[] }[] = [
+  { store: VESSI_STORE, aliases: ["vessi", "vessi-shoes", "vessishoes", "vessi-footwear", "vessi-us", "vessi-waterproof"], coupons: VESSI_COUPONS },
   { store: CANDY_IN_BULK_STORE, aliases: ["candy-in-bulk", "candyinbulk", "candy-in-bulk-us", "candyinbulk-us", "candy-in-bulk-deals", "swedish-candy", "swedish-candy-land"], coupons: CANDY_IN_BULK_COUPONS },
   { store: PONGBOT_STORE, aliases: ["pongbot", "pongbot-us", "pongbotsports", "pongbot-sports", "pong-bot", "pongbot-deals", "pongbot-robot"], coupons: PONGBOT_COUPONS },
   { store: IM8_STORE, aliases: ["im8-health-us", "im8", "im8health", "im8-health", "im8health-us"], coupons: IM8_COUPONS },

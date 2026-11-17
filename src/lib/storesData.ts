@@ -1054,26 +1054,11 @@ export const KING_OF_CHRISTMAS_STORE: Store = {
 
 export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
   {
-    id: "koc-pv-welcome",
-    code: "WELCOME10",
-    discount: "10% OFF",
-    title: "10% Off Sitewide First Order Promo Code",
-    description: "Save 10% on your entire order of luxury artificial Christmas trees, pre-lit LED trees, wreaths, and holiday accessories with coupon code WELCOME10.",
-    is_verified: true,
-    is_auto_applied: false,
-    expiry_date: "2026-12-31",
-    affiliate_url: "https://redirect.partner.fatcoupon.com/go?cid=575&pid=579&url=https%3A%2F%2Fkingofchristmas.com&mid=20987",
-    store: KING_OF_CHRISTMAS_STORE,
-    storeSlug: "king-of-christmas",
-    storeName: "King of Christmas",
-    uses_count: 5410
-  },
-  {
     id: "koc-pv-king100",
     code: "KING100",
     discount: "$100 OFF",
     title: "$100 Off Orders Over $2,199 at Checkout",
-    description: "Apply coupon code KING100 at checkout to instantly save $100 on qualifying King of Christmas orders over $2,199.",
+    description: "Apply official coupon code KING100 at checkout to instantly deduct $100 on qualifying King of Christmas orders over $2,199.",
     is_verified: true,
     is_auto_applied: false,
     expiry_date: "2026-12-31",
@@ -1081,14 +1066,14 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
     store: KING_OF_CHRISTMAS_STORE,
     storeSlug: "king-of-christmas",
     storeName: "King of Christmas",
-    uses_count: 3240
+    uses_count: 5240
   },
   {
     id: "koc-pv-king75",
     code: "KING75",
     discount: "$75 OFF",
     title: "$75 Off Orders Over $1,699 with Promo Code",
-    description: "Take $75 off high-end flocked, pre-lit fir, and Noble Christmas tree orders totaling $1,699 or more using code KING75.",
+    description: "Take $75 off high-end flocked, pre-lit fir, and Noble Christmas tree orders totaling $1,699 or more using verified code KING75.",
     is_verified: true,
     is_auto_applied: false,
     expiry_date: "2026-12-31",
@@ -1096,7 +1081,7 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
     store: KING_OF_CHRISTMAS_STORE,
     storeSlug: "king-of-christmas",
     storeName: "King of Christmas",
-    uses_count: 2980
+    uses_count: 4180
   },
   {
     id: "koc-pv-king50",
@@ -1111,14 +1096,14 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
     store: KING_OF_CHRISTMAS_STORE,
     storeSlug: "king-of-christmas",
     storeName: "King of Christmas",
-    uses_count: 4120
+    uses_count: 6120
   },
   {
     id: "koc-pv-king35",
     code: "KING35",
     discount: "$35 OFF",
     title: "$35 Off Orders Over $799 Promo Code",
-    description: "Use official promo code KING35 during checkout to receive $35 off your total tree and decor order over $799.",
+    description: "Use official promo code KING35 during checkout to receive $35 off your total tree and holiday decor order over $799.",
     is_verified: true,
     is_auto_applied: false,
     expiry_date: "2026-12-31",
@@ -1126,7 +1111,7 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
     store: KING_OF_CHRISTMAS_STORE,
     storeSlug: "king-of-christmas",
     storeName: "King of Christmas",
-    uses_count: 3670
+    uses_count: 4670
   },
   {
     id: "koc-pv-king25",
@@ -1141,7 +1126,7 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
     store: KING_OF_CHRISTMAS_STORE,
     storeSlug: "king-of-christmas",
     storeName: "King of Christmas",
-    uses_count: 4890
+    uses_count: 5890
   },
   {
     id: "koc-pv-king15",
@@ -1156,7 +1141,7 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
     store: KING_OF_CHRISTMAS_STORE,
     storeSlug: "king-of-christmas",
     storeName: "King of Christmas",
-    uses_count: 6150
+    uses_count: 8150
   },
   {
     id: "koc-pv-sale50",
@@ -1171,7 +1156,7 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
     store: KING_OF_CHRISTMAS_STORE,
     storeSlug: "king-of-christmas",
     storeName: "King of Christmas",
-    uses_count: 7820
+    uses_count: 9820
   },
   {
     id: "koc-pv-shipping",
@@ -1186,7 +1171,7 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
     store: KING_OF_CHRISTMAS_STORE,
     storeSlug: "king-of-christmas",
     storeName: "King of Christmas",
-    uses_count: 8940
+    uses_count: 11240
   },
   {
     id: "koc-pv-bundle",
@@ -1201,7 +1186,7 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
     store: KING_OF_CHRISTMAS_STORE,
     storeSlug: "king-of-christmas",
     storeName: "King of Christmas",
-    uses_count: 5120
+    uses_count: 6520
   }
 ];
 

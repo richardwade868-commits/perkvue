@@ -155,14 +155,13 @@ export default function DealsClient({ store, coupons }: DealsClientProps) {
               alt={`${store.name} Logo`}
               width={180}
               height={72}
-              style={{ width: "auto", height: "72px", maxWidth: "220px", objectFit: "contain", display: "block" }}
               className={styles.storeLogo}
             />
           ) : (
             <div className={styles.fallbackLogo}>{store.name.charAt(0)}</div>
           )}
-          <div>
-            <div style={{ fontSize: "0.72rem", fontWeight: 700, color: "#0284c7", letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "3px" }}>
+          <div className={styles.brandText}>
+            <div className={styles.storeBadge}>
               VERIFIED STORE OFFERS
             </div>
             <h1 className={styles.storeTitle}>{store.name} Promo Codes &amp; Coupons</h1>

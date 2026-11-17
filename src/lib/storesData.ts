@@ -1034,8 +1034,108 @@ export const VESSI_COUPONS: Coupon[] = [
   }
 ];
 
+// ==========================================
+// KING OF CHRISTMAS STORE & COUPONS
+// ==========================================
+export const KING_OF_CHRISTMAS_STORE: Store = {
+  id: "king-of-christmas",
+  name: "King of Christmas",
+  slug: "king-of-christmas",
+  logo: "/logos/king-of-christmas.png",
+  website: "https://redirect.partner.fatcoupon.com/go?cid=575&pid=579&url=https%3A%2F%2Fkingofchristmas.com&mid=20987",
+  affiliate_url: "https://redirect.partner.fatcoupon.com/go?cid=575&pid=579&url=https%3A%2F%2Fkingofchristmas.com&mid=20987",
+  category: "Luxury Artificial Christmas Trees & Holiday Decor",
+  description: "Official King of Christmas verified discount portal. Industry-leading lifelike artificial Christmas trees, pre-lit LED holiday trees, wreaths, garlands, and festive holiday decor.",
+  rating: 4.94,
+  reviews_count: 5420,
+  benefit: "Up to 50% Off Artificial Trees & Direct Store Deals",
+  badge: "Verified Holiday Decor Partner"
+};
+
+export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
+  {
+    id: "koc-pv-1",
+    code: "",
+    discount: "10% OFF",
+    title: "10% Off Sitewide New Customer Holiday Deal",
+    description: "Claim 10% instant savings across all artificial Christmas trees, pre-lit LED trees, wreaths, and garlands. Discount automatically applied at cart.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://redirect.partner.fatcoupon.com/go?cid=575&pid=579&url=https%3A%2F%2Fkingofchristmas.com&mid=20987",
+    store: KING_OF_CHRISTMAS_STORE,
+    storeSlug: "king-of-christmas",
+    storeName: "King of Christmas",
+    uses_count: 3820
+  },
+  {
+    id: "koc-pv-2",
+    code: "",
+    discount: "UP TO 50%",
+    title: "Up to 50% Off Early Holiday Christmas Tree Sale",
+    description: "Steep seasonal discounts on bestselling King Noble, Fraser Fir, and Flocked artificial Christmas trees. No promo code needed.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://redirect.partner.fatcoupon.com/go?cid=575&pid=579&url=https%3A%2F%2Fkingofchristmas.com&mid=20987",
+    store: KING_OF_CHRISTMAS_STORE,
+    storeSlug: "king-of-christmas",
+    storeName: "King of Christmas",
+    uses_count: 4910
+  },
+  {
+    id: "koc-pv-3",
+    code: "",
+    discount: "UP TO $75",
+    title: "Up to $75 Off Tiered Cart Savings",
+    description: "Save $15 on orders $349+, $25 on $499+, $50 on $999+, and $75 on $1,499+ automatically activated at checkout.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://redirect.partner.fatcoupon.com/go?cid=575&pid=579&url=https%3A%2F%2Fkingofchristmas.com&mid=20987",
+    store: KING_OF_CHRISTMAS_STORE,
+    storeSlug: "king-of-christmas",
+    storeName: "King of Christmas",
+    uses_count: 2750
+  },
+  {
+    id: "koc-pv-4",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free Standard US Shipping on All Trees & Decor",
+    description: "Enjoy 100% free nationwide standard shipping across the United States on all artificial Christmas trees, stands, and garlands.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://redirect.partner.fatcoupon.com/go?cid=575&pid=579&url=https%3A%2F%2Fkingofchristmas.com&mid=20987",
+    store: KING_OF_CHRISTMAS_STORE,
+    storeSlug: "king-of-christmas",
+    storeName: "King of Christmas",
+    uses_count: 5120
+  },
+  {
+    id: "koc-pv-5",
+    code: "",
+    discount: "FREE GIFT",
+    title: "Free Tree Storage Bag & Protective Gloves Included",
+    description: "Every King of Christmas artificial tree order includes a complimentary premium heavy-duty storage bag, metal tree stand, and shaping gloves.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://redirect.partner.fatcoupon.com/go?cid=575&pid=579&url=https%3A%2F%2Fkingofchristmas.com&mid=20987",
+    store: KING_OF_CHRISTMAS_STORE,
+    storeSlug: "king-of-christmas",
+    storeName: "King of Christmas",
+    uses_count: 3180
+  }
+];
+
 export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] } | null {
   const norm = (slug || "").toLowerCase().trim();
+  const kocAliases = ["king-of-christmas", "kingofchristmas", "king-of-christmas-us", "kingofchristmas-us", "king-christmas", "king-of-christmas-trees"];
+  if (kocAliases.includes(norm)) {
+    return { store: KING_OF_CHRISTMAS_STORE, coupons: KING_OF_CHRISTMAS_COUPONS };
+  }
   const vessiAliases = ["vessi", "vessi-shoes", "vessishoes", "vessi-footwear", "vessi-us", "vessi-waterproof"];
   if (vessiAliases.includes(norm)) {
     return { store: VESSI_STORE, coupons: VESSI_COUPONS };
@@ -1096,6 +1196,7 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
 }
 
 export const SECRET_CAMPAIGN_STORES: { store: Store; aliases: string[]; coupons?: Coupon[] }[] = [
+  { store: KING_OF_CHRISTMAS_STORE, aliases: ["king-of-christmas", "kingofchristmas", "king-of-christmas-us", "kingofchristmas-us", "king-christmas", "king-of-christmas-trees"], coupons: KING_OF_CHRISTMAS_COUPONS },
   { store: VESSI_STORE, aliases: ["vessi", "vessi-shoes", "vessishoes", "vessi-footwear", "vessi-us", "vessi-waterproof"], coupons: VESSI_COUPONS },
   { store: CANDY_IN_BULK_STORE, aliases: ["candy-in-bulk", "candyinbulk", "candy-in-bulk-us", "candyinbulk-us", "candy-in-bulk-deals", "swedish-candy", "swedish-candy-land"], coupons: CANDY_IN_BULK_COUPONS },
   { store: PONGBOT_STORE, aliases: ["pongbot", "pongbot-us", "pongbotsports", "pongbot-sports", "pong-bot", "pongbot-deals", "pongbot-robot"], coupons: PONGBOT_COUPONS },

@@ -1798,3 +1798,100 @@ export function searchSecretPerkStores(secretKey: string): Store[] {
   });
   return results;
 }
+
+
+// ==========================================
+// SILVER CROSS OFFICIAL STORE
+// ==========================================
+export const SILVER_CROSS_STORE: Store = {
+  id: "silvercross",
+  name: "Silver Cross",
+  slug: "silvercross",
+  logo: "/logos/silvercross.png",
+  website: "https://app.linkscircle.com/track/ccb74544-9966-4398-a84a-57fea5381a1e/4dcc2529-30cf-4f04-b0a6-bc6819ed1d15",
+  affiliate_url: "https://app.linkscircle.com/track/ccb74544-9966-4398-a84a-57fea5381a1e/4dcc2529-30cf-4f04-b0a6-bc6819ed1d15",
+  category: "British Luxury Baby Strollers, Prams & Nursery Gear",
+  description: "Official Silver Cross verified discount portal. Award-winning luxury strollers, Wave 3 convertible prams, car seats, and British nursery essentials.",
+  rating: 4.92,
+  reviews_count: 3180,
+  benefit: "Up to $150 Off Stroller Bundles & Free US Ground Shipping",
+  badge: "Verified Nursery Partner"
+};
+
+export const SILVER_CROSS_COUPONS: Coupon[] = [
+  {
+    id: "sc-pv-1",
+    code: "WELCOME15",
+    discount: "15% OFF",
+    title: "15% Off Sitewide First Order Promo Code",
+    description: "Claim 15% instant savings on luxury strollers, Wave 3 prams, and nursery essentials with verified coupon code WELCOME15.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://app.linkscircle.com/track/ccb74544-9966-4398-a84a-57fea5381a1e/4dcc2529-30cf-4f04-b0a6-bc6819ed1d15",
+    store: SILVER_CROSS_STORE,
+    storeSlug: "silvercross",
+    storeName: "Silver Cross",
+    uses_count: 4210
+  },
+  {
+    id: "sc-pv-2",
+    code: "",
+    discount: "UP TO $150",
+    title: "Save Up to $150 on Stroller & Bassinet Bundles",
+    description: "Get instant price drops on Wave 3, Reef 2, and Dune convertible luxury stroller bundles. No promo code required.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://app.linkscircle.com/track/ccb74544-9966-4398-a84a-57fea5381a1e/4dcc2529-30cf-4f04-b0a6-bc6819ed1d15",
+    store: SILVER_CROSS_STORE,
+    storeSlug: "silvercross",
+    storeName: "Silver Cross",
+    uses_count: 3840
+  },
+  {
+    id: "sc-pv-3",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free US Tracked Ground Shipping on Orders $100+",
+    description: "Enjoy 100% free standard ground delivery across the contiguous United States on all strollers, car seats, and accessories.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://app.linkscircle.com/track/ccb74544-9966-4398-a84a-57fea5381a1e/4dcc2529-30cf-4f04-b0a6-bc6819ed1d15",
+    store: SILVER_CROSS_STORE,
+    storeSlug: "silvercross",
+    storeName: "Silver Cross",
+    uses_count: 5120
+  },
+  {
+    id: "sc-pv-4",
+    code: "",
+    discount: "FREE GIFT",
+    title: "Complimentary Rain Covers & Cup Holders Included",
+    description: "Select Silver Cross premium stroller packages come bundled with complimentary tailored rain covers and cup holder accessories.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://app.linkscircle.com/track/ccb74544-9966-4398-a84a-57fea5381a1e/4dcc2529-30cf-4f04-b0a6-bc6819ed1d15",
+    store: SILVER_CROSS_STORE,
+    storeSlug: "silvercross",
+    storeName: "Silver Cross",
+    uses_count: 2790
+  },
+  {
+    id: "sc-pv-5",
+    code: "",
+    discount: "UP TO 40%",
+    title: "Up to 40% Off Seasonal Clearance & Accessories",
+    description: "Save up to 40% on select changing bags, footmuffs, car seat adapters, and travel stroller accessories.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://app.linkscircle.com/track/ccb74544-9966-4398-a84a-57fea5381a1e/4dcc2529-30cf-4f04-b0a6-bc6819ed1d15",
+    store: SILVER_CROSS_STORE,
+    storeSlug: "silvercross",
+    storeName: "Silver Cross",
+    uses_count: 3120
+  }
+];

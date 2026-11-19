@@ -1825,12 +1825,12 @@ export const SILVER_CROSS_STORE: Store = {
 export const SILVER_CROSS_COUPONS: Coupon[] = [
   {
     id: "sc-pv-1",
-    code: "WELCOME15",
-    discount: "15% OFF",
-    title: "15% Off Sitewide First Order Promo Code",
-    description: "Claim 15% instant savings on luxury strollers, Wave 3 prams, and nursery essentials with verified coupon code WELCOME15.",
+    code: "",
+    discount: "UP TO $125",
+    title: "Black Friday Sale: Save Up to $125 on Luxury Strollers & Cribs",
+    description: "Activate instant Black Friday savings of up to $125 on Wave 3 prams, Reef 2 strollers, and travel cribs. Applied automatically — no promo code needed.",
     is_verified: true,
-    is_auto_applied: false,
+    is_auto_applied: true,
     expiry_date: "2026-12-31",
     affiliate_url: "https://app.linkscircle.com/track?linkmid=91515237&linkaffid=96610225",
     store: SILVER_CROSS_STORE,

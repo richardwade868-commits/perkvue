@@ -1191,6 +1191,11 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
 ];
 
 export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] } | null {
+  const silverCrossAliases = ["silvercross", "silver-cross", "silvercrossus", "silver-cross-us", "silvercross-us", "silvercross-baby"];
+  if (silverCrossAliases.includes(norm)) {
+    return { store: SILVER_CROSS_STORE, coupons: SILVER_CROSS_COUPONS };
+  }
+
   const norm = (slug || "").toLowerCase().trim();
   const kocAliases = ["king-of-christmas", "kingofchristmas", "king-of-christmas-us", "kingofchristmas-us", "king-christmas", "king-of-christmas-trees"];
   if (kocAliases.includes(norm)) {

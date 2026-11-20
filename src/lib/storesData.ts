@@ -1192,6 +1192,10 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
 
 export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] } | null {
   const norm = (slug || "").toLowerCase().trim();
+  const berkeyAliases = ["usa-berkey-filters", "usa-berkey-filters-us", "usaberkeyfilters", "usaberkeyfilters-us", "berkey-filters", "berkey", "usa-berkey-us"];
+  if (berkeyAliases.includes(norm)) {
+    return { store: USA_BERKEY_STORE, coupons: USA_BERKEY_COUPONS };
+  }
   const silverCrossAliases = ["silvercross", "silver-cross", "silvercrossus", "silver-cross-us", "silvercross-us", "silvercross-baby"];
   if (silverCrossAliases.includes(norm)) {
     return { store: SILVER_CROSS_STORE, coupons: SILVER_CROSS_COUPONS };
@@ -1897,5 +1901,87 @@ export const SILVER_CROSS_COUPONS: Coupon[] = [
     storeSlug: "silvercross",
     storeName: "Silver Cross",
     uses_count: 3120
+  }
+];
+
+
+// ==========================================
+// USA BERKEY FILTERS OFFICIAL STORE (PERKVUE AFF 271)
+// ==========================================
+export const USA_BERKEY_STORE: Store = {
+  id: "usa-berkey-filters",
+  name: "USA Berkey Filters",
+  slug: "usa-berkey-filters",
+  logo: "/logos/usa-berkey-filters.png",
+  website: "https://www.usaberkeyfilters.com/aff/271/",
+  affiliate_url: "https://www.usaberkeyfilters.com/aff/271/",
+  category: "Gravity-Fed Water Purification Systems & Replacement Elements",
+  description: "World-leader in gravity-fed water purification systems, authentic Black Berkey replacement filters, stainless steel systems, and fluoride reduction elements.",
+  rating: 4.94,
+  reviews_count: 5820,
+  benefit: "Up to 35% Off Berkey Systems & Free Tracked US Shipping",
+  badge: "Verified Water Filter Partner"
+};
+
+export const USA_BERKEY_COUPONS: Coupon[] = [
+  {
+    id: "berkey-pv-1",
+    code: "USA30",
+    discount: "30% OFF",
+    title: "30% Off Exclusive Coupon Code Sitewide",
+    description: "Apply verified promo code USA30 at checkout to save 30% on authentic Berkey water filtration systems and bundles.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.usaberkeyfilters.com/aff/271/",
+    store: USA_BERKEY_STORE,
+    storeSlug: "usa-berkey-filters",
+    storeName: "USA Berkey Filters",
+    uses_count: 6140
+  },
+  {
+    id: "berkey-pv-2",
+    code: "MOM25",
+    discount: "25% OFF",
+    title: "25% Off Discount Code on Black Berkey Replacement Elements",
+    description: "Save 25% on genuine Black Berkey replacement filters and fluoride elements using promo code MOM25.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.usaberkeyfilters.com/aff/271/",
+    store: USA_BERKEY_STORE,
+    storeSlug: "usa-berkey-filters",
+    storeName: "USA Berkey Filters",
+    uses_count: 4890
+  },
+  {
+    id: "berkey-pv-3",
+    code: "",
+    discount: "UP TO 35%",
+    title: "Up to 35% Off Weekly Flash Sales on Big Berkey Systems",
+    description: "Save up to 35% on complete stainless steel gravity water filter systems. Applied automatically in cart.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.usaberkeyfilters.com/aff/271/",
+    store: USA_BERKEY_STORE,
+    storeSlug: "usa-berkey-filters",
+    storeName: "USA Berkey Filters",
+    uses_count: 5210
+  },
+  {
+    id: "berkey-pv-4",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free Tracked US Shipping on All Berkey Filter Orders",
+    description: "Enjoy 100% free tracked ground delivery across the contiguous United States on all Berkey water systems and accessories.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.usaberkeyfilters.com/aff/271/",
+    store: USA_BERKEY_STORE,
+    storeSlug: "usa-berkey-filters",
+    storeName: "USA Berkey Filters",
+    uses_count: 7420
   }
 ];

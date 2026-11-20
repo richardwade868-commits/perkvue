@@ -1926,10 +1926,10 @@ export const USA_BERKEY_STORE: Store = {
 export const USA_BERKEY_COUPONS: Coupon[] = [
   {
     id: "berkey-pv-1",
-    code: "USA30",
-    discount: "30% OFF",
-    title: "30% Off Exclusive Coupon Code Sitewide",
-    description: "Apply verified promo code USA30 at checkout to save 30% on authentic Berkey water filtration systems and bundles.",
+    code: "USA20",
+    discount: "20% OFF",
+    title: "20% Off Exclusive Coupon Code Sitewide",
+    description: "Apply verified promo code USA20 at checkout to save 20% on authentic Berkey water filtration systems and bundles.",
     is_verified: true,
     is_auto_applied: true,
     expiry_date: "2026-12-31",

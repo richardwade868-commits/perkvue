@@ -53,6 +53,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/go/the-berkey",
+        destination: "https://theberkey.com/?rfsn=9428965.01bcd90",
+        permanent: true,
+      },
+      {
+        source: "/go/theberkey",
+        destination: "https://theberkey.com/?rfsn=9428965.01bcd90",
+        permanent: true,
+      },
+      {
         source: "/go/usa-berkey-filters",
         destination: "https://www.usaberkeyfilters.com/aff/271/",
         permanent: true,

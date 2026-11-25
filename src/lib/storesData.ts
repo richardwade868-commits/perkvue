@@ -1200,6 +1200,10 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   if (berkey282Aliases.includes(norm)) {
     return { store: USA_BERKEY_282_STORE, coupons: USA_BERKEY_282_COUPONS };
   }
+    const theBerkeyAliases = ["the-berkey", "theberkey", "the-berkey-filters", "theberkeyfilters", "the-berkey-water-filters"];
+  if (theBerkeyAliases.includes(norm)) {
+    return { store: THE_BERKEY_STORE, coupons: THE_BERKEY_COUPONS };
+  }
   const silverCrossAliases = ["silvercross", "silver-cross", "silvercrossus", "silver-cross-us", "silvercross-us", "silvercross-baby"];
   if (silverCrossAliases.includes(norm)) {
     return { store: SILVER_CROSS_STORE, coupons: SILVER_CROSS_COUPONS };
@@ -2065,5 +2069,83 @@ export const USA_BERKEY_282_COUPONS: Coupon[] = [
     storeSlug: "usaberkeyfilters",
     storeName: "USA Berkey Water Systems",
     uses_count: 7150
+  }
+];
+
+export const THE_BERKEY_STORE: Store = {
+  id: "the-berkey",
+  name: "The Berkey",
+  slug: "the-berkey",
+  logo: "/logos/the-berkey.png",
+  website: "https://theberkey.com/?rfsn=9428965.01bcd90",
+  affiliate_url: "https://theberkey.com/?rfsn=9428965.01bcd90",
+  category: "Authorized Berkey Water Filter Systems & Replacement Elements",
+  description: "Official authorized dealer of genuine Berkey water filtration systems since 2016. Shop authentic Big, Travel, Royal systems, Black Berkey replacement filters, and accessories.",
+  rating: 4.96,
+  reviews_count: 5310,
+  benefit: "10% Off Sitewide with Verified Code 10OFFBERKEY & Fast US Shipping",
+  badge: "Authorized Dealer"
+};
+
+export const THE_BERKEY_COUPONS: Coupon[] = [
+  {
+    id: "the-berkey-deal-1",
+    code: "10OFFBERKEY",
+    discount: "10% OFF",
+    title: "10% Off Verified Coupon Code Sitewide",
+    description: "Use coupon code 10OFFBERKEY at checkout to get an extra 10% off genuine Berkey systems, replacement elements, and parts.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://theberkey.com/?rfsn=9428965.01bcd90",
+    store: THE_BERKEY_STORE,
+    storeSlug: "the-berkey",
+    storeName: "The Berkey",
+    uses_count: 4210
+  },
+  {
+    id: "the-berkey-deal-2",
+    code: "10OFFBERKEY",
+    discount: "10% OFF",
+    title: "10% Off Black Berkey Replacement Filter Bundles",
+    description: "Save 10% on authentic Black Berkey purification elements and PF-2 fluoride reduction filters with code 10OFFBERKEY.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://theberkey.com/?rfsn=9428965.01bcd90",
+    store: THE_BERKEY_STORE,
+    storeSlug: "the-berkey",
+    storeName: "The Berkey",
+    uses_count: 3890
+  },
+  {
+    id: "the-berkey-deal-3",
+    code: "",
+    discount: "BUNDLE DEAL",
+    title: "Big Berkey & Royal Berkey Stainless Steel Bundles",
+    description: "Direct authorized bundle discounts on gravity-fed countertop water purification packages. Instant checkout activation.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://theberkey.com/?rfsn=9428965.01bcd90",
+    store: THE_BERKEY_STORE,
+    storeSlug: "the-berkey",
+    storeName: "The Berkey",
+    uses_count: 3120
+  },
+  {
+    id: "the-berkey-deal-4",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free Tracked Shipping on Orders Over Qualifying Amount",
+    description: "Enjoy zero delivery costs on qualifying orders of Berkey water filter systems across the United States.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://theberkey.com/?rfsn=9428965.01bcd90",
+    store: THE_BERKEY_STORE,
+    storeSlug: "the-berkey",
+    storeName: "The Berkey",
+    uses_count: 5410
   }
 ];

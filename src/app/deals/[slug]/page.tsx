@@ -12,6 +12,8 @@ export async function generateStaticParams() {
   const pongbotSlugs = [{ slug: "pongbot" }, { slug: "pongbot-us" }, { slug: "pongbotsports" }, { slug: "pongbot-sports" }];
   const candySlugs = [{ slug: "candy-in-bulk" }, { slug: "candyinbulk" }, { slug: "candy-in-bulk-us" }, { slug: "swedish-candy" }];
   return [
+    { slug: "the-berkey" },
+    { slug: "theberkey" },
     { slug: "usa-berkey-filters" },
     { slug: "usaberkeyfilters" },
     { slug: "berkey-filters" },

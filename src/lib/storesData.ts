@@ -1192,9 +1192,13 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
 
 export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] } | null {
   const norm = (slug || "").toLowerCase().trim();
-  const berkeyAliases = ["usa-berkey-filters", "usa-berkey-filters-us", "usaberkeyfilters", "usaberkeyfilters-us", "berkey-filters", "berkey", "usa-berkey-us"];
-  if (berkeyAliases.includes(norm)) {
+  const berkey271Aliases = ["usa-berkey-filters", "usa-berkey-filters-us", "berkey-filters", "berkey"];
+  if (berkey271Aliases.includes(norm)) {
     return { store: USA_BERKEY_STORE, coupons: USA_BERKEY_COUPONS };
+  }
+  const berkey282Aliases = ["usaberkeyfilters", "usaberkeyfilters-us", "usaberkey", "usa-berkey", "usa-berkey-us"];
+  if (berkey282Aliases.includes(norm)) {
+    return { store: USA_BERKEY_282_STORE, coupons: USA_BERKEY_282_COUPONS };
   }
   const silverCrossAliases = ["silvercross", "silver-cross", "silvercrossus", "silver-cross-us", "silvercross-us", "silvercross-baby"];
   if (silverCrossAliases.includes(norm)) {
@@ -1983,5 +1987,83 @@ export const USA_BERKEY_COUPONS: Coupon[] = [
     storeSlug: "usa-berkey-filters",
     storeName: "USA Berkey Filters",
     uses_count: 7420
+  }
+];
+
+export const USA_BERKEY_282_STORE: Store = {
+  id: "usaberkeyfilters",
+  name: "USA Berkey Water Systems",
+  slug: "usaberkeyfilters",
+  logo: "/logos/usa-berkey-filters.png",
+  website: "https://www.usaberkeyfilters.com/aff/282/",
+  affiliate_url: "https://www.usaberkeyfilters.com/aff/282/",
+  category: "Gravity-Fed Water Purification Systems & Replacement Elements",
+  description: "Authorized provider of gravity-fed water purification systems, genuine Black Berkey replacement filters, and water filtration accessories.",
+  rating: 4.95,
+  reviews_count: 4930,
+  benefit: "Up to 35% Off Berkey Systems & Free Tracked US Shipping",
+  badge: "Official Water Systems Partner"
+};
+
+export const USA_BERKEY_282_COUPONS: Coupon[] = [
+  {
+    id: "berkey-pv-282-1",
+    code: "USA20",
+    discount: "20% OFF",
+    title: "20% Off Exclusive Coupon Code Sitewide",
+    description: "Apply verified promo code USA20 at checkout to save 20% on authentic Berkey water filtration systems and bundles.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.usaberkeyfilters.com/aff/282/",
+    store: USA_BERKEY_282_STORE,
+    storeSlug: "usaberkeyfilters",
+    storeName: "USA Berkey Water Systems",
+    uses_count: 5920
+  },
+  {
+    id: "berkey-pv-282-2",
+    code: "USA20",
+    discount: "20% OFF",
+    title: "20% Off Black Berkey Replacement Filters & Elements",
+    description: "Save 20% on genuine Black Berkey replacement filters and fluoride elements using verified code USA20.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.usaberkeyfilters.com/aff/282/",
+    store: USA_BERKEY_282_STORE,
+    storeSlug: "usaberkeyfilters",
+    storeName: "USA Berkey Water Systems",
+    uses_count: 4610
+  },
+  {
+    id: "berkey-pv-282-3",
+    code: "",
+    discount: "UP TO 35%",
+    title: "Up to 35% Off Weekly Flash Sales on Big Berkey Systems",
+    description: "Save up to 35% on complete stainless steel gravity water filter systems. Applied automatically in cart.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.usaberkeyfilters.com/aff/282/",
+    store: USA_BERKEY_282_STORE,
+    storeSlug: "usaberkeyfilters",
+    storeName: "USA Berkey Water Systems",
+    uses_count: 5120
+  },
+  {
+    id: "berkey-pv-282-4",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free Tracked US Shipping on All Berkey Filter Orders",
+    description: "Enjoy 100% free tracked ground delivery across the contiguous United States on all Berkey water systems and accessories.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.usaberkeyfilters.com/aff/282/",
+    store: USA_BERKEY_282_STORE,
+    storeSlug: "usaberkeyfilters",
+    storeName: "USA Berkey Water Systems",
+    uses_count: 7150
   }
 ];

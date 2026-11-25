@@ -50,8 +50,18 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-    async redirects() {
+  async redirects() {
     return [
+      {
+        source: "/go/usa-berkey-filters",
+        destination: "https://www.usaberkeyfilters.com/aff/271/",
+        permanent: true,
+      },
+      {
+        source: "/go/usaberkeyfilters",
+        destination: "https://www.usaberkeyfilters.com/aff/282/",
+        permanent: true,
+      },
       {
         source: "/go/pongbot",
         destination: "https://store.pongbotsports.com/?sca_ref=12565715.tCWxyKe3eRDS01",

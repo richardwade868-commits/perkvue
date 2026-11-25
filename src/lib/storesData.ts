@@ -1275,6 +1275,98 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   return null;
 }
 
+// ==========================================
+// WATERDROP OFFICIAL CAMPAIGN STORE
+// ==========================================
+export const WATERDROP_STORE: Store = {
+  id: "waterdrop",
+  name: "Waterdrop",
+  slug: "waterdrop",
+  logo: "/logos/waterdrop.png",
+  website: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
+  affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
+  category: "Smart Reverse Osmosis Systems, Under-Sink & Countertop Water Filters",
+  description: "Official Waterdrop verified discount portal. Industry-leading NSF-certified tankless reverse osmosis systems (G3P800, G2, X12), instant countertop hot water dispensers, and direct replacement water filters.",
+  rating: 4.96,
+  reviews_count: 6420,
+  benefit: "10% Off Sitewide with Code WD10 & Free US Shipping",
+  badge: "Featured Water Purification Partner"
+};
+
+export const WATERDROP_COUPONS: Coupon[] = [
+  {
+    id: "waterdrop-deal-1",
+    code: "WD10",
+    discount: "10% OFF",
+    title: "10% Off Verified Coupon Code Sitewide",
+    description: "Apply verified promo code WD10 at checkout to save 10% on all Waterdrop reverse osmosis systems, countertop dispensers, and replacement filter packs.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
+    store: WATERDROP_STORE,
+    storeSlug: "waterdrop",
+    storeName: "Waterdrop"
+  },
+  {
+    id: "waterdrop-deal-2",
+    code: "WD15",
+    discount: "15% OFF",
+    title: "15% Off Sitewide Verified Discount Code",
+    description: "Use coupon code WD15 for an exclusive 15% discount on eligible under-sink filtration systems and multi-pack filters.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
+    store: WATERDROP_STORE,
+    storeSlug: "waterdrop",
+    storeName: "Waterdrop"
+  },
+  {
+    id: "waterdrop-deal-3",
+    code: "SAVE70",
+    discount: "$70 OFF",
+    title: "$70 Off Flagship Reverse Osmosis Systems (G3P800, X12)",
+    description: "Take $70 off high-capacity smart tankless reverse osmosis water filter systems using verified code SAVE70.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
+    store: WATERDROP_STORE,
+    storeSlug: "waterdrop",
+    storeName: "Waterdrop"
+  },
+  {
+    id: "waterdrop-deal-4",
+    code: "FREESHIP",
+    discount: "FREE SHIPPING",
+    title: "Free Fast Tracked US Shipping Sitewide",
+    description: "Enjoy zero shipping fees across all contiguous US states on every Waterdrop order. Ships tracked directly to your door.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
+    store: WATERDROP_STORE,
+    storeSlug: "waterdrop",
+    storeName: "Waterdrop"
+  },
+  {
+    id: "waterdrop-deal-5",
+    code: "HERO15",
+    discount: "15% OFF",
+    title: "15% Off Community Heroes (Military, Healthcare & Students)",
+    description: "Exclusive 15% savings verified via VerifyPass for active military, veterans, healthcare workers, first responders, teachers, and students.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
+    store: WATERDROP_STORE,
+    storeSlug: "waterdrop",
+    storeName: "Waterdrop"
+  }
+];
+
+
 export const SECRET_CAMPAIGN_STORES: { store: Store; aliases: string[]; coupons?: Coupon[] }[] = [
   { store: WATERDROP_STORE, aliases: ["waterdrop", "waterdropfilter", "waterdrop-filter", "waterdrop-filters", "waterdropfilters", "waterdrop-ro", "waterdrop-us"], coupons: WATERDROP_COUPONS },
   { store: KING_OF_CHRISTMAS_STORE, aliases: ["king-of-christmas", "kingofchristmas", "king-of-christmas-us", "kingofchristmas-us", "king-christmas", "king-of-christmas-trees"], coupons: KING_OF_CHRISTMAS_COUPONS },
@@ -2156,93 +2248,3 @@ export const THE_BERKEY_COUPONS: Coupon[] = [
 ];
 
 
-// ==========================================
-// WATERDROP OFFICIAL CAMPAIGN STORE
-// ==========================================
-export const WATERDROP_STORE: Store = {
-  id: "waterdrop",
-  name: "Waterdrop",
-  slug: "waterdrop",
-  logo: "/logos/waterdrop.png",
-  website: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
-  affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
-  category: "Smart Reverse Osmosis Systems, Under-Sink & Countertop Water Filters",
-  description: "Official Waterdrop verified discount portal. Industry-leading NSF-certified tankless reverse osmosis systems (G3P800, G2, X12), instant countertop hot water dispensers, and direct replacement water filters.",
-  rating: 4.96,
-  reviews_count: 6420,
-  benefit: "10% Off Sitewide with Code WD10 & Free US Shipping",
-  badge: "Featured Water Purification Partner"
-};
-
-export const WATERDROP_COUPONS: Coupon[] = [
-  {
-    id: "waterdrop-deal-1",
-    code: "WD10",
-    discount: "10% OFF",
-    title: "10% Off Verified Coupon Code Sitewide",
-    description: "Apply verified promo code WD10 at checkout to save 10% on all Waterdrop reverse osmosis systems, countertop dispensers, and replacement filter packs.",
-    is_verified: true,
-    is_auto_applied: false,
-    expiry_date: "2026-12-31",
-    affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
-    store: WATERDROP_STORE,
-    storeSlug: "waterdrop",
-    storeName: "Waterdrop"
-  },
-  {
-    id: "waterdrop-deal-2",
-    code: "WD15",
-    discount: "15% OFF",
-    title: "15% Off Sitewide Verified Discount Code",
-    description: "Use coupon code WD15 for an exclusive 15% discount on eligible under-sink filtration systems and multi-pack filters.",
-    is_verified: true,
-    is_auto_applied: false,
-    expiry_date: "2026-12-31",
-    affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
-    store: WATERDROP_STORE,
-    storeSlug: "waterdrop",
-    storeName: "Waterdrop"
-  },
-  {
-    id: "waterdrop-deal-3",
-    code: "SAVE70",
-    discount: "$70 OFF",
-    title: "$70 Off Flagship Reverse Osmosis Systems (G3P800, X12)",
-    description: "Take $70 off high-capacity smart tankless reverse osmosis water filter systems using verified code SAVE70.",
-    is_verified: true,
-    is_auto_applied: false,
-    expiry_date: "2026-12-31",
-    affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
-    store: WATERDROP_STORE,
-    storeSlug: "waterdrop",
-    storeName: "Waterdrop"
-  },
-  {
-    id: "waterdrop-deal-4",
-    code: "FREESHIP",
-    discount: "FREE SHIPPING",
-    title: "Free Fast Tracked US Shipping Sitewide",
-    description: "Enjoy zero shipping fees across all contiguous US states on every Waterdrop order. Ships tracked directly to your door.",
-    is_verified: true,
-    is_auto_applied: true,
-    expiry_date: "2026-12-31",
-    affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
-    store: WATERDROP_STORE,
-    storeSlug: "waterdrop",
-    storeName: "Waterdrop"
-  },
-  {
-    id: "waterdrop-deal-5",
-    code: "HERO15",
-    discount: "15% OFF",
-    title: "15% Off Community Heroes (Military, Healthcare & Students)",
-    description: "Exclusive 15% savings verified via VerifyPass for active military, veterans, healthcare workers, first responders, teachers, and students.",
-    is_verified: true,
-    is_auto_applied: false,
-    expiry_date: "2026-12-31",
-    affiliate_url: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
-    store: WATERDROP_STORE,
-    storeSlug: "waterdrop",
-    storeName: "Waterdrop"
-  }
-];

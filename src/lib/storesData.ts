@@ -1200,7 +1200,11 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   if (berkey282Aliases.includes(norm)) {
     return { store: USA_BERKEY_282_STORE, coupons: USA_BERKEY_282_COUPONS };
   }
-    const waterdropAliases = ["waterdrop", "waterdropfilter", "waterdrop-filter", "waterdrop-filters", "waterdropfilters", "waterdrop-ro", "waterdrop-us"];
+    const chompAliases = ["chompshop", "chomp-shop", "chompshop-com", "chompsaw", "chomp-saw", "chompshop-us"];
+  if (chompAliases.includes(norm)) {
+    return { store: CHOMP_SHOP_STORE, coupons: CHOMP_SHOP_COUPONS };
+  }
+  const waterdropAliases = ["waterdrop", "waterdropfilter", "waterdrop-filter", "waterdrop-filters", "waterdropfilters", "waterdrop-ro", "waterdrop-us"];
   if (waterdropAliases.includes(norm)) {
     return { store: WATERDROP_STORE, coupons: WATERDROP_COUPONS };
   }
@@ -1366,6 +1370,103 @@ export const WATERDROP_COUPONS: Coupon[] = [
   }
 ];
 
+
+
+// ==========================================
+// CHOMP SHOP OFFICIAL CAMPAIGN STORE
+// ==========================================
+export const CHOMP_SHOP_STORE: Store = {
+  id: "chompshop",
+  name: "Chomp Shop",
+  slug: "chompshop",
+  logo: "/logos/chompshop.png",
+  website: "https://chompshop.com?sca_ref=12513706.FPVyii8Sr4k&utm_source=chompsquad&utm_medium=referral&utm_campaign=methew-dippy",
+  affiliate_url: "https://chompshop.com?sca_ref=12513706.FPVyii8Sr4k&utm_source=chompsquad&utm_medium=referral&utm_campaign=methew-dippy",
+  category: "Kid-Safe Cardboard Power Tools & STEAM Maker Kits",
+  description: "Chomp Shop creates the award-winning ChompSaw, a kid-safe power tool designed for cutting cardboard with ease. Empowering young makers to explore hands-on creativity and 3D STEAM projects safely.",
+  rating: 4.95,
+  reviews_count: 3840,
+  benefit: "Up to 45% Off with Code METHEWDIPPY + Free US Shipping over $75",
+  badge: "Verified Partner"
+};
+
+export const CHOMP_SHOP_COUPONS: Coupon[] = [
+  {
+    id: "chomp-code-1",
+    code: "METHEWDIPPY",
+    discount: "45% OFF",
+    title: "Up to 45% Off ChompSaw Maker Kits & Bundle Sets",
+    description: "Apply exclusive coupon code METHEWDIPPY at checkout to unlock up to 45% discount on ChompSaw tool sets and cardboard craft supplies.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://chompshop.com?sca_ref=12513706.FPVyii8Sr4k&utm_source=chompsquad&utm_medium=referral&utm_campaign=methew-dippy",
+    store: CHOMP_SHOP_STORE,
+    storeSlug: "chompshop",
+    storeName: "Chomp Shop",
+    uses_count: 5120
+  },
+  {
+    id: "chomp-code-2",
+    code: "METHEWDIPPY",
+    discount: "40% OFF",
+    title: "40% Off Sitewide Verified Discount Code",
+    description: "Use verified partner code METHEWDIPPY at checkout for 40% savings on all ChompShop maker tools, attachments, and craft packs.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://chompshop.com?sca_ref=12513706.FPVyii8Sr4k&utm_source=chompsquad&utm_medium=referral&utm_campaign=methew-dippy",
+    store: CHOMP_SHOP_STORE,
+    storeSlug: "chompshop",
+    storeName: "Chomp Shop",
+    uses_count: 4890
+  },
+  {
+    id: "chomp-deal-3",
+    code: "",
+    discount: "15% OFF",
+    title: "15% Off Automatically on Maker Bundles",
+    description: "Save 15% automatically on ChompSaw tool and materials bundles. No coupon code required.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://chompshop.com?sca_ref=12513706.FPVyii8Sr4k&utm_source=chompsquad&utm_medium=referral&utm_campaign=methew-dippy",
+    store: CHOMP_SHOP_STORE,
+    storeSlug: "chompshop",
+    storeName: "Chomp Shop",
+    uses_count: 2410
+  },
+  {
+    id: "chomp-deal-4",
+    code: "",
+    discount: "FREE PRINTS",
+    title: "Free 3D Print Project Templates with Order",
+    description: "Get complimentary 3D print project templates automatically added to your qualifying maker order.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://chompshop.com?sca_ref=12513706.FPVyii8Sr4k&utm_source=chompsquad&utm_medium=referral&utm_campaign=methew-dippy",
+    store: CHOMP_SHOP_STORE,
+    storeSlug: "chompshop",
+    storeName: "Chomp Shop",
+    uses_count: 1890
+  },
+  {
+    id: "chomp-deal-5",
+    code: "",
+    discount: "FREE SHIPPING",
+    title: "Free US Shipping on Orders $75+",
+    description: "Enjoy zero nationwide delivery fees automatically calculated on eligible domestic US orders.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://chompshop.com?sca_ref=12513706.FPVyii8Sr4k&utm_source=chompsquad&utm_medium=referral&utm_campaign=methew-dippy",
+    store: CHOMP_SHOP_STORE,
+    storeSlug: "chompshop",
+    storeName: "Chomp Shop",
+    uses_count: 3650
+  }
+];
 
 export const SECRET_CAMPAIGN_STORES: { store: Store; aliases: string[]; coupons?: Coupon[] }[] = [
   { store: WATERDROP_STORE, aliases: ["waterdrop", "waterdropfilter", "waterdrop-filter", "waterdrop-filters", "waterdropfilters", "waterdrop-ro", "waterdrop-us"], coupons: WATERDROP_COUPONS },

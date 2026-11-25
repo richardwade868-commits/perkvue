@@ -53,6 +53,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/go/chompshop",
+        destination: "https://chompshop.com?sca_ref=12513706.FPVyii8Sr4k&utm_source=chompsquad&utm_medium=referral&utm_campaign=methew-dippy",
+        permanent: false,
+      },
+      {
+        source: "/go/chomp-shop",
+        destination: "https://chompshop.com?sca_ref=12513706.FPVyii8Sr4k&utm_source=chompsquad&utm_medium=referral&utm_campaign=methew-dippy",
+        permanent: false,
+      },
+      {
         source: "/go/waterdrop",
         destination: "https://www.waterdropfilter.com/?ref=aynlalsd&utm_medium=affiliate&utm_source=goaffpro",
         permanent: true,

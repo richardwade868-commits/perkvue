@@ -1212,7 +1212,7 @@ export const BOROUX_COUPONS: Coupon[] = [
     code: "HOLIDAY25",
     discount: "20% OFF",
     title: "20% off coupon code",
-    description: "Apply verified promo code HOLIDAY25 at checkout for 20% off your purchase of BOROUX water filtration systems and accessories.",
+    description: "Apply this verified promo code at checkout for 20% off your purchase of BOROUX water filtration systems and accessories.",
     is_verified: true,
     is_auto_applied: false,
     expiry_date: "2026-12-31",
@@ -1227,7 +1227,7 @@ export const BOROUX_COUPONS: Coupon[] = [
     code: "FARMHOUSE",
     discount: "25% OFF",
     title: "25% off code – Early Black Friday Sale",
-    description: "Special seasonal Early Black Friday offer: Use code FARMHOUSE at checkout to save 25% on BOROUX stainless steel gravity water filters.",
+    description: "Special seasonal Early Black Friday offer: Redeem this verified promo code at checkout to save 25% on BOROUX stainless steel gravity water filters.",
     is_verified: true,
     is_auto_applied: false,
     expiry_date: "2026-12-31",
@@ -1281,7 +1281,7 @@ export const EVOLUTION_STORE: Store = {
   description: "Evolution Power Tools is a pioneer in multi-material cutting technology, manufacturing high-precision chop saws, miter saws, magnetic drills, and tungsten carbide-tipped blades.",
   rating: 4.96,
   reviews_count: 6180,
-  benefit: "5% Off With Code METHEWDIPPY5 + Free US Shipping",
+  benefit: "5% Off Sitewide + Free US Shipping",
   badge: "Top Power Tools Partner"
 };
 
@@ -1291,7 +1291,7 @@ export const EVOLUTION_COUPONS: Coupon[] = [
     code: "METHEWDIPPY5",
     discount: "5% OFF",
     title: "5% Off Sitewide on Multi-Material Saws & Power Tools",
-    description: "Apply promo code METHEWDIPPY5 at checkout for an instant 5% discount on all chop saws, miter saws, table saws, and blades.",
+    description: "Apply this verified promo code at checkout for an instant 5% discount on all chop saws, miter saws, table saws, and blades.",
     is_verified: true,
     is_auto_applied: false,
     expiry_date: "2026-12-31",

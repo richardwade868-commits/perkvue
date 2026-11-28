@@ -53,6 +53,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/go/meaco",
+        destination: "https://www.awin1.com/cread.php?awinmid=31711&awinaffid=1909602&ued=https%3A%2F%2Fwww.meaco.com%2F",
+        permanent: false,
+      },
+      {
+        source: "/go/meaco-uk",
+        destination: "https://www.awin1.com/cread.php?awinmid=31711&awinaffid=1909602&ued=https%3A%2F%2Fwww.meaco.com%2F",
+        permanent: false,
+      },
+      {
         source: "/go/chompshop",
         destination: "https://chompshop.com?sca_ref=12513706.FPVyii8Sr4k&utm_source=chompsquad&utm_medium=referral&utm_campaign=methew-dippy",
         permanent: false,

@@ -10,6 +10,13 @@ export const dynamic = "force-static";
 
 export async function generateStaticParams() {
   const pongbotSlugs = [{ slug: "pongbot" }, { slug: "pongbot-us" }, { slug: "pongbotsports" }, { slug: "pongbot-sports" }];
+  const meacoSlugs = [
+    { slug: "meaco" },
+    { slug: "meaco-uk" },
+    { slug: "meacouk" },
+    { slug: "meaco-dehumidifier" },
+    { slug: "meacofan" }
+  ];
   const chompSlugs = [
     { slug: "chompshop" },
     { slug: "chomp-shop" },
@@ -34,6 +41,7 @@ export async function generateStaticParams() {
     { slug: "silvercrossus" },
     { slug: "silver-cross-us" },
 
+    ...meacoSlugs,
     ...chompSlugs,
     ...candySlugs,
     ...pongbotSlugs,

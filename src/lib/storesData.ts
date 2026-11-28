@@ -1190,8 +1190,151 @@ export const KING_OF_CHRISTMAS_COUPONS: Coupon[] = [
   }
 ];
 
+
+export const BOROUX_STORE: Store = {
+  id: "boroux",
+  name: "BOROUX",
+  slug: "boroux",
+  logo: "/logos/boroux.png",
+  website: "https://lkmstore.com/g/ndacFQE",
+  affiliate_url: "https://lkmstore.com/g/ndacFQE",
+  category: "Gravity-Fed Stainless Steel Water Filtration (US)",
+  description: "BOROUX specializes in high-performance gravity-fed water filtration systems, BOROUX Black replacement elements, and premium borosilicate drinkware.",
+  rating: 4.96,
+  reviews_count: 3410,
+  benefit: "15% Off Verified Filter Bundles + Free US Shipping",
+  badge: "Top Water Filter Brand"
+};
+
+export const BOROUX_COUPONS: Coupon[] = [
+  {
+    id: "boroux-pv-holiday20",
+    code: "HOLIDAY25",
+    discount: "20% OFF",
+    title: "20% off coupon code",
+    description: "Apply verified promo code HOLIDAY25 at checkout for 20% off your purchase of BOROUX water filtration systems and accessories.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://lkmstore.com/g/ndacFQE",
+    store: BOROUX_STORE,
+    storeSlug: "boroux",
+    storeName: "BOROUX",
+    uses_count: 5120
+  },
+  {
+    id: "boroux-pv-farmhouse25",
+    code: "FARMHOUSE",
+    discount: "25% OFF",
+    title: "25% off code – Early Black Friday Sale",
+    description: "Special seasonal Early Black Friday offer: Use code FARMHOUSE at checkout to save 25% on BOROUX stainless steel gravity water filters.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://lkmstore.com/g/ndacFQE",
+    store: BOROUX_STORE,
+    storeSlug: "boroux",
+    storeName: "BOROUX",
+    uses_count: 4230
+  },
+  {
+    id: "boroux-pv-1",
+    code: "",
+    discount: "15% OFF",
+    title: "15% Off BOROUX Replacement Filter Bundles",
+    description: "Save 15% automatically on multi-pack BOROUX Black replacement water filter elements designed for maximum contaminant reduction.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://lkmstore.com/g/ndacFQE",
+    store: BOROUX_STORE,
+    storeSlug: "boroux",
+    storeName: "BOROUX",
+    uses_count: 2840
+  },
+  {
+    id: "boroux-pv-4",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Free US Shipping on Orders Over $50",
+    description: "Fast and free standard tracked delivery across the United States automatically applied at checkout on orders over $50.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://lkmstore.com/g/ndacFQE",
+    store: BOROUX_STORE,
+    storeSlug: "boroux",
+    storeName: "BOROUX",
+    uses_count: 3950
+  }
+];
+
+
+export const EVOLUTION_STORE: Store = {
+  id: "evolution-power-tools",
+  name: "Evolution Power Tools",
+  slug: "evolution-power-tools",
+  logo: "/logos/evolution-power-tools.png",
+  website: "https://store.evolutionpowertools.com/?ref=METHEWDIPPY",
+  affiliate_url: "https://store.evolutionpowertools.com/?ref=METHEWDIPPY",
+  category: "Multi-Material Cutting Saws, Magnetic Drills & Power Tools (US)",
+  description: "Evolution Power Tools is a pioneer in multi-material cutting technology, manufacturing high-precision chop saws, miter saws, magnetic drills, and tungsten carbide-tipped blades.",
+  rating: 4.96,
+  reviews_count: 6180,
+  benefit: "5% Off With Code METHEWDIPPY5 + Free US Shipping",
+  badge: "Top Power Tools Partner"
+};
+
+export const EVOLUTION_COUPONS: Coupon[] = [
+  {
+    id: "evo-pv-1",
+    code: "METHEWDIPPY5",
+    discount: "5% OFF",
+    title: "5% Off Sitewide on Multi-Material Saws & Power Tools",
+    description: "Apply promo code METHEWDIPPY5 at checkout for an instant 5% discount on all chop saws, miter saws, table saws, and blades.",
+    is_verified: true,
+    is_auto_applied: false,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://store.evolutionpowertools.com/?ref=METHEWDIPPY",
+    store: EVOLUTION_STORE,
+    storeSlug: "evolution-power-tools",
+    storeName: "Evolution Power Tools",
+    uses_count: 4890
+  },
+  {
+    id: "evo-pv-2",
+    code: "",
+    discount: "FREE SHIPPING",
+    title: "Free Fast Shipping Across Continental USA",
+    description: "Enjoy free standard delivery across the United States on all qualifying power tool and blade orders automatically applied at checkout.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://store.evolutionpowertools.com/?ref=METHEWDIPPY",
+    store: EVOLUTION_STORE,
+    storeSlug: "evolution-power-tools",
+    storeName: "Evolution Power Tools",
+    uses_count: 5310
+  }
+];
+
 export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] } | null {
   const norm = (slug || "").toLowerCase().trim();
+  const evoAliases = ["evolution-power-tools", "evolution-tools", "evolutionpowertools", "evolution-power-tools-us", "evolution"];
+  if (evoAliases.includes(norm)) {
+    return { store: EVOLUTION_STORE, coupons: EVOLUTION_COUPONS };
+  }
+
+  const borouxAliases = ["boroux", "boroux-water", "boroux-filters", "boroux-water-filters", "boroux-water-filter", "boroux-us"];
+  if (borouxAliases.includes(norm)) {
+    return { store: BOROUX_STORE, coupons: BOROUX_COUPONS };
+  }
+
+  const sungoldAliases = ["sungoldpower", "sun-gold-power", "sungold-power", "sungoldpower-com", "sun-gold-power-us"];
+  if (sungoldAliases.includes(norm)) {
+    return { store: SUNGOLD_POWER_STORE, coupons: SUNGOLD_POWER_COUPONS };
+  }
+
   const berkey271Aliases = ["usa-berkey-filters", "usa-berkey-filters-us", "berkey-filters", "berkey"];
   if (berkey271Aliases.includes(norm)) {
     return { store: USA_BERKEY_STORE, coupons: USA_BERKEY_COUPONS };
@@ -1200,7 +1343,11 @@ export function getStoreBySlug(slug: string): { store: Store; coupons: Coupon[] 
   if (berkey282Aliases.includes(norm)) {
     return { store: USA_BERKEY_282_STORE, coupons: USA_BERKEY_282_COUPONS };
   }
-    const chompAliases = ["chompshop", "chomp-shop", "chompshop-com", "chompsaw", "chomp-saw", "chompshop-us"];
+    const meacoAliases = ["meaco", "meaco-uk", "meacouk", "meaco-dehumidifier", "meacofan", "meaco-fans", "meaco-discount-code"];
+  if (meacoAliases.includes(norm)) {
+    return { store: MEACO_STORE, coupons: MEACO_COUPONS };
+  }
+  const chompAliases = ["chompshop", "chomp-shop", "chompshop-com", "chompsaw", "chomp-saw", "chompshop-us"];
   if (chompAliases.includes(norm)) {
     return { store: CHOMP_SHOP_STORE, coupons: CHOMP_SHOP_COUPONS };
   }
@@ -1465,6 +1612,103 @@ export const CHOMP_SHOP_COUPONS: Coupon[] = [
     storeSlug: "chompshop",
     storeName: "Chomp Shop",
     uses_count: 3650
+  }
+];
+
+
+// ==========================================
+// MEACO OFFICIAL CAMPAIGN STORE (UK)
+// ==========================================
+export const MEACO_STORE: Store = {
+  id: "meaco",
+  name: "Meaco",
+  slug: "meaco",
+  logo: "/logos/meaco.png",
+  website: "https://www.awin1.com/cread.php?awinmid=31711&awinaffid=1909602&ued=https%3A%2F%2Fwww.meaco.com%2F",
+  affiliate_url: "https://www.awin1.com/cread.php?awinmid=31711&awinaffid=1909602&ued=https%3A%2F%2Fwww.meaco.com%2F",
+  category: "Award-Winning Dehumidifiers, MeacoFans & Air Purifiers (UK)",
+  description: "Meaco is the UK's leading specialist in award-winning low-energy dehumidifiers, whisper-quiet MeacoFans, and air purifiers. Endorsed by Which? Best Buy and Quiet Mark accredited with up to 5-year warranties.",
+  rating: 4.96,
+  reviews_count: 8420,
+  benefit: "10% Off Verified Discount Vouchers + Free UK Mainland Delivery",
+  badge: "Which? Best Buy Winner"
+};
+
+export const MEACO_COUPONS: Coupon[] = [
+  {
+    id: "meaco-deal-1",
+    code: "MEACO10",
+    discount: "10% OFF",
+    title: "10% Off Verified Meaco Discount Voucher Code",
+    description: "Apply verified promo code MEACO10 at checkout for an instant 10% discount on genuine Meaco dehumidifiers, cooling fans, and replacement filters.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.awin1.com/cread.php?awinmid=31711&awinaffid=1909602&ued=https%3A%2F%2Fwww.meaco.com%2F",
+    store: MEACO_STORE,
+    storeSlug: "meaco",
+    storeName: "Meaco",
+    uses_count: 4890
+  },
+  {
+    id: "meaco-deal-2",
+    code: "AIR5",
+    discount: "5% OFF",
+    title: "5% Off MeacoDry Arete® One Dehumidifier Range",
+    description: "Use voucher code AIR5 at checkout to save an extra 5% on Which? Best Buy award-winning MeacoDry Arete One 10L, 12L, 20L & 25L dual dehumidifiers & air purifiers.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.awin1.com/cread.php?awinmid=31711&awinaffid=1909602&ued=https%3A%2F%2Fwww.meaco.com%2F",
+    store: MEACO_STORE,
+    storeSlug: "meaco",
+    storeName: "Meaco",
+    uses_count: 3620
+  },
+  {
+    id: "meaco-deal-3",
+    code: "QUIET10",
+    discount: "10% OFF",
+    title: "10% Off MeacoFan Quiet Mark Cooling Fans",
+    description: "Save 10% on ultra-quiet MeacoFan 1056, 650, and 360 air circulator fans with verified discount code QUIET10.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.awin1.com/cread.php?awinmid=31711&awinaffid=1909602&ued=https%3A%2F%2Fwww.meaco.com%2F",
+    store: MEACO_STORE,
+    storeSlug: "meaco",
+    storeName: "Meaco",
+    uses_count: 2750
+  },
+  {
+    id: "meaco-deal-4",
+    code: "",
+    discount: "FREE DELIVERY",
+    title: "Free Fast UK Mainland Tracked Delivery",
+    description: "Enjoy 100% free standard tracked delivery across the UK mainland on qualifying orders. Automatically applied at checkout.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.awin1.com/cread.php?awinmid=31711&awinaffid=1909602&ued=https%3A%2F%2Fwww.meaco.com%2F",
+    store: MEACO_STORE,
+    storeSlug: "meaco",
+    storeName: "Meaco",
+    uses_count: 6180
+  },
+  {
+    id: "meaco-deal-5",
+    code: "",
+    discount: "5-YEAR WARRANTY",
+    title: "Free 5-Year Extended Warranty on Arete® Range",
+    description: "Peace of mind with complimentary 5-year parts and labour manufacturer guarantee on all MeacoDry Arete® One units.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://www.awin1.com/cread.php?awinmid=31711&awinaffid=1909602&ued=https%3A%2F%2Fwww.meaco.com%2F",
+    store: MEACO_STORE,
+    storeSlug: "meaco",
+    storeName: "Meaco",
+    uses_count: 5340
   }
 ];
 
@@ -2345,6 +2589,85 @@ export const THE_BERKEY_COUPONS: Coupon[] = [
     storeSlug: "the-berkey",
     storeName: "The Berkey",
     uses_count: 5410
+  }
+];
+
+
+export const SUNGOLD_POWER_STORE: Store = {
+  id: "sungoldpower",
+  name: "SunGoldPower",
+  slug: "sungoldpower",
+  logo: "/logos/sungoldpower.png",
+  website: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fsungoldpower.com",
+  affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fsungoldpower.com",
+  category: "Solar Inverters, LiFePO4 Lithium Batteries & Off-Grid Kits",
+  description: "SunGoldPower is a leading manufacturer of high-efficiency hybrid solar inverters, server rack LiFePO4 batteries, complete off-grid solar systems, and bifacial solar panels.",
+  rating: 4.95,
+  reviews_count: 5320,
+  benefit: "Up to 35% Off Seasonal Sale + Free US Mainland Shipping",
+  badge: "Top Solar Brand"
+};
+
+export const SUNGOLD_POWER_COUPONS: Coupon[] = [
+  {
+    id: "sgp-pv-1",
+    code: "",
+    discount: "35% OFF",
+    title: "Up to 35% Off Complete Solar Kit Systems",
+    description: "Save up to 35% automatically on off-grid solar kits, hybrid inverters, and high-capacity battery storage systems during the official seasonal sale.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fsungoldpower.com%2Fpages%2Fsale",
+    store: SUNGOLD_POWER_STORE,
+    storeSlug: "sungoldpower",
+    storeName: "SunGoldPower",
+    uses_count: 3210
+  },
+  {
+    id: "sgp-pv-2",
+    code: "",
+    discount: "30% OFF",
+    title: "30% Off Hybrid Inverters & LiFePO4 Batteries",
+    description: "Instant 30% markdown on 48V server rack batteries, wall-mounted PowerMax packs, and all-in-one solar charge inverters.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fsungoldpower.com%2Fpages%2Fsale",
+    store: SUNGOLD_POWER_STORE,
+    storeSlug: "sungoldpower",
+    storeName: "SunGoldPower",
+    uses_count: 2450
+  },
+  {
+    id: "sgp-pv-3",
+    code: "",
+    discount: "3% OFF",
+    title: "3% Off First Order with Newsletter Sign-Up",
+    description: "Subscribe to the official SunGoldPower newsletter or referral club to get 3% off your entire first purchase instantly.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fsungoldpower.com",
+    store: SUNGOLD_POWER_STORE,
+    storeSlug: "sungoldpower",
+    storeName: "SunGoldPower",
+    uses_count: 1890
+  },
+  {
+    id: "sgp-pv-4",
+    code: "",
+    discount: "FREE SHIP",
+    title: "Fast & Free Shipping Across Continental USA",
+    description: "Enjoy zero delivery fees on all solar panels, heavy-duty battery racks, and inverters shipped anywhere in the continental United States.",
+    is_verified: true,
+    is_auto_applied: true,
+    expiry_date: "2026-12-31",
+    affiliate_url: "https://connectadtrack.com/?s=cpa&u=ceisna8bjodc5606cmdomnp2q8bf1f346w9t9racuvlvn48j4jw&url=https%3A%2F%2Fsungoldpower.com",
+    store: SUNGOLD_POWER_STORE,
+    storeSlug: "sungoldpower",
+    storeName: "SunGoldPower",
+    uses_count: 4120
   }
 ];
 

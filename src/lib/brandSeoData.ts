@@ -104,7 +104,7 @@ export const CAMPAIGN_BRAND_SEO_DATA: Record<string, BrandSeoEntry> = {
     ],
     savingsTips: [
       "Subscribe & Save 20%: Choosing the monthly replenishment option automatically unlocks 20% off every single delivery plus a complimentary stainless steel shaker.",
-      "Use Verified Partner Code: Apply promo code PERK or METHEW29111 at checkout for an instant 20% deduction on qualifying core packs and starter systems.",
+      "Use Verified Partner Code: Click 'Claim Code' above to reveal and copy our verified partner code for an instant 20% deduction on qualifying core packs and starter systems.",
       "Free Carbon-Neutral Delivery: Every domestic order over $50 qualifies for 100% free tracked doorstep shipping across the United States.",
       "90-Day Bundle Advantage: Purchasing the complete 3-month longevity system bundle offers the lowest cost-per-serving and stacks with introductory discount codes."
     ],
@@ -128,7 +128,7 @@ export const CAMPAIGN_BRAND_SEO_DATA: Record<string, BrandSeoEntry> = {
     faqs: [
       {
         question: "What is the best iM8 Health discount code available today?",
-        answer: "The top verified iM8 Health coupon code is PERK (or METHEW29111), which provides 20% off sitewide on daily longevity packs, bundles, and monthly subscription starter kits."
+        answer: "Click 'Claim Code' on the top verified iM8 Health offer above to copy our active partner code for 20% off sitewide on daily longevity packs, bundles, and monthly subscription starter kits."
       },
       {
         question: "Does iM8 Health offer free delivery?",
